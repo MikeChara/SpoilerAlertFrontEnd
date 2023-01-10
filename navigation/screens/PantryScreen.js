@@ -1,15 +1,32 @@
 import * as React from "react";
 import { View, Text } from "react-native";
+import { ListItem } from "@rneui/themed";
 
 export default function PantryScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text
-        onPress={() => navigation.navigate("Home")}
-        style={{ fontSize: 26, fontWeight: "bold" }}
-      >
-        Pantry Screen
-      </Text>
-    </View>
+    <ListItem.Swipeable
+      leftContent={(reset) => (
+        <Button
+          title="Info"
+          onPress={() => reset()}
+          icon={{ name: "info", color: "white" }}
+          buttonStyle={{ minHeight: "100%" }}
+        />
+      )}
+      rightContent={(reset) => (
+        <Button
+          title="Delete"
+          onPress={() => reset()}
+          icon={{ name: "delete", color: "white" }}
+          buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
+        />
+      )}
+    >
+      <Icon name="My Icon" />
+      <ListItem.Content>
+        <ListItem.Title>Hello Swiper</ListItem.Title>
+      </ListItem.Content>
+      <ListItem.Chevron />
+    </ListItem.Swipeable>
   );
 }
