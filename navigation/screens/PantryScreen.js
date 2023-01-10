@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button, Heading, StyleSheet } from "react-native";
 import { ListItem } from "@rneui/themed";
 
 export default function PantryScreen({ navigation }) {
@@ -17,14 +17,14 @@ export default function PantryScreen({ navigation }) {
         <Button
           title="Delete"
           onPress={() => reset()}
-          icon={{ name: "delete", color: "white" }}
+          icon={{ name: "delete", color: "red" }}
           buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
         />
       )}
     >
-      <Icon name="My Icon" />
       <ListItem.Content>
         <ListItem.Title>Hello Swiper</ListItem.Title>
+        <ListItem.Subtitle>CEO, Example.com</ListItem.Subtitle>
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem.Swipeable>
