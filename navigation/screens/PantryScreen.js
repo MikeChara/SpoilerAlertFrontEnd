@@ -1,32 +1,25 @@
-import * as React from "react";
-import { View, Text, Button, Heading, StyleSheet } from "react-native";
-import { ListItem } from "@rneui/themed";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import React from "react";
+import data from "../../data";
+import FoodList from "../../Components/List";
 
-export default function PantryScreen({ navigation }) {
+export default function Pantry() {
   return (
-    <ListItem.Swipeable
-      leftContent={(reset) => (
-        <Button
-          title="Info"
-          onPress={() => reset()}
-          icon={{ name: "info", color: "white" }}
-          buttonStyle={{ minHeight: "100%" }}
+    <View style={{ backgroundColor: "#A4EBDA" }}>
+      <View>
+        <Text style={{ fontWeight: "bold", fontSize: 30, padding: 20 }}>
+          Your Storage:
+        </Text>
+        <Text style={{ fontSize: 20 }}> Total: ({data.length} items)</Text>
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <FoodList name={item.item} expiry={item.expiryDate} />
+          )}
         />
-      )}
-      rightContent={(reset) => (
-        <Button
-          title="Delete"
-          onPress={() => reset()}
-          icon={{ name: "delete", color: "red" }}
-          buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
-        />
-      )}
-    >
-      <ListItem.Content>
-        <ListItem.Title>Hello Swiper</ListItem.Title>
-        <ListItem.Subtitle>CEO, Example.com</ListItem.Subtitle>
-      </ListItem.Content>
-      <ListItem.Chevron />
-    </ListItem.Swipeable>
+      </View>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({});
