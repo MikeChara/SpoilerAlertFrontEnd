@@ -6,7 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 // Screens
 import HomeScreen from "./screens/HomeScreen";
 import PantryScreen from "./screens/PantryScreen";
-import AddItemScreen from "./screens/addItemScreen";
+import AddItemScreen from "./screens/AddItemScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
 //Screen names
@@ -42,7 +42,7 @@ function MainContainer() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: "tomato",
+          activeTintColor: "blue",
           inactiveTintColor: "grey",
           labelStyle: { paddingBottom: 10, fontSize: 10 },
           style: { padding: 10, height: 70 },
