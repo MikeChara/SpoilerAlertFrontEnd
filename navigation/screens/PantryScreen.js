@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import data from "../../data";
 import FoodList from "../../Components/List";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Pantry() {
   return (
@@ -14,7 +15,9 @@ export default function Pantry() {
         <FlatList
           data={data}
           renderItem={({ item }) => (
-            <FoodList name={item.item} expiry={item.expiryDate} />
+            <GestureHandlerRootView>
+              <FoodList name={item.item} expiry={item.expiryDate} />
+            </GestureHandlerRootView>
           )}
         />
       </View>
