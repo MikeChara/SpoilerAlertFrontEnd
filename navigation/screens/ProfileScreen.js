@@ -1,7 +1,8 @@
 import * as React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { auth } from "../../firebase-config";
 import { signOut } from "firebase/auth";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function ProfileScreen({ navigation }) {
   async function HandleSignOut() {
@@ -16,6 +17,15 @@ export default function ProfileScreen({ navigation }) {
       >
         Profile
       </Text>
+      <Ionicons
+        name="person-circle-outline"
+        size={150}
+        color={"purple"}
+      ></Ionicons>
+      <Pressable style={styles.button2} onPress={HandleSignOut}>
+        <Text style={styles.text}>Edit Profile</Text>
+      </Pressable>
+      <Text style={{ fontSize: 26, fontWeight: "bold" }}>UserName</Text>
       <Pressable style={styles.button} onPress={HandleSignOut}>
         <Text style={styles.text}>Sign Out</Text>
       </Pressable>
@@ -39,5 +49,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+  },
+  button2: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 60,
+    borderRadius: 20,
+    elevation: 0,
+    backgroundColor: "grey",
   },
 });
