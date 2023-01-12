@@ -44,13 +44,56 @@ function MainContainer() {
         tabBarOptions={{
           activeTintColor: "purple",
           inactiveTintColor: "grey",
-          labelStyle: { paddingBottom: 10, fontSize: 10 },
+          labelStyle: { paddingBottom: 4, fontSize: 10 },
           style: { padding: 10, height: 70 },
         }}
       >
-        <Tab.Screen name={homeName} component={HomeScreen} />
-        <Tab.Screen name={addItemName} component={AddItemScreen} />
-        <Tab.Screen name={pantryName} component={PantryScreen} />
+        <Tab.Screen
+          name={homeName}
+          component={HomeScreen}
+          options={{
+            title: "Home",
+            headerStyle: {
+              backgroundColor: "#ADC8EB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
+
+        <Tab.Screen
+          name={pantryName}
+          component={PantryScreen}
+          options={{
+            title: "Pantry",
+            headerStyle: {
+              backgroundColor: "#D9EEEB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
+        <Tab.Screen
+          name={addItemName}
+          component={AddItemScreen}
+          options={{
+            title: "Add Item",
+            headerStyle: {
+              backgroundColor: "#D9EEEB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
         <Tab.Screen name={profileName} component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>

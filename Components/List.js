@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import { StyleSheet, Text, View, Pressable, Button, Image } from "react-native";
 import React from "react";
 import { ListItem } from "@rneui/themed";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function FoodList({ name, expiry }) {
   return (
@@ -14,12 +15,9 @@ export default function FoodList({ name, expiry }) {
         />
       )}
       rightContent={(reset) => (
-        <Button
-          title="Delete"
-          onPress={() => reset()}
-          icon={{ name: "delete", color: "white" }}
-          buttonStyle={{ minHeight: "100%", backgroundColor: "red" }}
-        />
+        <Pressable style={styles.icon}>
+          <Ionicons name="trash-bin-outline" size={30} color={"red"}></Ionicons>
+        </Pressable>
       )}
     >
       <ListItem.Content>
@@ -45,5 +43,11 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: 50,
     height: 50,
+    borderRadius: 26,
+  },
+  icon: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
