@@ -1,15 +1,17 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase-config";
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [displayName, setDisplayName] = useState();
 
   async function handleSignUp() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, { displayName: displayName });
     } catch (error) {
       console.log(error.message);
     }
@@ -18,6 +20,12 @@ export default function SignUpScreen() {
   return (
     <View style={styles.container}>
       <Text>Sign Up Here...</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Name"
+        value={displayName}
+        onChangeText={(text) => setDisplayName(text)}
+      />
       <TextInput
         style={styles.input}
         placeholder="Email"
