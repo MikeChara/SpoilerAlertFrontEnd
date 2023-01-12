@@ -1,5 +1,6 @@
 import * as React from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
+import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 
 export default function AddItemScreen({ navigation }) {
   return (
@@ -8,17 +9,21 @@ export default function AddItemScreen({ navigation }) {
         {" "}
         Item
       </Text>
+
       <TextInput style={styles.input} placeholder="Enter item" />
+
+      <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
+        {" "}
+        Expiry Date
+      </Text>
+      <DatepickerSimpleUsageShowcase />
+
       <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
         {" "}
         Add Price
       </Text>
       <TextInput style={styles.input} placeholder="£" />
-      <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
-        {" "}
-        Expiry Date
-      </Text>
-      <TextInput style={styles.input} placeholder="Enter your date" />
+
       <Pressable style={styles.button}>
         <Text style={styles.text}>Add</Text>
       </Pressable>

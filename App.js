@@ -1,9 +1,15 @@
 import * as React from "react";
 // import MainContainer from "./navigation/MainContainer";
 import RootNavigation from "./navigation/RootNavigation";
+import * as eva from "@eva-design/eva";
+import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
 
 function App() {
-  return <RootNavigation />;
+  return (
+    <ApplicationProvider {...eva} theme={eva.light}>
+      <RootNavigation />
+    </ApplicationProvider>
+  );
 }
 
 export default App;
