@@ -26,6 +26,9 @@ export default function ProfileScreen({ navigation }) {
         <Text style={styles.text}>Edit Profile</Text>
       </Pressable>
       <Text style={{ fontSize: 26, fontWeight: "bold" }}>UserName</Text>
+      <Text style={{ textDecorationLine: "underline" }}>I'm underlined!</Text>
+      <Text style={{ fontSize: 26, fontWeight: "bold" }}>Email</Text>
+      <Text style={{ textDecorationLine: "underline" }}>I'm underlined!</Text>
       <Pressable style={styles.button} onPress={HandleSignOut}>
         <Text style={styles.text}>Sign Out</Text>
       </Pressable>
