@@ -2,13 +2,16 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 export default async function useVerifyAndInsert(user) {
-  const backendReply = await fetch("http://localhost:3000/userVerify", {
+  await fetch("http://localhost:3000/userVerify", {
     method: "POST",
-    headers: { "content-type": "application/json" },
-    mode: "cors",
-    body: JSON.stringify(user),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ uid: user }),
   });
-  return backendReply.error ? alert("please try again later") : null;
 }
+// console.log("return about to fire?");
+// return backendReply ? null : alert("please try again later");
 
 const styles = StyleSheet.create({});
