@@ -1,7 +1,8 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import data from "../data";
 
 // Screens
 import HomeScreen from "./screens/HomeScreen";
@@ -18,6 +19,7 @@ const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 
 function MainContainer() {
+  const [foodList, setFoodList] = useState([...data]);
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -66,7 +68,9 @@ function MainContainer() {
 
         <Tab.Screen
           name={pantryName}
-          component={PantryScreen}
+          children={() => (
+            <PantryScreen foodList={foodList} setFoodList={setFoodList} />
+          )}
           options={{
             title: "Pantry",
             headerStyle: {
@@ -81,7 +85,9 @@ function MainContainer() {
         />
         <Tab.Screen
           name={addItemName}
-          component={AddItemScreen}
+          children={() => (
+            <AddItemScreen foodList={foodList} setFoodList={setFoodList} />
+          )}
           options={{
             title: "Add Item",
             headerStyle: {

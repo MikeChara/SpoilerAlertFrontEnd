@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Datepicker, Layout, Text } from "@ui-kitten/components";
 
-export default function DatepickerSimpleUsageShowcase() {
-  const [date, setDate] = React.useState(new Date());
-
+export default function DatepickerSimpleUsageShowcase({ date, setDate }) {
   return (
     <Layout style={styles.container} level="1">
       <Text>Selected date: {date.toLocaleDateString()}</Text>
