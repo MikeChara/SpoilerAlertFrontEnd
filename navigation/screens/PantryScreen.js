@@ -4,7 +4,7 @@ import data from "../../data";
 import FoodList from "../../Components/List";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function Pantry() {
+export default function Pantry({ setFoodlist, foodList }) {
   return (
     <View style={{ backgroundColor: "#D9EEEB" }}>
       <View style={{ backgroundColor: "white", borderRadius: 25 }}>
@@ -14,7 +14,7 @@ export default function Pantry() {
             Total: ({data.length} items)
           </Text>
           <FlatList
-            data={data}
+            data={foodList}
             renderItem={({ item }) => (
               <GestureHandlerRootView>
                 <FoodList name={item.item} expiry={item.expiryDate} />

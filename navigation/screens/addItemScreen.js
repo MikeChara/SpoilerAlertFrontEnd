@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
-import data from "../../data";
+import { useNavigation } from "@react-navigation/native";
 
-export default function AddItemScreen({ navigation }) {
+export default function AddItemScreen({ foodList, setFoodList }) {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
   const [date, setDate] = React.useState(new Date());
 
+  const navigation = useNavigation();
+
   function handleAdd() {
-    console.log(item, price, date);
+    navigation.navigate("Pantry");
+    setFoodList([
+      ...foodList,
+      { item: item, expiryDate: date.toLocaleString().slice(0, 9) },
+    ]);
   }
   return (
     <View style={{ flex: 1, alignItems: "center", textAlign: "left" }}>
