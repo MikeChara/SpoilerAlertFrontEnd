@@ -21,7 +21,7 @@ let eatenOrBinnedDate8 = new Date('January 8, 2023 23:59:59 GMT+00:00');
 let eatenOrBinnedDate9 = new Date('January 9, 2023 23:59:59 GMT+00:00');
 let eatenOrBinnedDate10 = new Date('January 10, 2023 23:59:59 GMT+00:00');
 
-export default data = [
+export const data = [
   { item: 'yoghurt', expiryDate: date1, id: 1 },
   { item: 'milk', expiryDate: date2, id: 2 },
   { item: 'cheese', expiryDate: date3, id: 3 },

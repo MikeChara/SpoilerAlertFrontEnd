@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
-import data from "../../data";
+import {data} from "../../data";
 import FoodList from "../../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
