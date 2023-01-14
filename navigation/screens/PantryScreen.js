@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import data from "../../data";
-import FoodList from "../../Components/List";
+import FoodList from "../../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Pantry({ setFoodlist, foodList }) {
+  //this is a mutable change without using setState - seems dodgy no?
+  //it orders the list by expiry with most recent first
+  foodList.sort((a, b) => a.expiryDate.getTime() - b.expiryDate.getTime())
+  //gets todays date (and time)
+  let todaysDate = new Date()
   return (
     <View style={{ backgroundColor: "#D9EEEB" }}>
       <View style={{ backgroundColor: "white", borderRadius: 25 }}>
@@ -15,11 +20,15 @@ export default function Pantry({ setFoodlist, foodList }) {
           </Text>
           <FlatList
             data={foodList}
-            renderItem={({ item }) => (
-              <GestureHandlerRootView>
-                <FoodList name={item.item} expiry={item.expiryDate} />
-              </GestureHandlerRootView>
-            )}
+            renderItem={({ item }) => 
+              {  
+    //calculates days left until expiry            
+    let msleft = item.expiryDate.getTime() - todaysDate.getTime();
+    let daysLeft = msleft / 1000 / 60 / 60 / 24;
+    let daysLeftRounded = Math.floor(daysLeft);
+                return <GestureHandlerRootView><FoodList name={item.item} expiry={daysLeftRounded} />
+</GestureHandlerRootView>}
+            }
           />
         </View>
       </View>

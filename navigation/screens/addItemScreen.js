@@ -14,7 +14,7 @@ export default function AddItemScreen({ foodList, setFoodList }) {
     navigation.navigate("Pantry");
     setFoodList([
       ...foodList,
-      { item: item, expiryDate: date.toLocaleString().slice(0, 9) },
+      { item: item, expiryDate: date },
     ]);
   }
   return (
