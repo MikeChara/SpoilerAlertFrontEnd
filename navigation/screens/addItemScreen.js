@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
-
+import expiryDateConverter from "../../Functions/expiryDateConverter.js";
 export default function AddItemScreen({ foodList, setFoodList }) {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
@@ -12,6 +12,7 @@ export default function AddItemScreen({ foodList, setFoodList }) {
 
   function handleAdd() {
     navigation.navigate("Pantry");
+    console.log(expiryDateConverter(date))
     setFoodList([
       ...foodList,
       { item: item, expiryDate: date },
