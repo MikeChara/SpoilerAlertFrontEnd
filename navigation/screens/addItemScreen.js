@@ -35,6 +35,11 @@ export default function AddItemScreen({ foodList, setFoodList }) {
       }),
     });
     console.log("userthings was gotten?", Userthings);
+    const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+    const data = await allFood.json();
+    const food = data.payload;
+    console.log("food gotten", food);
+    setFoodList(food);
   }
   return (
     <View style={{ flex: 1, alignItems: "center", textAlign: "left" }}>
