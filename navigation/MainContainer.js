@@ -137,7 +137,7 @@ function MainContainer() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name="Tabs"
           component={Tabs}
           options={{ headerShown: false }}
         />
