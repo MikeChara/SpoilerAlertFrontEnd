@@ -5,7 +5,7 @@ import React from "react";
 //you must for some raison put in a IP not localhost
 //ask Nick the Wizard how to do this
 export default async function useVerifyAndInsert(user) {
-  const Userthings = await fetch("http://192.168.0.10:3000/userVerify", {
+  const Userthings = await fetch("http://192.168.0.13:3000/userVerify", {
     method: "POST",
     headers: {
       Accept: "application/json",

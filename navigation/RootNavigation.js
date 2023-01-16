@@ -13,7 +13,7 @@ export default function RootNavigation() {
     if (user) {
       // user is signed in
       // console.log("whole arse user", user);
-      // console.log("user uid", user.uid);
+      console.log("user uid", user.uid);
       setLoggedIn(true);
       useVerifyAndInsert(user.uid);
     } else {
