@@ -32,7 +32,7 @@ export default function FoodList({ name, expiry }) {
         <ListItem.Title>{name}</ListItem.Title>
       </ListItem.Content>
       <ListItem.Content>
-        <ListItem.Title>{expiry}</ListItem.Title>
+        <ListItem.Title>{expiry} days left</ListItem.Title>
       </ListItem.Content>
       <ListItem.Chevron />
     </ListItem.Swipeable>
