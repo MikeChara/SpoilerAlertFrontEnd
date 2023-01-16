@@ -1,25 +1,38 @@
-import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {data} from '../data';
+import React, { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { data } from "../data";
+import { auth } from "../firebase-config";
 
 // Screens
-import HomeScreen from './screens/HomeScreen';
-import PantryScreen from './screens/PantryScreen';
-import AddItemScreen from './screens/AddItemScreen';
-import ProfileScreen from './screens/ProfileScreen';
+import HomeScreen from "./screens/HomeScreen";
+import PantryScreen from "./screens/PantryScreen";
+import AddItemScreen from "./screens/AddItemScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 //Screen names
-const pantryName = 'Pantry';
-const addItemName = 'Add Item';
-const homeName = 'Home';
-const profileName = 'Profile';
+const pantryName = "Pantry";
+const addItemName = "Add Item";
+const homeName = "Home";
+const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
 
 function MainContainer() {
-  const [foodList, setFoodList] = useState([...data]);
+  const [foodList, setFoodList] = useState([]);
+
+  useEffect(() => {
+    async function getUserFood(uid) {
+      const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+      const data = await allFood.json();
+      const food = data.payload;
+      console.log("food gotten", food);
+      setFoodList(food);
+    }
+    getUserFood(auth.currentUser.uid);
+  }, []);
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -30,13 +43,13 @@ function MainContainer() {
             let rn = route.name;
 
             if (rn === homeName) {
-              iconName = focused ? 'home' : 'home-outline';
+              iconName = focused ? "home" : "home-outline";
             } else if (rn === addItemName) {
-              iconName = focused ? 'add-circle' : 'add-circle-outline';
+              iconName = focused ? "add-circle" : "add-circle-outline";
             } else if (rn === pantryName) {
-              iconName = focused ? 'fast-food' : 'fast-food-outline';
+              iconName = focused ? "fast-food" : "fast-food-outline";
             } else if (rn === profileName) {
-              iconName = focused ? 'person' : 'person-outline';
+              iconName = focused ? "person" : "person-outline";
             }
 
             // You can return any component that you like here!
@@ -44,8 +57,8 @@ function MainContainer() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'purple',
-          inactiveTintColor: 'grey',
+          activeTintColor: "purple",
+          inactiveTintColor: "grey",
           labelStyle: { paddingBottom: 4, fontSize: 10 },
           style: { padding: 10, height: 70 },
         }}
@@ -54,13 +67,13 @@ function MainContainer() {
           name={homeName}
           component={HomeScreen}
           options={{
-            title: 'Home',
+            title: "Home",
             headerStyle: {
-              backgroundColor: '#ADC8EB',
+              backgroundColor: "#ADC8EB",
               height: 150,
             },
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 35,
             },
           }}
@@ -72,13 +85,13 @@ function MainContainer() {
             <PantryScreen foodList={foodList} setFoodList={setFoodList} />
           )}
           options={{
-            title: 'Pantry',
+            title: "Pantry",
             headerStyle: {
-              backgroundColor: '#D9EEEB',
+              backgroundColor: "#D9EEEB",
               height: 150,
             },
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 35,
             },
           }}
@@ -89,13 +102,13 @@ function MainContainer() {
             <AddItemScreen foodList={foodList} setFoodList={setFoodList} />
           )}
           options={{
-            title: 'Add Item',
+            title: "Add Item",
             headerStyle: {
-              backgroundColor: '#D9EEEB',
+              backgroundColor: "#D9EEEB",
               height: 150,
             },
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 35,
             },
           }}

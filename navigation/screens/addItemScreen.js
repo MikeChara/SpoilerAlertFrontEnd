@@ -3,6 +3,8 @@ import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import expiryDateConverter from "../../Functions/expiryDateConverter.js";
+import { auth } from "../../firebase-config";
+
 export default function AddItemScreen({ foodList, setFoodList }) {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
@@ -10,13 +12,29 @@ export default function AddItemScreen({ foodList, setFoodList }) {
 
   const navigation = useNavigation();
 
-  function handleAdd() {
-    navigation.navigate("Pantry");
-    console.log(expiryDateConverter(date))
-    setFoodList([
-      ...foodList,
-      { item: item, expiryDate: date },
-    ]);
+  // function handleAdd() {
+  //   navigation.navigate("Pantry");
+  //   console.log(expiryDateConverter(date))
+  //   setFoodList([
+  //     ...foodList,
+  //     { item: item, expiryDate: date },
+  //   ]);
+  // }
+  async function addFood(price, item, date, uid) {
+    const dateConvertor = expiryDateConverter(date);
+    const Userthings = await fetch(`http://192.168.0.6:3000/addItem/${uid}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        price: price,
+        name: item,
+        expires_on: dateConvertor,
+      }),
+    });
+    console.log("userthings was gotten?", Userthings);
   }
   return (
     <View style={{ flex: 1, alignItems: "center", textAlign: "left" }}>
@@ -47,7 +65,10 @@ export default function AddItemScreen({ foodList, setFoodList }) {
         onChangeText={(price) => setPrice(price)}
       />
 
-      <Pressable style={styles.button} onPress={handleAdd}>
+      <Pressable
+        style={styles.button}
+        onPress={() => addFood(price, item, date, auth.currentUser.uid)}
+      >
         <Text style={styles.text}>Add</Text>
       </Pressable>
     </View>
