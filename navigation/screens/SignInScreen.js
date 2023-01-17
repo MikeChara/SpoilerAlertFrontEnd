@@ -32,7 +32,7 @@ export default function SignInScreen({ styles }) {
 				secureTextEntry
 			/>
 			<Pressable style={styles.purplebutton} onPress={handleSignIn}>
-				<Text style={styles.text}>Sign In</Text>
+				<Text style={styles.purplebuttontext}>Sign In</Text>
 			</Pressable>
 		</View>
 	);

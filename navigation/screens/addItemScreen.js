@@ -41,7 +41,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 			/>
 
 			<Pressable style={styles.purplebutton} onPress={handleAdd}>
-				<Text style={styles.buttontext}>Add</Text>
+				<Text style={styles.purplebuttontext}>Add</Text>
 			</Pressable>
 		</View>
 	);

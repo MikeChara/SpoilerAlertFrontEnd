@@ -38,21 +38,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "#5951B7",
 	},
 
-	buttontext: {
+	purplebuttontext: {
 		fontSize: 16,
 		lineHeight: 21,
 		fontWeight: "bold",
 		letterSpacing: 0.25,
 		color: "white",
 	},
-
-	// additeminput: {
-	// 	height: 40,
-	// 	width: "80%",
-	// 	margin: 12,
-	// 	borderWidth: 1,
-	// 	padding: 10,
-	// },
 
 	addpagetext: {
 		fontSize: 26,
@@ -84,6 +76,8 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 		backgroundColor: "white",
+		paddingLeft: 8,
+		paddingRight: 8,
 	},
 
 	textinput: {
@@ -94,6 +88,7 @@ const styles = StyleSheet.create({
 		margin: 10,
 		padding: 10,
 	},
+
 	text: {
 		fontSize: 16,
 		lineHeight: 21,
