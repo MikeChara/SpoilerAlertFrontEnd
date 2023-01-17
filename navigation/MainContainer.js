@@ -20,7 +20,8 @@ const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
 
-function MainContainer() {
+function MainContainer({ styles }) {
+	//console.log('main container', styles);
 	const [foodList, setFoodList] = useState([...data]);
 	// Tab navigator will select one of the screens from the navbar when 'focused' is true
 	return (
@@ -55,7 +56,7 @@ function MainContainer() {
 			>
 				<Tab.Screen
 					name={homeName}
-					component={HomeScreen}
+					children={() => <HomeScreen styles={styles} />}
 					options={{
 						title: "Home",
 						headerStyle: {
@@ -72,7 +73,11 @@ function MainContainer() {
 				<Tab.Screen
 					name={pantryName}
 					children={() => (
-						<PantryScreen foodList={foodList} setFoodList={setFoodList} />
+						<PantryScreen
+							foodList={foodList}
+							setFoodList={setFoodList}
+							styles={styles}
+						/>
 					)}
 					options={{
 						title: "Pantry",
@@ -89,7 +94,11 @@ function MainContainer() {
 				<Tab.Screen
 					name={addItemName}
 					children={() => (
-						<AddItemScreen foodList={foodList} setFoodList={setFoodList} />
+						<AddItemScreen
+							foodList={foodList}
+							setFoodList={setFoodList}
+							styles={styles}
+						/>
 					)}
 					options={{
 						title: "Add Item",
@@ -103,7 +112,10 @@ function MainContainer() {
 						},
 					}}
 				/>
-				<Tab.Screen name={profileName} component={ProfileScreen} />
+				<Tab.Screen
+					name={profileName}
+					children={() => <ProfileScreen styles={styles} />}
+				/>
 			</Tab.Navigator>
 		</NavigationContainer>
 	);

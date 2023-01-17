@@ -23,7 +23,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 			<Text style={styles.addpagetext}> Item</Text>
 
 			<TextInput
-				style={styles.additeminput}
+				style={styles.textinput}
 				placeholder='Enter item'
 				onChangeText={(text) => setItem(text)}
 			/>
@@ -35,12 +35,12 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 			<Text style={styles.addpagetext}> Add Price</Text>
 
 			<TextInput
-				style={styles.additeminput}
+				style={styles.textinput}
 				placeholder='£'
 				onChangeText={(price) => setPrice(price)}
 			/>
 
-			<Pressable style={styles.addbutton} onPress={handleAdd}>
+			<Pressable style={styles.purplebutton} onPress={handleAdd}>
 				<Text style={styles.buttontext}>Add</Text>
 			</Pressable>
 		</View>

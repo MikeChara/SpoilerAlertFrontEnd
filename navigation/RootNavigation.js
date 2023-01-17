@@ -20,11 +20,15 @@ export default function RootNavigation() {
 		}
 	});
 
-	return loggedIn ? <MainContainer /> : <AuthContainer />;
+	return loggedIn ? (
+		<MainContainer styles={styles} />
+	) : (
+		<AuthContainer styles={styles} />
+	);
 }
 
 const styles = StyleSheet.create({
-	addbutton: {
+	purplebutton: {
 		alignItems: "center",
 		justifyContent: "center",
 		paddingVertical: 12,
@@ -42,13 +46,13 @@ const styles = StyleSheet.create({
 		color: "white",
 	},
 
-	additeminput: {
-		height: 40,
-		width: "80%",
-		margin: 12,
-		borderWidth: 1,
-		padding: 10,
-	},
+	// additeminput: {
+	// 	height: 40,
+	// 	width: "80%",
+	// 	margin: 12,
+	// 	borderWidth: 1,
+	// 	padding: 10,
+	// },
 
 	addpagetext: {
 		fontSize: 26,
@@ -60,5 +64,41 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		textAlign: "left",
+		backgroundColor: "white",
+	},
+
+	subtitle: {
+		fontSize: 26,
+		fontWeight: "bold",
+		padding: 5,
+	},
+
+	displaybox: {
+		backgroundColor: "white",
+		borderRadius: 25,
+		width: "100%",
+	},
+
+	wholepagecontainer: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+		backgroundColor: "white",
+	},
+
+	textinput: {
+		width: "100%",
+		height: 40,
+		borderColor: "gray",
+		borderWidth: 1,
+		margin: 10,
+		padding: 10,
+	},
+	text: {
+		fontSize: 16,
+		lineHeight: 21,
+		fontWeight: "bold",
+		letterSpacing: 0.25,
+		color: "white",
 	},
 });
