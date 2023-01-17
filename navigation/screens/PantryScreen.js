@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
-import { data } from "../../data";
 import FoodList from "../../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { auth } from "../../firebase-config";
 
 export default function Pantry({ setFoodlist, foodList, styles }) {
 	//this is a mutable change without using setState - seems dodgy no?
@@ -24,7 +24,7 @@ export default function Pantry({ setFoodlist, foodList, styles }) {
 							let daysLeftRounded = Math.floor(daysLeft);
 							return (
 								<GestureHandlerRootView>
-									<FoodList name={item.item} expiry={daysLeftRounded} />
+									 <FoodList name={item.name} expiry={daysLeftRounded} foodList={foodList} setFoodList={setFoodList} id={item.id}/>
 								</GestureHandlerRootView>
 							);
 						}}
@@ -33,4 +33,5 @@ export default function Pantry({ setFoodlist, foodList, styles }) {
 			</View>
 		</View>
 	);
+
 }

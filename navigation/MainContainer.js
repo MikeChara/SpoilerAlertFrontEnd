@@ -1,10 +1,10 @@
 // ROOT CONTAINER > MAIN CONTAINER
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { data } from "../data";
+import { auth } from "../firebase-config";
 
 // Screens
 import HomeScreen from "./screens/HomeScreen";
@@ -21,8 +21,19 @@ const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 
 function MainContainer({ styles }) {
-	//console.log('main container', styles);
-	const [foodList, setFoodList] = useState([...data]);
+    const [foodList, setFoodList] = useState([]);
+  
+  useEffect(() => {
+    async function getUserFood(uid) {
+      const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+      const data = await allFood.json();
+      const food = data.payload;
+      console.log("food gotten", food);
+      setFoodList(food);
+    }
+    getUserFood(auth.currentUser.uid);
+  }, []);
+  
 	// Tab navigator will select one of the screens from the navbar when 'focused' is true
 	return (
 		<NavigationContainer>
