@@ -1,3 +1,5 @@
+// MAIN CONTAINER > ADDITEMSCREEN
+
 import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
@@ -5,21 +7,14 @@ import { useNavigation } from "@react-navigation/native";
 import expiryDateConverter from "../../Functions/expiryDateConverter.js";
 import { auth } from "../../firebase-config";
 
-export default function AddItemScreen({ foodList, setFoodList }) {
-  const [item, setItem] = useState();
-  const [price, setPrice] = useState();
-  const [date, setDate] = React.useState(new Date());
 
-  const navigation = useNavigation();
+//props coming from MainContainer
+export default function AddItemScreen({ foodList, setFoodList, styles }) {
+	const [item, setItem] = useState();
+	const [price, setPrice] = useState();
+	const [date, setDate] = React.useState(new Date());
 
-  // function handleAdd() {
-  //   navigation.navigate("Pantry");
-  //   console.log(expiryDateConverter(date))
-  //   setFoodList([
-  //     ...foodList,
-  //     { item: item, expiryDate: date },
-  //   ]);
-  // }
+	const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
     const dateConvertor = expiryDateConverter(date);
     const Userthings = await fetch(`http://192.168.0.6:3000/addItem/${uid}`, {
@@ -48,60 +43,38 @@ export default function AddItemScreen({ foodList, setFoodList }) {
         Item
       </Text>
 
+	function handleAdd() {
+		navigation.navigate("Pantry");
+		setFoodList([...foodList, { item: item, expiryDate: date }]);
+	}
+	return (
+		<View style={styles.pagestyle}>
+			<Text style={styles.addpagetext}> Item</Text>
+
+			<TextInput
+				style={styles.textinput}
+				placeholder='Enter item'
+				onChangeText={(text) => setItem(text)}
+			/>
+
+			<Text style={styles.addpagetext}> Expiry Date</Text>
+
+
+			<DatepickerSimpleUsageShowcase setDate={setDate} date={date} />
+			<Text style={styles.addpagetext}> Add Price</Text>
+      
       <TextInput
-        style={styles.input}
-        placeholder="Enter item"
-        onChangeText={(text) => setItem(text)}
-      />
-
-      <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
-        {" "}
-        Expiry Date
-      </Text>
-      <DatepickerSimpleUsageShowcase setDate={setDate} date={date} />
-
-      <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
-        {" "}
-        Add Price
-      </Text>
-      <TextInput
-        style={styles.input}
-        placeholder="£"
-        onChangeText={(price) => setPrice(price)}
-      />
-
+				style={styles.textinput}
+				placeholder='£'
+				onChangeText={(price) => setPrice(price)}
+			/>
       <Pressable
-        style={styles.button}
+        style={styles.purplebutton}
         onPress={() => addFood(price, item, date, auth.currentUser.uid)}
       >
-        <Text style={styles.text}>Add</Text>
+        <Text style={styles.purplebuttontext}>Add</Text>
       </Pressable>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 80,
-    borderRadius: 20,
-    elevation: 0,
-    backgroundColor: "#5951B7",
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
-    letterSpacing: 0.25,
-    color: "white",
-  },
-  input: {
-    height: 40,
-    width: "80%",
-    margin: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-});

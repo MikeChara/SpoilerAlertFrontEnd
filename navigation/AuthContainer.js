@@ -1,3 +1,5 @@
+// APP > ROOT CONTAINER > AUTH CONTAINER >
+
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,16 +12,23 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 
 const Stack = createStackNavigator();
 
-export default function AuthContainer() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="Sign In" component={SignInScreen} />
-        <Stack.Screen name="Sign Up" component={SignUpScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+export default function AuthContainer({ styles }) {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen
+					name='Welcome'
+					children={() => <WelcomeScreen styles={styles} />}
+				/>
+				<Stack.Screen
+					name='Sign In'
+					children={() => <SignInScreen styles={styles} />}
+				/>
+				<Stack.Screen
+					name='Sign Up'
+					children={() => <SignUpScreen styles={styles} />}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
-
-const styles = StyleSheet.create({});
