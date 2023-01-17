@@ -15,7 +15,7 @@ import { PORT, myIP } from "@env";
 // Screens
 import HomeScreen from "./screens/HomeScreen";
 import PantryScreen from "./screens/PantryScreen";
-import AddItemScreen from "./screens/AddItemScreen";
+import AddItemScreen from "./screens/addItemScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
 //Screen names
@@ -89,13 +89,7 @@ function MainContainer({ styles }) {
 
         <Tab.Screen
           name={pantryName}
-          children={() => (
-            <PantryScreen
-              foodList={foodList}
-              setFoodList={setFoodList}
-              styles={styles}
-            />
-          )}
+          children={() => <PantryScreen foodList={foodList} setFoodList={setFoodList} styles={styles} />}
           options={{
             title: "Pantry",
             headerStyle: {
@@ -110,13 +104,7 @@ function MainContainer({ styles }) {
         />
         <Tab.Screen
           name={addItemName}
-          children={() => (
-            <AddItemScreen
-              foodList={foodList}
-              setFoodList={setFoodList}
-              styles={styles}
-            />
-          )}
+          children={() => <AddItemScreen foodList={foodList} setFoodList={setFoodList} styles={styles} />}
           options={{
             title: "Add Item",
             headerStyle: {
@@ -129,10 +117,7 @@ function MainContainer({ styles }) {
             },
           }}
         />
-        <Tab.Screen
-          name={profileName}
-          children={() => <ProfileScreen styles={styles} />}
-        />
+        <Tab.Screen name={profileName} children={() => <ProfileScreen styles={styles} />} />
       </Tab.Navigator>
     </NavigationContainer>
   );
