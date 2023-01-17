@@ -6,6 +6,9 @@ import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import expiryDateConverter from "../../Functions/expiryDateConverter.js";
 import { auth } from "../../firebase-config";
+import { environmentVariables } from "../../data.js";
+const myIP = environmentVariables.myIP;
+const PORT = environmentVariables.PORT;
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {
@@ -16,7 +19,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
     const dateConvertor = expiryDateConverter(date);
-    const Userthings = await fetch(`http://192.168.0.6:3000/addItem/${uid}`, {
+    const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -29,7 +32,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       }),
     });
     console.log("userthings was gotten?", Userthings);
-    const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+    const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
     console.log("food gotten", food);

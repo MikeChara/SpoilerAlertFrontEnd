@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { environmentVariables } from "../data.js";
+const myIP = environmentVariables.myIP;
+const PORT = environmentVariables.PORT;
 
-//because we're using a phone and a local host
-//you must for some raison put in a IP not localhost
-//ask Nick the Wizard how to do this
 export default async function useVerifyAndInsert(user) {
-  const Userthings = await fetch("http://192.168.1.11:3000/userVerify", {
+  const Userthings = await fetch(`http://${myIP}:${PORT}/userVerify`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -13,9 +13,4 @@ export default async function useVerifyAndInsert(user) {
     },
     body: JSON.stringify({ uid: user }),
   });
-  console.log("userthings was gotten?", Userthings);
 }
-// console.log("return about to fire?");
-// return backendReply ? null : alert("please try again later");
-
-const styles = StyleSheet.create({});
