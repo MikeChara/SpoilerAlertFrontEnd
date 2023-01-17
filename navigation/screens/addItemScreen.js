@@ -22,7 +22,7 @@ export default function AddItemScreen({ foodList, setFoodList }) {
   // }
   async function addFood(price, item, date, uid) {
     const dateConvertor = expiryDateConverter(date);
-    const Userthings = await fetch(`http://192.168.0.6:3000/addItem/${uid}`, {
+    const Userthings = await fetch(`http://192.168.1.11:3000/addItem/${uid}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -35,7 +35,7 @@ export default function AddItemScreen({ foodList, setFoodList }) {
       }),
     });
     console.log("userthings was gotten?", Userthings);
-    const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+    const allFood = await fetch(`http://192.168.1.11:3000/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
     console.log("food gotten", food);
