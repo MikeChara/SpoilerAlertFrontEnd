@@ -2,9 +2,9 @@
 //date obj console-log : 2023-01-15T00:00:00.000Z
 export default function expiryDateConverter(annoyingDate) {
   const goodDate =
-    '0' +
+    "0" +
     (annoyingDate.getMonth() + 1).toString().slice(-2) +
-    `/${annoyingDate.getDate()}/
-    ${annoyingDate.getFullYear()} 23:59:`;
-  return goodDate;
+    `-${annoyingDate.getDate()}-
+    ${annoyingDate.getFullYear()} 23:59:00`;
+  return annoyingDate;
 }

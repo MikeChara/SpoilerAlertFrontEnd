@@ -24,13 +24,17 @@ export default function ProfileScreen({ navigation }) {
         <Text style={styles.editText}>Edit Profile</Text>
       </Pressable>
       <Text style={styles.subtitle}>Username</Text>
-      <Input style={styles.input} disabled={true} placeholder="TomSaver" />
+      <Input
+        style={styles.input}
+        disabled={true}
+        placeholder={auth.currentUser.displayName}
+      />
 
       <Text style={styles.subtitle}>Email</Text>
       <Input
         style={styles.input}
         disabled={true}
-        placeholder="tomsaver@gmail.com"
+        placeholder={auth.currentUser.email}
       />
       <Text style={styles.subtitle}>Full name</Text>
       <Input style={styles.input} disabled={true} placeholder="Tom Saver" />
