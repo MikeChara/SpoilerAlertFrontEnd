@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { environmentVariables } from "../app.js";
+import { environmentVariables } from "../data.js";
 const myIP = environmentVariables.myIP;
 const PORT = environmentVariables.PORT;
 

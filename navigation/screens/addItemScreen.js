@@ -6,7 +6,7 @@ import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import expiryDateConverter from "../../Functions/expiryDateConverter.js";
 import { auth } from "../../firebase-config";
-import { environmentVariables } from "../app.js";
+import { environmentVariables } from "../../data.js";
 const myIP = environmentVariables.myIP;
 const PORT = environmentVariables.PORT;
 

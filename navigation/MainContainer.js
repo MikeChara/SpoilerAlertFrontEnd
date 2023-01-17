@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { data } from "../data";
 import { auth } from "../firebase-config";
-import { environmentVariables } from "../app.js";
+import { environmentVariables } from "../data.js";
 const myIP = environmentVariables.myIP;
 const PORT = environmentVariables.PORT;
 

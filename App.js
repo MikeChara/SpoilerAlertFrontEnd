@@ -3,7 +3,6 @@ import * as React from "react";
 import RootNavigation from "./navigation/RootNavigation";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
-const environmentVariables = { myIP: "", PORT: 3000 };
 
 function App() {
   return (
