@@ -3,11 +3,14 @@ import React, { useEffect } from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
+import { environmentVariables } from "../app.js";
+const myIP = environmentVariables.myIP;
+const PORT = environmentVariables.PORT;
 
 export default function FoodList({ name, expiry, id, setFoodList }) {
   async function userEaten(food_id, uid) {
     const Userthings = await fetch(
-      `http://192.168.0.6:3000/eatFood/${food_id}`,
+      `http://${myIP}:${PORT}/eatFood/${food_id}`,
       {
         method: "PATCH",
         headers: {
@@ -16,7 +19,7 @@ export default function FoodList({ name, expiry, id, setFoodList }) {
         },
       }
     );
-    const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+    const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
     console.log(food);
@@ -26,7 +29,7 @@ export default function FoodList({ name, expiry, id, setFoodList }) {
 
   async function userBinned(food_id, uid) {
     const Userthings = await fetch(
-      `http://192.168.0.6:3000/binFood/${food_id}`,
+      `http://${myIP}:${PORT}/binFood/${food_id}`,
       {
         method: "PATCH",
         headers: {
@@ -35,7 +38,7 @@ export default function FoodList({ name, expiry, id, setFoodList }) {
         },
       }
     );
-    const allFood = await fetch(`http://192.168.0.6:3000/pantry/${uid}`);
+    const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
     console.log(food);
