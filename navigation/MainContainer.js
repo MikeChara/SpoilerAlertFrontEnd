@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { PORT, myIP } from "@env";
+import { myIP } from "@env";
 
 // Screens
 import HomeScreen from "../screens/HomeScreen";
@@ -26,7 +26,9 @@ function MainContainer({ styles }) {
 
   useEffect(() => {
     async function getUserFood(uid) {
-      const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
+      const allFood = await fetch(
+        `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+      );
       const data = await allFood.json();
       const food = data.payload;
       setFoodList(food);
