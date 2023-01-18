@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
-import FoodList from "../../Components/FoodList";
+import FoodList from "../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { auth } from "../../firebase-config";
+import { auth } from "../firebase-config";
 
 export default function Pantry({ setFoodList, foodList, styles }) {
   //this is a mutable change without using setState - seems dodgy no?
   //it orders the list by expiry with most recent first
   //foodList.sort((a, b) => a.expiryDate.getTime() - b.expiryDate.getTime());
   //gets todays date (and time)
-  
+
   let todaysDate = new Date();
-  
+
   return (
     <View style={styles.pagestyle}>
       <View style={styles.displaybox}>

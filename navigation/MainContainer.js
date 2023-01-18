@@ -7,10 +7,10 @@ import { auth } from "../firebase-config";
 import { PORT, myIP } from "@env";
 
 // Screens
-import HomeScreen from "./screens/HomeScreen";
-import PantryScreen from "./screens/PantryScreen";
-import AddItemScreen from "./screens/AddItemScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import HomeScreen from "../screens/HomeScreen";
+import PantryScreen from "../screens/PantryScreen";
+import AddItemScreen from "../screens/AddItemScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 import { applyActionCode } from "firebase/auth";
 
 //Screen names
@@ -22,114 +22,114 @@ const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 
 function MainContainer({ styles }) {
-	const [foodList, setFoodList] = useState([]);
+  const [foodList, setFoodList] = useState([]);
 
-	useEffect(() => {
-		async function getUserFood(uid) {
-			const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
-			const data = await allFood.json();
-			const food = data.payload;
-			setFoodList(food);
-		}
-		getUserFood(auth.currentUser.uid);
-	}, []);
+  useEffect(() => {
+    async function getUserFood(uid) {
+      const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
+      const data = await allFood.json();
+      const food = data.payload;
+      setFoodList(food);
+    }
+    getUserFood(auth.currentUser.uid);
+  }, []);
 
-	// Tab navigator will select one of the screens from the navbar when 'focused' is true
-	return (
-		<NavigationContainer>
-			<Tab.Navigator
-				initialRouteName={homeName}
-				screenOptions={({ route }) => ({
-					tabBarIcon: ({ focused, color, size }) => {
-						let iconName;
-						let rn = route.name;
+  // Tab navigator will select one of the screens from the navbar when 'focused' is true
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName={homeName}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
 
-						if (rn === homeName) {
-							iconName = focused ? "home" : "home-outline";
-						} else if (rn === addItemName) {
-							iconName = focused ? "add-circle" : "add-circle-outline";
-						} else if (rn === pantryName) {
-							iconName = focused ? "fast-food" : "fast-food-outline";
-						} else if (rn === profileName) {
-							iconName = focused ? "person" : "person-outline";
-						}
+            if (rn === homeName) {
+              iconName = focused ? "home" : "home-outline";
+            } else if (rn === addItemName) {
+              iconName = focused ? "add-circle" : "add-circle-outline";
+            } else if (rn === pantryName) {
+              iconName = focused ? "fast-food" : "fast-food-outline";
+            } else if (rn === profileName) {
+              iconName = focused ? "person" : "person-outline";
+            }
 
-						// You can return any component that you like here!
-						return <Ionicons name={iconName} size={size} color={color} />;
-					},
-				})}
-				tabBarOptions={{
-					activeTintColor: "purple",
-					inactiveTintColor: "grey",
-					labelStyle: { paddingBottom: 4, fontSize: 10 },
-					style: { padding: 10, height: 70 },
-				}}
-			>
-				<Tab.Screen
-					name={homeName}
-					children={() => <HomeScreen styles={styles} />}
-					options={{
-						title: "Home",
-						headerStyle: {
-							backgroundColor: "#ADC8EB",
-							height: 150,
-						},
-						headerTitleStyle: {
-							fontWeight: "bold",
-							fontSize: 35,
-						},
-					}}
-				/>
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: "purple",
+          inactiveTintColor: "grey",
+          labelStyle: { paddingBottom: 4, fontSize: 10 },
+          style: { padding: 10, height: 70 },
+        }}
+      >
+        <Tab.Screen
+          name={homeName}
+          children={() => <HomeScreen styles={styles} />}
+          options={{
+            title: "Home",
+            headerStyle: {
+              backgroundColor: "#ADC8EB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
 
-				<Tab.Screen
-					name={pantryName}
-					children={() => (
-						<PantryScreen
-							foodList={foodList}
-							setFoodList={setFoodList}
-							styles={styles}
-						/>
-					)}
-					options={{
-						title: "Pantry",
-						headerStyle: {
-							backgroundColor: "#D9EEEB",
-							height: 150,
-						},
-						headerTitleStyle: {
-							fontWeight: "bold",
-							fontSize: 35,
-						},
-					}}
-				/>
-				<Tab.Screen
-					name={addItemName}
-					children={() => (
-						<AddItemScreen
-							foodList={foodList}
-							setFoodList={setFoodList}
-							styles={styles}
-						/>
-					)}
-					options={{
-						title: "Add Item",
-						headerStyle: {
-							backgroundColor: "#D9EEEB",
-							height: 150,
-						},
-						headerTitleStyle: {
-							fontWeight: "bold",
-							fontSize: 35,
-						},
-					}}
-				/>
-				<Tab.Screen
-					name={profileName}
-					children={() => <ProfileScreen styles={styles} />}
-				/>
-			</Tab.Navigator>
-		</NavigationContainer>
-	);
+        <Tab.Screen
+          name={pantryName}
+          children={() => (
+            <PantryScreen
+              foodList={foodList}
+              setFoodList={setFoodList}
+              styles={styles}
+            />
+          )}
+          options={{
+            title: "Pantry",
+            headerStyle: {
+              backgroundColor: "#D9EEEB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
+        <Tab.Screen
+          name={addItemName}
+          children={() => (
+            <AddItemScreen
+              foodList={foodList}
+              setFoodList={setFoodList}
+              styles={styles}
+            />
+          )}
+          options={{
+            title: "Add Item",
+            headerStyle: {
+              backgroundColor: "#D9EEEB",
+              height: 150,
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 35,
+            },
+          }}
+        />
+        <Tab.Screen
+          name={profileName}
+          children={() => <ProfileScreen styles={styles} />}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default MainContainer;
