@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Button, Image } from "react-native";
-import React, { useEffect } from "react";
+import React from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";

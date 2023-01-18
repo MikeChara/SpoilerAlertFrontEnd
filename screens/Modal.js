@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { useNavigation } from "@react-navigation/native";
+import * as ModalNavigation from "../navigation/ModalNavigate.js";
 import {
   Alert,
   Modal,
@@ -12,11 +11,9 @@ import {
 } from "react-native";
 
 function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
-  // const NavigationCon = useNavigation();
   const onPressAddManually = () => {
     setModalVisible(!modalVisible);
-    // navigation.navigate("addItemName");
-    this.props.navigation.navigate("HomeScreen");
+    ModalNavigation.navigate("Home");
   };
   return (
     <View style={styles.centeredView}>

@@ -4,7 +4,6 @@ import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase-config";
-import { myIP } from "@env";
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {

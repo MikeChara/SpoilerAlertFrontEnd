@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import React from "react";
 import { Datepicker, Layout, Text } from "@ui-kitten/components";
 
 export default function DatepickerSimpleUsageShowcase({
