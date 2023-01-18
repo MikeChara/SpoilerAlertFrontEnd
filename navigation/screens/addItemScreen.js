@@ -10,64 +10,63 @@ import { PORT, myIP } from "@env";
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {
-  const [item, setItem] = useState();
-  const [price, setPrice] = useState();
-  const [date, setDate] = React.useState(new Date());
+	const [item, setItem] = useState();
+	const [price, setPrice] = useState();
+	const [date, setDate] = React.useState(new Date());
 
-  const navigation = useNavigation();
-  async function addFood(price, item, date, uid) {
-    const dateConvertor = expiryDateConverter(date);
-    const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        price: price,
-        name: item,
-        expires_on: dateConvertor,
-      }),
-    });
-    console.log("userthings was gotten?", Userthings);
-    const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
-    const data = await allFood.json();
-    const food = data.payload;
-    console.log("food gotten", food);
-    setFoodList(food);
-  }
+	const navigation = useNavigation();
+	async function addFood(price, item, date, uid) {
+		const dateConvertor = expiryDateConverter(date);
+		const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				price: price,
+				name: item,
+				expires_on: dateConvertor,
+			}),
+		});
 
-  // function handleAdd() {
-  // 	navigation.navigate("Pantry");
-  // 	setFoodList([...foodList, { item: item, expiryDate: date }]);
-  // }
-  
-  return (
-    <View style={styles.pagestyle}>
-      <Text style={styles.addpagetext}> Item</Text>
+		const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
+		const data = await allFood.json();
+		const food = data.payload;
+		setFoodList(food);
+	}
 
-      <TextInput
-        style={styles.textinput}
-        placeholder="Enter item"
-        onChangeText={(text) => setItem(text)}
-      />
+	// function handleAdd() {
+	// 	navigation.navigate("Pantry");
+	// 	setFoodList([...foodList, { item: item, expiryDate: date }]);
+	// }
 
-      <Text style={styles.addpagetext}> Expiry Date</Text>
+	return (
+		<View style={styles.pagestyle}>
+			<Text style={styles.addpagetext}> Item</Text>
 
-      <DatepickerSimpleUsageShowcase setDate={setDate} date={date} />
-      <Text style={styles.addpagetext}> Add Price</Text>
+			<TextInput
+				style={styles.textinput}
+				placeholder='Enter item'
+				onChangeText={(text) => setItem(text)}
+			/>
 
-      <TextInput
-        style={styles.textinput}
-        placeholder="£"
-        onChangeText={(price) => setPrice(price)}
-      />
-      <Pressable
-        style={styles.purplebutton}
-        onPress={() => addFood(price, item, date, auth.currentUser.uid)}
-      >
-        <Text style={styles.purplebuttontext}>Add</Text>
-      </Pressable>
-    </View>
-  );
+			<Text style={styles.addpagetext}> Expiry Date</Text>
+
+			<DatepickerSimpleUsageShowcase setDate={setDate} date={date} />
+			<Text style={styles.addpagetext}> Add Price</Text>
+
+			<TextInput
+				style={styles.textinput}
+				placeholder='£'
+				onChangeText={(price) => setPrice(price)}
+			/>
+			<Pressable
+				style={styles.purplebutton}
+				onPress={() => addFood(price, item, date, auth.currentUser.uid)}
+			>
+				<Text style={styles.purplebuttontext}>Add</Text>
+			</Pressable>
+		</View>
+	);
 }
