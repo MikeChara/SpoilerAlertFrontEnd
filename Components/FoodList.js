@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { myIP } from "@env";
 
 export default function FoodList({ name, expiry, id, setFoodList }) {
   async function userEaten(food_id, uid) {

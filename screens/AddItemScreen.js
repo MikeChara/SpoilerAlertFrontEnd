@@ -1,5 +1,4 @@
 // MAIN CONTAINER > ADDITEMSCREEN
-
 import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
