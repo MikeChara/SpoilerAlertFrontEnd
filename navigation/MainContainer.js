@@ -4,14 +4,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { environmentVariables } from "../data.js";
-const myIP = environmentVariables.myIP;
-const PORT = environmentVariables.PORT;
+import { PORT, myIP } from "@env";
 
 // Screens
 import HomeScreen from "./screens/HomeScreen";
 import PantryScreen from "./screens/PantryScreen";
-import AddItemScreen from "./screens/AddItemScreen";
+import AddItemScreen from "./screens/addItemScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { applyActionCode } from "firebase/auth";
 

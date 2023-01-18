@@ -6,9 +6,7 @@ import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import expiryDateConverter from "../../Functions/expiryDateConverter.js";
 import { auth } from "../../firebase-config";
-import { environmentVariables } from "../../data.js";
-const myIP = environmentVariables.myIP;
-const PORT = environmentVariables.PORT;
+import { PORT, myIP } from "@env";
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {
@@ -38,17 +36,12 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
     console.log("food gotten", food);
     setFoodList(food);
   }
-  // return (
-  //   <View style={{ flex: 1, alignItems: "center", textAlign: "left" }}>
-  //     <Text style={{ fontSize: 26, fontWeight: "bold", textAlign: "left" }}>
-  //       {" "}
-  //       Item
-  //     </Text>
 
   // function handleAdd() {
   // 	navigation.navigate("Pantry");
   // 	setFoodList([...foodList, { item: item, expiryDate: date }]);
   // }
+  
   return (
     <View style={styles.pagestyle}>
       <Text style={styles.addpagetext}> Item</Text>

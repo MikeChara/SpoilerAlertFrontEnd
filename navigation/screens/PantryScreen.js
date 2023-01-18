@@ -7,9 +7,11 @@ import { auth } from "../../firebase-config";
 export default function Pantry({ setFoodList, foodList, styles }) {
   //this is a mutable change without using setState - seems dodgy no?
   //it orders the list by expiry with most recent first
-  // foodList.sort((a, b) => a.expiryDate.getTime() - b.expiryDate.getTime());
+  //foodList.sort((a, b) => a.expiryDate.getTime() - b.expiryDate.getTime());
   //gets todays date (and time)
+  
   let todaysDate = new Date();
+  
   return (
     <View style={styles.pagestyle}>
       <View style={styles.displaybox}>
