@@ -22,29 +22,29 @@ let eatenOrBinnedDate9 = new Date("January 9, 2023 23:59:59 GMT+00:00");
 let eatenOrBinnedDate10 = new Date("January 10, 2023 23:59:59 GMT+00:00");
 
 export const data = [
-  { item: "yoghurt", expiryDate: date1, id: 1 },
-  { item: "milk", expiryDate: date2, id: 2 },
-  { item: "cheese", expiryDate: date3, id: 3 },
-  { item: "bread", expiryDate: date4, id: 4 },
-  { item: "eggs", expiryDate: date5, id: 5 },
-  { item: "meat", expiryDate: date6, id: 6 },
-  { item: "fish", expiryDate: date7, id: 7 },
-  { item: "vegetables", expiryDate: date8, id: 8 },
-  { item: "fruit", expiryDate: date9, id: 9 },
-  { item: "juice", expiryDate: date10, id: 10 },
+	{ item: "yoghurt", expiryDate: date1, id: 1 },
+	{ item: "milk", expiryDate: date2, id: 2 },
+	{ item: "cheese", expiryDate: date3, id: 3 },
+	{ item: "bread", expiryDate: date4, id: 4 },
+	{ item: "eggs", expiryDate: date5, id: 5 },
+	{ item: "meat", expiryDate: date6, id: 6 },
+	{ item: "fish", expiryDate: date7, id: 7 },
+	{ item: "vegetables", expiryDate: date8, id: 8 },
+	{ item: "fruit", expiryDate: date9, id: 9 },
+	{ item: "juice", expiryDate: date10, id: 10 },
 ];
 
-export const environmentVariables = { myIP: "192.168.0.10", PORT: 3000 };
+//export const environmentVariables = { myIP: "192.168.0.10", PORT: 3000 };
 
 export const expiredData = [
-  { item: "yoghurt", eaten_on: eatenOrBinnedDate1, binned_on: null },
-  { item: "milk", eaten_on: eatenOrBinnedDate2, binned_on: null },
-  { item: "cheese", eaten_on: null, binned_on: eatenOrBinnedDate3 },
-  { item: "bread", eaten_on: eatenOrBinnedDate4, binned_on: null },
-  { item: "eggs", eaten_on: eatenOrBinnedDate5, binned_on: null },
-  { item: "meat", binned_on: eatenOrBinnedDate6, eaten_on: null },
-  { item: "fish", binned_on: eatenOrBinnedDate7, eaten_on: null },
-  { item: "vegetables", binned_on: eatenOrBinnedDate8, eaten_on: null },
-  { item: "fruit", binned_on: eatenOrBinnedDate9, eaten_on: null },
-  { item: "juice", binned_on: eatenOrBinnedDate10, eaten_on: null },
+	{ item: "yoghurt", eaten_on: eatenOrBinnedDate1, binned_on: null },
+	{ item: "milk", eaten_on: eatenOrBinnedDate2, binned_on: null },
+	{ item: "cheese", eaten_on: null, binned_on: eatenOrBinnedDate3 },
+	{ item: "bread", eaten_on: eatenOrBinnedDate4, binned_on: null },
+	{ item: "eggs", eaten_on: eatenOrBinnedDate5, binned_on: null },
+	{ item: "meat", binned_on: eatenOrBinnedDate6, eaten_on: null },
+	{ item: "fish", binned_on: eatenOrBinnedDate7, eaten_on: null },
+	{ item: "vegetables", binned_on: eatenOrBinnedDate8, eaten_on: null },
+	{ item: "fruit", binned_on: eatenOrBinnedDate9, eaten_on: null },
+	{ item: "juice", binned_on: eatenOrBinnedDate10, eaten_on: null },
 ];

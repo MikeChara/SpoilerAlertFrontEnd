@@ -7,10 +7,10 @@ import { auth } from "../firebase-config";
 import { PORT, myIP } from "@env";
 
 // Screens
-import HomeScreen from "./screens/HomeScreen";
-import PantryScreen from "./screens/PantryScreen";
-import AddItemScreen from "./screens/addItemScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import HomeScreen from "../screens/HomeScreen";
+import PantryScreen from "../screens/PantryScreen";
+import AddItemScreen from "../screens/AddItemScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 import { applyActionCode } from "firebase/auth";
 
 //Screen names
@@ -29,7 +29,6 @@ function MainContainer({ styles }) {
       const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
       const data = await allFood.json();
       const food = data.payload;
-      console.log("food gotten", food);
       setFoodList(food);
     }
     getUserFood(auth.currentUser.uid);

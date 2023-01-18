@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
-import DatepickerSimpleUsageShowcase from "../../Components/Calendar.js";
+import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
-import expiryDateConverter from "../../Functions/expiryDateConverter.js";
-import { auth } from "../../firebase-config";
+import { auth } from "../firebase-config";
 import { PORT, myIP } from "@env";
 
 //props coming from MainContainer
@@ -13,10 +12,10 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
   const [date, setDate] = React.useState(new Date());
+  const priceRegex = /^\d+(\.\d{1,2})?$/;
 
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
-    const dateConvertor = expiryDateConverter(date);
     const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
       method: "POST",
       headers: {
@@ -26,22 +25,16 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       body: JSON.stringify({
         price: price,
         name: item,
-        expires_on: dateConvertor,
+        expires_on: date,
       }),
     });
-    console.log("userthings was gotten?", Userthings);
+
     const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
-    console.log("food gotten", food);
     setFoodList(food);
   }
 
-  // function handleAdd() {
-  // 	navigation.navigate("Pantry");
-  // 	setFoodList([...foodList, { item: item, expiryDate: date }]);
-  // }
-  
   return (
     <View style={styles.pagestyle}>
       <Text style={styles.addpagetext}> Item</Text>
@@ -60,7 +53,12 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       <TextInput
         style={styles.textinput}
         placeholder="£"
-        onChangeText={(price) => setPrice(price)}
+        keyboardType={"decimal-pad"}
+        onChangeText={(price) =>
+          priceRegex.test(price)
+            ? setPrice(price)
+            : alert("Please enter valid price")
+        }
       />
       <Pressable
         style={styles.purplebutton}
