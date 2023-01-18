@@ -3,12 +3,8 @@ import React, { useEffect } from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-// import * as dotenv from "dotenv";
-// dotenv.config();
-// import express from "express";
-// const myIP = process.env.myIP;
-// const PORT = process.env.PORT;
 import { PORT, myIP } from "@env";
+
 export default function FoodList({ name, expiry, id, setFoodList }) {
   async function userEaten(food_id, uid) {
     const Userthings = await fetch(
