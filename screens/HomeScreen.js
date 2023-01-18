@@ -8,7 +8,7 @@ export default function HomeScreen({ styles, foodList, setFoodList }) {
 	const [allEaten, setAllEaten] = React.useState([]);
 	 async function getAllWasted(uid) {
 		const allFood = await fetch(
-		  `https://spoiler-alert-backend.onrender.com/allWastedFood/303Ut9TLrAQjyq5hlJrmlsB66Tl2`
+		  `${backend_link}/allWastedFood/303Ut9TLrAQjyq5hlJrmlsB66Tl2`
 		);
 		const data = await allFood.json();
 		console.log('this is the data',data.payload)
