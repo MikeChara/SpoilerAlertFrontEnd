@@ -8,5 +8,3 @@ export default function PlaceHolder() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

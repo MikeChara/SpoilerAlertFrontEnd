@@ -6,21 +6,7 @@ import { auth } from "../firebase-config";
 import { myIP } from "@env";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
-
-// Screens
-import HomeScreen from "../screens/HomeScreen";
-import PantryScreen from "../screens/PantryScreen";
-import AddItemScreen from "../screens/AddItemScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import { applyActionCode } from "firebase/auth";
-
-//Screen names
-const pantryName = "Pantry";
-const addItemName = "Add Item";
-const homeName = "Home";
-const profileName = "Profile";
-
-
+import { StyleSheet, View } from "react-native";
 
 function MainContainer({ styles }) {
   const [foodList, setFoodList] = useState([]);
@@ -49,6 +35,7 @@ function MainContainer({ styles }) {
         <ManualModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
+          styles={styles}
         />
       </View>
     </View>
@@ -56,13 +43,3 @@ function MainContainer({ styles }) {
 }
 
 export default MainContainer;
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1,
-  },
-});
