@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
-import expiryDateConverter from "../Functions/expiryDateConverter.js";
 import { auth } from "../firebase-config";
 import { PORT, myIP } from "@env";
 
@@ -16,7 +15,6 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
-    const dateConvertor = expiryDateConverter(date);
     const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
       method: "POST",
       headers: {
@@ -26,7 +24,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       body: JSON.stringify({
         price: price,
         name: item,
-        expires_on: dateConvertor,
+        expires_on: date,
       }),
     });
 
