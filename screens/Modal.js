@@ -8,6 +8,7 @@ import {
   Pressable,
   View,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 
 function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
@@ -24,32 +25,39 @@ function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
-          navigation.navigate("AddItemScreen");
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Update Options</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Scan Receipt</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Upload Receipt</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={onPressAddManually}
-            >
-              <Text style={styles.textStyle}>Add Manually</Text>
-            </Pressable>
+        <TouchableOpacity
+          style={styles.centeredView}
+          activeOpacity={1}
+          onPressOut={() => {
+            setModalVisible(false);
+          }}
+        >
+          <View
+            style={styles.centeredView}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Update Options</Text>
+              <Pressable style={[styles.button, styles.buttonClose]}>
+                <Text style={styles.textStyle}>Scan Receipt</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Upload Receipt</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={onPressAddManually}
+              >
+                <Text style={styles.textStyle}>Add Manually</Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
     </View>
   );
