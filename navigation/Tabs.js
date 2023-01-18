@@ -53,7 +53,8 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
       >
         <Tab.Screen
           name={homeName}
-          children={() => <HomeScreen styles={styles} />}
+         
+          children={() => <HomeScreen setFoodList={setFoodList}  foodList={foodList} styles={styles} />}
           options={{
             title: "Home",
             headerStyle: {

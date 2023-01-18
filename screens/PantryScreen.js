@@ -7,7 +7,7 @@ import { auth } from "../firebase-config";
 export default function Pantry({ setFoodList, foodList, styles }) {
   //this is a mutable change without using setState - seems dodgy no?
   let todaysDate = new Date();
-
+  console.log(auth.currentUser.uid)
   return (
     <View style={styles.pagestyle}>
       <View style={styles.displaybox}>

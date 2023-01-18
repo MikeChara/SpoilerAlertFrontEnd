@@ -6,6 +6,7 @@ import { auth } from "../firebase-config";
 import { myIP } from "@env";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
+import { StyleSheet, View } from "react-native";
 
 // Screens
 import HomeScreen from "../screens/HomeScreen";
@@ -28,6 +29,7 @@ function MainContainer({ styles }) {
 
   useEffect(() => {
     async function getUserFood(uid) {
+      console.log('MainContainer console log triggered', renderCounter)
       const allFood = await fetch(
         `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
       );

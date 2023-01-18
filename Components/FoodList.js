@@ -6,6 +6,9 @@ import { auth } from "../firebase-config";
 import { myIP } from "@env";
 
 export default function FoodList({ name, expiry, id, setFoodList }) {
+
+
+  
   async function userEaten(food_id, uid) {
     const Userthings = await fetch(
       `https://spoiler-alert-backend.onrender.com/eatFood/${food_id}`,
