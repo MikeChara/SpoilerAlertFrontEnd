@@ -5,20 +5,34 @@ import { auth } from '../firebase-config'
 import { backend_link } from "@env";
 
 
-export default function HomeScreen({ styles, foodList, setFoodList }) {
-	const [allWasted, setAllWasted] = React.useState([]);
-	const [allEaten, setAllEaten] = React.useState([]);
-	 async function getAllWasted(uid) {
+export default function HomeScreen({ styles }) {
+	const [allStats, setAllStats] = React.useState([]);
+	const [weekStats, setWeekStats] = React.useState([]);
+
+	 async function getAllStats(uid) {
 		const allFood = await fetch(
-		  `${backend_link}/allWastedFood/303Ut9TLrAQjyq5hlJrmlsB66Tl2`
+		  `${backend_link}/allEatenAndWasted/${auth.currentUser.uid}`
 		);
 		const data = await allFood.json();
-		console.log('this is the data',data.payload)
-		setFoodList([...data.payload])
+		console.log('all stats :',data.payload)
+		setAllStats([...data.payload])
 		return data.payload;
 	  }
+	  async function getWeekStats(uid) {
+		const allFood = await fetch(
+		  `${backend_link}/weekEatenWasted/${auth.currentUser.uid}`
+		);
+		const data = await allFood.json();
+		console.log('week stats :',data.payload)
+		setWeekStats([...data.payload])
+		return data.payload;
+	  }
+	  console.log('state all stats :',allStats)
+	  console.log('state week stats :',weekStats)
+
 	React.useEffect( () => {
-		getAllWasted(auth.currentUser.uid)
+		getAllStats(auth.currentUser.uid);
+		getWeekStats(auth.currentUser.uid)
 	  }, []);
 	return (
 		<View style={styles.pagestyle}>
