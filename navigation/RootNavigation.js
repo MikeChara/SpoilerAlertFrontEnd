@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
 
   subtitle: {
-    fontSize: 26,
+    fontSize: 22,
     fontWeight: "bold",
     padding: 5,
   },
@@ -100,4 +100,65 @@ const styles = StyleSheet.create({
   editButton: {},
 
   editbuttontext: {},
+
+  dashboardParent: {
+    flexDirection: "column",
+  },
+  dashboardSquare1: {
+    backgroundColor: "#9FE7D5",
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    flex: 1,
+    margin: 15,
+  },
+  dashboardSquare2: {
+    backgroundColor: "#F8CB63",
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    flex: 1,
+    margin: 15,
+  },
+  dashboardSquare3: {
+    backgroundColor: "#ADC8EB",
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    flex: 1,
+    margin: 15,
+  },
+
+  dashboardSquare4: {
+    backgroundColor: "#F9CBC3",
+    width: 150,
+    height: 150,
+    borderRadius: 10,
+    flex: 1,
+    margin: 15,
+  },
+
+  textGray: {
+    fontSize: 14,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: "gray",
+    marginLeft: 10,
+  },
+
+  dashboardSubtitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    padding: 5,
+    color: "#160042",
+  },
+
+  dashboardPrice: {
+    fontSize: 38,
+    fontWeight: "bold",
+    color: "#160042",
+    padding: 5,
+  },
+
+  dashboardContainer: {},
 });
