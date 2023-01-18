@@ -29,7 +29,6 @@ function MainContainer({ styles }) {
 
   useEffect(() => {
     async function getUserFood(uid) {
-      console.log('MainContainer console log triggered', renderCounter)
       const allFood = await fetch(
         `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
       );

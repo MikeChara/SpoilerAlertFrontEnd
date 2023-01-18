@@ -6,7 +6,6 @@ import { auth } from '../firebase-config'
 export default function HomeScreen({ styles, foodList, setFoodList }) {
 	const [allWasted, setAllWasted] = React.useState([]);
 	const [allEaten, setAllEaten] = React.useState([]);
-	console.log('this is the home screen rendering')
 	 async function getAllWasted(uid) {
 		const allFood = await fetch(
 		  `https://spoiler-alert-backend.onrender.com/allWastedFood/303Ut9TLrAQjyq5hlJrmlsB66Tl2`

@@ -26,6 +26,18 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
       <Tab.Navigator
         initialRouteName={homeName}
         screenOptions={({ route }) => ({
+          tabBarActiveTintColor: "purple",
+          tabBarInactiveTintColor: "grey",
+          tabBarLabelStyle: {
+            paddingBottom: 4,
+            fontSize: 10,
+          },
+          tabBarStyle: [
+            {
+              display: "flex",
+            },
+            null,
+          ],
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
             let rn = route.name;
@@ -44,17 +56,11 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
-        tabBarOptions={{
-          activeTintColor: "purple",
-          inactiveTintColor: "grey",
-          labelStyle: { paddingBottom: 4, fontSize: 10 },
-          style: { padding: 10, height: 70 },
-        }}
+       
       >
         <Tab.Screen
           name={homeName}
-         
-          children={() => <HomeScreen setFoodList={setFoodList}  foodList={foodList} styles={styles} />}
+          children={() => <HomeScreen styles={styles} />}
           options={{
             title: "Home",
             headerStyle: {
