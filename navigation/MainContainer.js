@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
-import { PORT, myIP } from "@env";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
+import { myIP } from "@env";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
+
+// Screens
+import HomeScreen from "../screens/HomeScreen";
+import PantryScreen from "../screens/PantryScreen";
+import AddItemScreen from "../screens/AddItemScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import { applyActionCode } from "firebase/auth";
+
+//Screen names
+const pantryName = "Pantry";
+const addItemName = "Add Item";
+const homeName = "Home";
+const profileName = "Profile";
+
+
 
 function MainContainer({ styles }) {
   const [foodList, setFoodList] = useState([]);
@@ -11,7 +28,9 @@ function MainContainer({ styles }) {
 
   useEffect(() => {
     async function getUserFood(uid) {
-      const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
+      const allFood = await fetch(
+        `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+      );
       const data = await allFood.json();
       const food = data.payload;
       setFoodList(food);
