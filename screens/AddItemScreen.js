@@ -12,6 +12,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   const [item, setItem] = useState();
   const [price, setPrice] = useState();
   const [date, setDate] = React.useState(new Date());
+  const priceRegex = /^\d+(\.\d{1,2})?$/;
 
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
@@ -52,7 +53,12 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       <TextInput
         style={styles.textinput}
         placeholder="£"
-        onChangeText={(price) => setPrice(price)}
+        keyboardType={"decimal-pad"}
+        onChangeText={(price) =>
+          priceRegex.test(price)
+            ? setPrice(price)
+            : alert("Please enter valid price")
+        }
       />
       <Pressable
         style={styles.purplebutton}
