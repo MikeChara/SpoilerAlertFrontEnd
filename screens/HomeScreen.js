@@ -2,6 +2,8 @@ import * as React from "react";
 import { View, Text } from "react-native";
 // import { getAllWasted } from "../GetRequests/GetHome";
 import { auth } from '../firebase-config'
+import { backend_link } from "@env";
+
 
 export default function HomeScreen({ styles, foodList, setFoodList }) {
 	const [allWasted, setAllWasted] = React.useState([]);
