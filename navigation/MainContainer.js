@@ -55,7 +55,6 @@ function MainContainer({ styles }) {
     </View>
   );
 }
-
 export default MainContainer;
 
 const styles = StyleSheet.create({
