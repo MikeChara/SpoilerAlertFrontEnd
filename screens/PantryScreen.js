@@ -4,7 +4,7 @@ import FoodList from "../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
 
-export default function Pantry({ setFoodList, foodList, styles }) {
+export default function Pantry({ setFoodList, foodList, styles, setAllStats, setWeekStats }) {
   //this is a mutable change without using setState - seems dodgy no?
   let todaysDate = new Date();
   return (
@@ -29,6 +29,8 @@ export default function Pantry({ setFoodList, foodList, styles }) {
                     setFoodList={setFoodList}
                     id={item.id}
                     index={index}
+                    setAllStats={setAllStats}
+                    setWeekStats={setWeekStats}
                   />
                 </GestureHandlerRootView>
               );

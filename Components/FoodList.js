@@ -4,47 +4,47 @@ import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
 import { backend_link } from "@env";
+import { getAllStats, getWeekStats } from "../Fetches/getRequests";
+import { eatenFoodPatch, binnedFoodPatch } from "../Fetches/patchRequests";
 
-
-export default function FoodList({ name, expiry, id, setFoodList, index, foodList }) {
-
-
-  
+export default function FoodList({
+  name,
+  expiry,
+  id,
+  setFoodList,
+  index,
+  foodList,
+  setAllStats,
+  setWeekStats
+}) {
   async function userEaten(food_id, uid) {
-    const Userthings = await fetch(
-      `https://spoiler-alert-backend.onrender.com/eatFood/${food_id}`,
-      {
-        method: "PATCH",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    setFoodList([...foodList.slice(0, index), ...foodList.slice(index+1, foodList.length)])
-
+    eatenFoodPatch(food_id)
+    setFoodList([
+      ...foodList.slice(0, index),
+      ...foodList.slice(index + 1, foodList.length),
+    ]);
+    getAllStats(uid, setAllStats)
+    getWeekStats(uid, setWeekStats)
   }
 
   async function userBinned(food_id, uid) {
-    const Userthings = await fetch(
-      `${backend_link}/binFood/${food_id}`,
-      {
-        method: "PATCH",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    setFoodList([...foodList.slice(0, index), ...foodList.slice(index+1, foodList.length)])
-
+    binnedFoodPatch(food_id)
+    setFoodList([
+      ...foodList.slice(0, index),
+      ...foodList.slice(index + 1, foodList.length),
+    ]);
+    getAllStats(uid, setAllStats)
+    getWeekStats(uid, setWeekStats)
   }
+
   return (
     <ListItem.Swipeable
       leftContent={(reset) => (
         <Pressable
           style={styles.icon}
-          onPress={() => userEaten(id, auth.currentUser.uid)}
+          onPress={() => {
+            userEaten(id, auth.currentUser.uid);
+          }}
         >
           <Ionicons name="trash-bin-outline" size={30} color={"red"}></Ionicons>
         </Pressable>
