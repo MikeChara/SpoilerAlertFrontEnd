@@ -1,9 +1,8 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 // import { getAllWasted } from "../GetRequests/GetHome";
-import { auth } from '../firebase-config'
+import { auth } from "../firebase-config";
 import { backend_link } from "@env";
-
 
 export default function HomeScreen({ styles }) {
 	const [allStats, setAllStats] = React.useState([]);
@@ -40,6 +39,9 @@ export default function HomeScreen({ styles }) {
 
 	return (
     <View style={styles.dashboardContainer}>
+      <Text style={styles.dashboardWelcome}>Hi, [username here]</Text>
+      <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
+
       <View style={styles.dashboardrowContainer}>
         <View style={styles.dashboardSquare1}>
           <Text style={styles.dashboardSubtitle}>Total Savings</Text>
