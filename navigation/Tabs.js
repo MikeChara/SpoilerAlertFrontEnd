@@ -56,7 +56,6 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
-       
       >
         <Tab.Screen
           name={homeName}
@@ -64,12 +63,13 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
           options={{
             title: "Home",
             headerStyle: {
-              backgroundColor: "#ADC8EB",
+              backgroundColor: "#F5F5F5",
               height: 150,
             },
             headerTitleStyle: {
               fontWeight: "bold",
               fontSize: 35,
+              color: "#0E7835",
             },
           }}
         />
@@ -86,12 +86,13 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
           options={{
             title: "Pantry",
             headerStyle: {
-              backgroundColor: "#D9EEEB",
+              backgroundColor: "#F5F5F5",
               height: 150,
             },
             headerTitleStyle: {
               fontWeight: "bold",
               fontSize: 35,
+              color: "#0E7835",
             },
           }}
         />
@@ -101,12 +102,13 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
           options={{
             title: "Add Item",
             headerStyle: {
-              backgroundColor: "#D9EEEB",
+              backgroundColor: "#F5F5F5",
               height: 150,
             },
             headerTitleStyle: {
               fontWeight: "bold",
               fontSize: 35,
+              color: "#0E7835",
             },
           }}
           listeners={{
