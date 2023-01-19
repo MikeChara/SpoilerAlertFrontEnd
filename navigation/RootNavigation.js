@@ -149,16 +149,21 @@ const styles = StyleSheet.create({
   dashboardSubtitle: {
     fontSize: 22,
     fontWeight: "bold",
-    padding: 5,
+    paddingTop: 5,
+    paddingLeft: 10,
+    paddingBottom: 3,
     color: "#160042",
   },
 
   dashboardPrice: {
-    fontSize: 38,
+    fontSize: 40,
     fontWeight: "bold",
     color: "#160042",
-    padding: 5,
+    padding: 10,
   },
 
-  dashboardContainer: {},
+  dashboardrowContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
 });

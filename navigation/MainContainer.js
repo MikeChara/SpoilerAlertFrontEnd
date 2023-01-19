@@ -71,7 +71,7 @@ function MainContainer({ styles }) {
           options={{
             title: "Home",
             headerStyle: {
-              backgroundColor: "#ADC8EB",
+              // backgroundColor: "pink",
               height: 150,
             },
             headerTitleStyle: {
@@ -79,7 +79,7 @@ function MainContainer({ styles }) {
               fontSize: 35,
             },
           }}
-        />
+        ></Tab.Screen>
 
         <Tab.Screen
           name={pantryName}
