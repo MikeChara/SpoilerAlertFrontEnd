@@ -8,10 +8,10 @@ import { backend_link } from "@env";
 export default function HomeScreen({ styles }) {
 	const [allStats, setAllStats] = React.useState([]);
 	const [weekStats, setWeekStats] = React.useState([]);
-
+  console.log(backend_link)
 	 async function getAllStats(uid) {
 		const allFood = await fetch(
-		  `${backend_link}/allEatenAndWasted/${auth.currentUser.uid}`
+		  `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
 		);
 		const data = await allFood.json();
 		console.log('all stats :',data.payload)
@@ -20,7 +20,7 @@ export default function HomeScreen({ styles }) {
 	  }
 	  async function getWeekStats(uid) {
 		const allFood = await fetch(
-		  `${backend_link}/weekEatenWasted/${auth.currentUser.uid}`
+		  `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
 		);
 		const data = await allFood.json();
 		console.log('week stats :',data.payload)
