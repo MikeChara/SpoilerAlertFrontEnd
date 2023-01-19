@@ -31,7 +31,9 @@ export default function HomeScreen({ styles }) {
 
   return (
     <View style={styles.dashboardContainer}>
-      <Text style={styles.dashboardWelcome}>Hi, [username here]</Text>
+      <Text style={styles.dashboardWelcome}>
+        Hi {auth.currentUser.displayName}!
+      </Text>
       <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
 
       <View style={styles.dashboardrowContainer}>
