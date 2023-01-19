@@ -15,23 +15,33 @@ export default function ProfileScreen({ styles }) {
         source={require("./Cranks-1.png")}
         style={{ width: 120, height: 120, backgroundColor: "red" }}
       />
-      <Text style={{ fontSize: 26, fontWeight: "bold" }}>Tom Saver</Text>
-      <Text style={{ fontSize: 14, padding: 5 }}>@TomSaver</Text>
-
+      <Text style={{ fontSize: 26, fontWeight: "bold" }}>
+        {auth.currentUser.displayName}
+      </Text>
+      {/* <Text style={{ fontSize: 14, padding: 5 }}>
+        @{auth.currentUser.displayName}
+      </Text> */}
       <Pressable style={styles.purplebutton}>
         <Text style={styles.purplebuttontext}>Edit Profile</Text>
       </Pressable>
       <Text style={styles.subtitle}>Username</Text>
-      <Input style={styles.textinput} disabled={true} placeholder="TomSaver" />
-
+      <Input
+        style={styles.textinput}
+        disabled={true}
+        placeholder={auth.currentUser.displayName}
+      />
       <Text style={styles.subtitle}>Email</Text>
       <Input
         style={styles.textinput}
         disabled={true}
-        placeholder="tomsaver@gmail.com"
+        placeholder={auth.currentUser.email}
       />
-      <Text style={styles.subtitle}>Full name</Text>
-      <Input style={styles.textinput} disabled={true} placeholder="Tom Saver" />
+      {/* <Text style={styles.subtitle}>Full name</Text>
+      <Input
+        style={styles.textinput}
+        disabled={true}
+        placeholder={auth.currentUser.displayName}
+      /> */}
       <Pressable
         style={{ ...styles.purplebutton, marginTop: 8 }}
         onPress={HandleSignOut}
