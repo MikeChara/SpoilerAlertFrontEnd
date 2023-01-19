@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import * as ModalNavigation from "../navigation/ModalNavigate.js";
+// import * as ModalNavigation from "../navigation/ModalNavigate.js";
 import {
   Alert,
-  Modal,
+  // Modal,
   StyleSheet,
   Text,
   Pressable,
@@ -10,15 +10,19 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import Modal from "react-native-modal";
 
 
-function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
+
+function ManualModal({ setModalVisible, modalVisible }) {
   const onPressAddManually = () => {
     setModalVisible(!modalVisible);
     ModalNavigation.navigate("Home");
   };
   return (
-    <View style={styles.centeredView}>
+    <View 
+    style={styles.centeredView}
+    >
       <Modal
         animationType="slide"
         transparent={true}
@@ -39,22 +43,34 @@ function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
             style={styles.centeredView}
             onPress={() => setModalVisible(!modalVisible)}
           >
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Update Options</Text>
-              <Pressable style={[styles.button, styles.buttonClose]}>
-                <Text style={styles.textStyle}>Scan Receipt</Text>
+            <View 
+            style={styles.modalView}
+            >
+              <Text 
+              style={styles.modalText}
+              >Update Options</Text>
+              <Pressable
+               style={[styles.button, styles.buttonClose]}
+               >
+                <Text 
+                style={styles.textStyle}
+                >Scan Receipt</Text>
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={() => setModalVisible(!modalVisible)}
               >
-                <Text style={styles.textStyle}>Upload Receipt</Text>
+                <Text 
+                style={styles.textStyle}
+                >Upload Receipt</Text>
               </Pressable>
               <Pressable
                 style={[styles.button, styles.buttonClose]}
                 onPress={onPressAddManually}
               >
-                <Text style={styles.textStyle}>Add Manually</Text>
+                <Text 
+                style={styles.textStyle}
+                >Add Manually</Text>
               </Pressable>
             </View>
           </View>
@@ -118,7 +134,7 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
-    fontSize: "24",
+    fontSize: 24,
     fontWeight: "bold",
   },
 });
