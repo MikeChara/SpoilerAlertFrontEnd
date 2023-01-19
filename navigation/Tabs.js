@@ -13,6 +13,7 @@ import AddItemScreen from "../screens/AddItemScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 
 //Screen names
+const socialName = "Social";
 const pantryName = "Pantry";
 const addItemName = "Add Item";
 const homeName = "Home";
@@ -50,6 +51,10 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
               iconName = focused ? "fast-food" : "fast-food-outline";
             } else if (rn === profileName) {
               iconName = focused ? "person" : "person-outline";
+            } else if (rn === socialName) {
+              iconName = focused
+                ? "game-controller"
+                : "game-controller-outline";
             }
 
             // You can return any component that you like here!
@@ -98,7 +103,9 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
         />
         <Tab.Screen
           name={addItemName}
-          children={() => <PlaceHolder />}
+          children={() => (
+            <AddItemScreen setFoodList={setFoodList} styles={styles} />
+          )}
           options={{
             title: "Add Item",
             headerStyle: {
@@ -117,6 +124,10 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
               setModalVisible(true);
             },
           }}
+        />
+        <Tab.Screen
+          name={socialName}
+          children={() => <PlaceHolder styles={styles} />}
         />
         <Tab.Screen
           name={profileName}
