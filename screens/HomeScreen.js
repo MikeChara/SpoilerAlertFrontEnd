@@ -10,30 +10,34 @@ export default function HomeScreen({ styles }) {
 	const [weekStats, setWeekStats] = React.useState([]);
   console.log(backend_link)
 	 async function getAllStats(uid) {
+    console.log('get ALL stats fired')
 		const allFood = await fetch(
 		  `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
 		);
 		const data = await allFood.json();
 		console.log('all stats :',data.payload)
-		setAllStats([...data.payload])
+		setAllStats({...data.payload})
+    console.log('state all stats :',allStats)
 		return data.payload;
 	  }
 	  async function getWeekStats(uid) {
-		const allFood = await fetch(
+      console.log('get WEEK stats fired')
+
+      const allFood = await fetch(
 		  `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
 		);
 		const data = await allFood.json();
 		console.log('week stats :',data.payload)
-		setWeekStats([...data.payload])
+		setWeekStats({...data.payload})
+	  console.log('state week stats :',weekStats)
 		return data.payload;
 	  }
-	  console.log('state all stats :',allStats)
-	  console.log('state week stats :',weekStats)
 
 	React.useEffect( () => {
 		getAllStats(auth.currentUser.uid);
 		getWeekStats(auth.currentUser.uid)
 	  }, []);
+
 	return (
     <View style={styles.dashboardContainer}>
       <View style={styles.dashboardrowContainer}>
@@ -52,12 +56,12 @@ export default function HomeScreen({ styles }) {
         <View style={styles.dashboardSquare3}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>Last week</Text>
-          <Text style={styles.dashboardPrice}>13%</Text>
+          <Text style={styles.dashboardPrice}>{weekStats.wastedPercentage}%</Text>
         </View>
         <View style={styles.dashboardSquare4}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>All time</Text>
-          <Text style={styles.dashboardPrice}>25%</Text>
+          <Text style={styles.dashboardPrice}>{allStats.wastedPercentage}%</Text>
         </View>
       </View>
     </View>

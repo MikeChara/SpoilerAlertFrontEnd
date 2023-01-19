@@ -12,13 +12,11 @@ function MainContainer({ styles }) {
 
   useEffect(() => {
     async function getUserFood(uid) {
-      console.log('maincontainer has been called on mount', backend_link)
       const allFood = await fetch(
         `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
       );
       const data = await allFood.json();
       const food = data.payload;
-      console.log('mainContainer fetch :', data.payload)
       setFoodList(food);
     }
     getUserFood(auth.currentUser.uid);

@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+
 function ManualModal({ setModalVisible, modalVisible, NavigationContainer }) {
   const onPressAddManually = () => {
     setModalVisible(!modalVisible);
