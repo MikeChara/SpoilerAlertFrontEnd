@@ -3,6 +3,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { navigationRef } from "./ModalNavigate.js";
 
 // Screens
 import PlaceHolder from "../screens/PlaceHolder";
@@ -16,13 +17,12 @@ const pantryName = "Pantry";
 const addItemName = "Add Item";
 const homeName = "Home";
 const profileName = "Profile";
-
 const Tab = createBottomTabNavigator();
 
 function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
   // Tab navigator will select one of the screens from the navbar when 'focused' is true
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Tab.Navigator
         initialRouteName={homeName}
         screenOptions={({ route }) => ({

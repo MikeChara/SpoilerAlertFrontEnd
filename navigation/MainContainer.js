@@ -1,26 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { backend_link } from "@env";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
-import { StyleSheet, View } from "react-native";
-
-// Screens
-import HomeScreen from "../screens/HomeScreen";
-import PantryScreen from "../screens/PantryScreen";
-import AddItemScreen from "../screens/AddItemScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import { applyActionCode } from "firebase/auth";
-
-//Screen names
-const pantryName = "Pantry";
-const addItemName = "Add Item";
-const homeName = "Home";
-const profileName = "Profile";
-
+import { View } from "react-native";
+import { backend_link } from "@env";
 
 
 function MainContainer({ styles }) {
@@ -50,19 +33,11 @@ function MainContainer({ styles }) {
         <ManualModal
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
+          styles={styles}
+          navigation={Tabs}
         />
       </View>
     </View>
   );
 }
 export default MainContainer;
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    zIndex: 1,
-  },
-});

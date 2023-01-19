@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useState } from "react";
 import MainContainer from "./MainContainer";
 import AuthContainer from "./AuthContainer";
@@ -95,6 +95,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+  },
+  DatePickerAtRendercontainer: {
+    minHeight: 16,
+    backgroundColor: 0,
+    width: "80%",
   },
 
   editButton: {},

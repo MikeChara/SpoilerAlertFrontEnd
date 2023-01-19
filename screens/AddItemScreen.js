@@ -1,7 +1,6 @@
 // MAIN CONTAINER > ADDITEMSCREEN
-
 import React, { useState } from "react";
-import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
+import { View, Text, Pressable, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase-config";

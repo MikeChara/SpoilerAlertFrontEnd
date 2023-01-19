@@ -2,7 +2,6 @@ import * as React from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import { Input, Layout } from "@ui-kitten/components";
 
 export default function ProfileScreen({ styles }) {
