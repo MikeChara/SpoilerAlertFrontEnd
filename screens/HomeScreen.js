@@ -5,58 +5,39 @@ import { auth } from "../firebase-config";
 import { backend_link } from "@env";
 
 export default function HomeScreen({ styles }) {
-  const [allStats, setAllStats] = React.useState([]);
-  const [weekStats, setWeekStats] = React.useState([]);
+	const [allStats, setAllStats] = React.useState([]);
+	const [weekStats, setWeekStats] = React.useState([]);
+  console.log(backend_link)
+	 async function getAllStats(uid) {
+    console.log('get ALL stats fired')
+		const allFood = await fetch(
+		  `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
+		);
+		const data = await allFood.json();
+		console.log('all stats :',data.payload)
+		setAllStats({...data.payload})
+    console.log('state all stats :',allStats)
+		return data.payload;
+	  }
+	  async function getWeekStats(uid) {
+      console.log('get WEEK stats fired')
 
-  async function getAllStats(uid) {
-    const allFood = await fetch(
-      `${backend_link}/allEatenAndWasted/${auth.currentUser.uid}`
-    );
-    const data = await allFood.json();
-    console.log("all stats :", data.payload);
-    setAllStats([...data.payload]);
-    return data.payload;
-  }
-  async function getWeekStats(uid) {
-    const allFood = await fetch(
-      `${backend_link}/weekEatenWasted/${auth.currentUser.uid}`
-    );
-    const data = await allFood.json();
-    console.log("week stats :", data.payload);
-    setWeekStats([...data.payload]);
-    return data.payload;
-  }
-  console.log("state all stats :", allStats);
-  console.log("state week stats :", weekStats);
-  const [allStats, setAllStats] = React.useState([]);
-  const [weekStats, setWeekStats] = React.useState([]);
-  console.log(backend_link);
-  async function getAllStats(uid) {
-    const allFood = await fetch(
-      `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
-    );
-    const data = await allFood.json();
-    console.log("all stats :", data.payload);
-    setAllStats([...data.payload]);
-    return data.payload;
-  }
-  async function getWeekStats(uid) {
-    const allFood = await fetch(
-      `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
-    );
-    const data = await allFood.json();
-    console.log("week stats :", data.payload);
-    setWeekStats([...data.payload]);
-    return data.payload;
-  }
-  console.log("state all stats :", allStats);
-  console.log("state week stats :", weekStats);
+      const allFood = await fetch(
+		  `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
+		);
+		const data = await allFood.json();
+		console.log('week stats :',data.payload)
+		setWeekStats({...data.payload})
+	  console.log('state week stats :',weekStats)
+		return data.payload;
+	  }
 
-  React.useEffect(() => {
-    getAllStats(auth.currentUser.uid);
-    getWeekStats(auth.currentUser.uid);
-  }, []);
-  return (
+	React.useEffect( () => {
+		getAllStats(auth.currentUser.uid);
+		getWeekStats(auth.currentUser.uid)
+	  }, []);
+
+	return (
     <View style={styles.dashboardContainer}>
       <Text style={styles.dashboardWelcome}>Hi, [username here]</Text>
       <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
@@ -77,12 +58,12 @@ export default function HomeScreen({ styles }) {
         <View style={styles.dashboardSquare3}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>Last week</Text>
-          <Text style={styles.dashboardPrice}>13%</Text>
+          <Text style={styles.dashboardPrice}>{weekStats.wastedPercentage}%</Text>
         </View>
         <View style={styles.dashboardSquare4}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>All time</Text>
-          <Text style={styles.dashboardPrice}>25%</Text>
+          <Text style={styles.dashboardPrice}>{allStats.wastedPercentage}%</Text>
         </View>
       </View>
     </View>
