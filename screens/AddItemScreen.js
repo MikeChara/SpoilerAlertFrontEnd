@@ -5,7 +5,7 @@ import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase-config";
-import { PORT, myIP } from "@env";
+import { myIP } from "@env";
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {
@@ -16,20 +16,25 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
-    const Userthings = await fetch(`http://${myIP}:${PORT}/addItem/${uid}`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        price: price,
-        name: item,
-        expires_on: date,
-      }),
-    });
+    const Userthings = await fetch(
+      `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          price: price,
+          name: item,
+          expires_on: date,
+        }),
+      }
+    );
 
-    const allFood = await fetch(`http://${myIP}:${PORT}/pantry/${uid}`);
+    const allFood = await fetch(
+      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+    );
     const data = await allFood.json();
     const food = data.payload;
     setFoodList(food);
