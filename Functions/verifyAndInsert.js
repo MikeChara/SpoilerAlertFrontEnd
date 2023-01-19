@@ -4,7 +4,7 @@ import { backend_link } from "@env";
 
 export default async function verifyAndInsert(user) {
   const Userthings = await fetch(
-    `${backend_link}/userVerify`,
+    `https://spoiler-alert-backend.onrender.com/userVerify`,
     {
       method: "POST",
       headers: {

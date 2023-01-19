@@ -12,7 +12,7 @@ export default function FoodList({ name, expiry, id, setFoodList, index, foodLis
   
   async function userEaten(food_id, uid) {
     const Userthings = await fetch(
-      `${backend_link}/eatFood/${food_id}`,
+      `https://spoiler-alert-backend.onrender.com/eatFood/${food_id}`,
       {
         method: "PATCH",
         headers: {

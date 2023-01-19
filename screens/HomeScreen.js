@@ -28,6 +28,29 @@ export default function HomeScreen({ styles }) {
   }
   console.log("state all stats :", allStats);
   console.log("state week stats :", weekStats);
+  const [allStats, setAllStats] = React.useState([]);
+  const [weekStats, setWeekStats] = React.useState([]);
+  console.log(backend_link);
+  async function getAllStats(uid) {
+    const allFood = await fetch(
+      `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
+    );
+    const data = await allFood.json();
+    console.log("all stats :", data.payload);
+    setAllStats([...data.payload]);
+    return data.payload;
+  }
+  async function getWeekStats(uid) {
+    const allFood = await fetch(
+      `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
+    );
+    const data = await allFood.json();
+    console.log("week stats :", data.payload);
+    setWeekStats([...data.payload]);
+    return data.payload;
+  }
+  console.log("state all stats :", allStats);
+  console.log("state week stats :", weekStats);
 
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid);
