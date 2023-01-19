@@ -3,12 +3,15 @@ import React, { useEffect } from "react";
 import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { myIP } from "@env";
+import { backend_link } from "@env";
 
-export default function FoodList({ name, expiry, id, setFoodList }) {
+export default function FoodList({ name, expiry, id, setFoodList, index, foodList }) {
+
+
+  
   async function userEaten(food_id, uid) {
     const Userthings = await fetch(
-      `https://spoiler-alert-backend.onrender.com/eatFood/${food_id}`,
+      `${backend_link}/eatFood/${food_id}`,
       {
         method: "PATCH",
         headers: {
@@ -17,17 +20,13 @@ export default function FoodList({ name, expiry, id, setFoodList }) {
         },
       }
     );
-    const allFood = await fetch(
-      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
-    );
-    const data = await allFood.json();
-    const food = data.payload;
-    setFoodList(food);
+    setFoodList([...foodList.slice(0, index), ...foodList.slice(index+1, foodList.length)])
+
   }
 
   async function userBinned(food_id, uid) {
     const Userthings = await fetch(
-      `https://spoiler-alert-backend.onrender.com/binFood/${food_id}`,
+      `${backend_link}/binFood/${food_id}`,
       {
         method: "PATCH",
         headers: {
@@ -36,12 +35,8 @@ export default function FoodList({ name, expiry, id, setFoodList }) {
         },
       }
     );
-    const allFood = await fetch(
-      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
-    );
-    const data = await allFood.json();
-    const food = data.payload;
-    setFoodList(food);
+    setFoodList([...foodList.slice(0, index), ...foodList.slice(index+1, foodList.length)])
+
   }
   return (
     <ListItem.Swipeable

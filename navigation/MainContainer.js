@@ -3,9 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
-import { myIP } from "@env";
+import { backend_link } from "@env";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
+import { StyleSheet, View } from "react-native";
 
 // Screens
 import HomeScreen from "../screens/HomeScreen";
@@ -29,7 +30,7 @@ function MainContainer({ styles }) {
   useEffect(() => {
     async function getUserFood(uid) {
       const allFood = await fetch(
-        `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+        `${backend_link}/pantry/${uid}`
       );
       const data = await allFood.json();
       const food = data.payload;
