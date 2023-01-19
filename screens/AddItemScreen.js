@@ -1,9 +1,10 @@
 // MAIN CONTAINER > ADDITEMSCREEN
 import React, { useState } from "react";
-import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
+import { View, Text, Pressable, TextInput } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase-config";
+import { backend_link } from "@env";
 
 //props coming from MainContainer
 export default function AddItemScreen({ foodList, setFoodList, styles }) {
@@ -15,7 +16,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
     const Userthings = await fetch(
-      `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
+      `${backend_link}/addItem/${uid}`,
       {
         method: "POST",
         headers: {
@@ -31,7 +32,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
     );
 
     const allFood = await fetch(
-      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+      `${backend_link}/pantry/${uid}`
     );
     const data = await allFood.json();
     const food = data.payload;

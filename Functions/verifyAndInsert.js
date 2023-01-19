@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { myIP } from "@env";
+import { backend_link } from "@env";
 
 export default async function verifyAndInsert(user) {
   const Userthings = await fetch(
-    `https://spoiler-alert-backend.onrender.com/userVerify`,
+    `${backend_link}/userVerify`,
     {
       method: "POST",
       headers: {

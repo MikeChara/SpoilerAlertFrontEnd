@@ -7,7 +7,7 @@ import { auth } from "../firebase-config";
 export default function Pantry({ setFoodList, foodList, styles }) {
   //this is a mutable change without using setState - seems dodgy no?
   let todaysDate = new Date();
-
+  console.log(auth.currentUser.uid)
   return (
     <View style={styles.pagestyle}>
       <View style={styles.displaybox}>
@@ -15,7 +15,7 @@ export default function Pantry({ setFoodList, foodList, styles }) {
           <Text style={styles.subtitle}> Total: ({foodList.length} items)</Text>
           <FlatList
             data={foodList}
-            renderItem={({ item }) => {
+            renderItem={({ item, index }) => {
               //calculates days left until expiry
               let expiryDate = new Date(item.expires_on);
               let msleft = expiryDate.getTime() - todaysDate.getTime();
@@ -29,6 +29,7 @@ export default function Pantry({ setFoodList, foodList, styles }) {
                     foodList={foodList}
                     setFoodList={setFoodList}
                     id={item.id}
+                    index={index}
                   />
                 </GestureHandlerRootView>
               );

@@ -3,6 +3,8 @@ import { auth } from "../firebase-config";
 import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
 import { View } from "react-native";
+import { backend_link } from "@env";
+
 
 function MainContainer({ styles }) {
   const [foodList, setFoodList] = useState([]);
@@ -11,7 +13,7 @@ function MainContainer({ styles }) {
   useEffect(() => {
     async function getUserFood(uid) {
       const allFood = await fetch(
-        `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+        `${backend_link}/pantry/${uid}`
       );
       const data = await allFood.json();
       const food = data.payload;
@@ -38,5 +40,4 @@ function MainContainer({ styles }) {
     </View>
   );
 }
-
 export default MainContainer;
