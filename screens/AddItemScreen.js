@@ -31,9 +31,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
       }
     );
 
-    const allFood = await fetch(
-      `${backend_link}/pantry/${uid}`
-    );
+    const allFood = await fetch(`${backend_link}/pantry/${uid}`);
     const data = await allFood.json();
     const food = data.payload;
     setFoodList(food);
@@ -51,7 +49,11 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
       <Text style={styles.addpagetext}> Expiry Date</Text>
 
-      <DatepickerSimpleUsageShowcase setDate={setDate} date={date} />
+      <DatepickerSimpleUsageShowcase
+        styles={styles}
+        setDate={setDate}
+        date={date}
+      />
       <Text style={styles.addpagetext}> Add Price</Text>
 
       <TextInput

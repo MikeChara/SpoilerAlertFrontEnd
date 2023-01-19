@@ -14,7 +14,7 @@ import {
 function ManualModal({ setModalVisible, modalVisible }) {
   const onPressAddManually = () => {
     setModalVisible(!modalVisible);
-    ModalNavigation.navigate("Home");
+    ModalNavigation.navigate("Add Item");
   };
   return (
     <View style={styles.centeredView}>
