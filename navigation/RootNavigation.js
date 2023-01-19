@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 80,
     borderRadius: 20,
     elevation: 0,
-    backgroundColor: "#5951B7",
+    backgroundColor: "#0E7835",
   },
 
   purplebuttontext: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     letterSpacing: 0.25,
     color: "white",
-    marginLeft: 18,
+    marginLeft: "12%",
   },
 
   dashboardSubtitle: {

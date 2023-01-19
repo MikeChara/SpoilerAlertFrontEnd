@@ -27,7 +27,7 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
       <Tab.Navigator
         initialRouteName={homeName}
         screenOptions={({ route }) => ({
-          tabBarActiveTintColor: "purple",
+          tabBarActiveTintColor: "#0E7835",
           tabBarInactiveTintColor: "grey",
           tabBarLabelStyle: {
             paddingBottom: 4,
