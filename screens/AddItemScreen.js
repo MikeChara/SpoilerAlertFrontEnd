@@ -16,7 +16,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   const navigation = useNavigation();
   async function addFood(price, item, date, uid) {
     const Userthings = await fetch(
-      `${backend_link}/addItem/${uid}`,
+      `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
       {
         method: "POST",
         headers: {
