@@ -9,7 +9,6 @@ import { LogBox } from "react-native";
 LogBox.ignoreAllLogs();
 
 function App() {
-  console.log("Dave");
   return (
     <ApplicationProvider {...eva} theme={eva.light}>
       <RootNavigation />
