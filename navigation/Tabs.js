@@ -1,9 +1,8 @@
 // ROOT CONTAINER > MAIN CONTAINER
 
-import { NavigationContainer } from "@react-navigation/native";
+// import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { navigationRef } from "./ModalNavigate.js";
 
 // Screens
 import PlaceHolder from "../screens/PlaceHolder";
@@ -32,7 +31,6 @@ function Tabs({
 }) {
 	// Tab navigator will select one of the screens from the navbar when 'focused' is true
 	return (
-		<NavigationContainer ref={navigationRef}>
 			<Tab.Navigator
 				initialRouteName={homeName}
 				screenOptions={({ route }) => ({
@@ -174,7 +172,6 @@ function Tabs({
 					}}
 				/>
 			</Tab.Navigator>
-		</NavigationContainer>
 	);
 }
 
