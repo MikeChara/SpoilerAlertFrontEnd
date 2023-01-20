@@ -50,6 +50,10 @@ export default function SignUpScreen({ styles }) {
         <Pressable style={styles.purplebutton} onPress={handleSignUp}>
           <Text style={styles.purplebuttontext}>Sign Up</Text>
         </Pressable>
+        <Text>
+          Currently only accepting .com emails. Passwords must be 8 characters
+          or longer.
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );
