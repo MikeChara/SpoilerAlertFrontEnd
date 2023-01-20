@@ -4,11 +4,10 @@ import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { Input, Layout } from "@ui-kitten/components";
 
-export default function ProfileScreen({ styles }) {
+export default function ProfileScreen({ styles, userDetails }) {
   async function HandleSignOut() {
     await signOut(auth);
   }
-
   return (
     <View style={styles.wholepagecontainer}>
       <Image
@@ -35,6 +34,12 @@ export default function ProfileScreen({ styles }) {
         style={styles.textinput}
         disabled={true}
         placeholder={auth.currentUser.email}
+      />
+      <Text style={styles.subtitle}>Your House</Text>
+      <Input
+        style={styles.textinput}
+        disabled={true}
+        placeholder={userDetails[0].name}
       />
       {/* <Text style={styles.subtitle}>Full name</Text>
       <Input
