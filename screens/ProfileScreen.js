@@ -10,44 +10,54 @@ export default function ProfileScreen({ styles }) {
   }
 
   return (
-    <View style={styles.wholepagecontainer}>
-      <Image
-        source={require("./Cranks-1.png")}
-        style={{ width: 120, height: 120, backgroundColor: "red" }}
-      />
-      <Text style={{ fontSize: 26, fontWeight: "bold" }}>
-        {auth.currentUser.displayName}
-      </Text>
-      {/* <Text style={{ fontSize: 14, padding: 5 }}>
-        @{auth.currentUser.displayName}
-      </Text> */}
-      <Pressable style={styles.purplebutton}>
-        <Text style={styles.purplebuttontext}>Edit Profile</Text>
-      </Pressable>
-      <Text style={styles.subtitle}>Username</Text>
-      <Input
-        style={styles.textinput}
-        disabled={true}
-        placeholder={auth.currentUser.displayName}
-      />
-      <Text style={styles.subtitle}>Email</Text>
-      <Input
-        style={styles.textinput}
-        disabled={true}
-        placeholder={auth.currentUser.email}
-      />
-      {/* <Text style={styles.subtitle}>Full name</Text>
-      <Input
-        style={styles.textinput}
-        disabled={true}
-        placeholder={auth.currentUser.displayName}
-      /> */}
-      <Pressable
-        style={{ ...styles.purplebutton, marginTop: 8 }}
-        onPress={HandleSignOut}
-      >
-        <Text style={styles.purplebuttontext}>Sign Out</Text>
-      </Pressable>
-    </View>
+    <>
+      <View style={styles.profilepagecontainer}>
+        <View style={{ backgroundColor: "red", top: 0, margin: 0 }}>
+          <Image
+            source={require("../assets/foodiconbg.png")}
+            style={{
+              width: 400,
+              height: 100,
+              opacity: 0.5,
+            }}
+          />
+        </View>
+        <Image
+          source={require("./Cranks-1.png")}
+          style={{
+            width: 120,
+            height: 120,
+            top: 40,
+            position: "absolute",
+          }}
+        />
+      </View>
+      <View style={{ ...styles.profilepagecontainer, top: 70 }}>
+        <Text style={{ fontSize: 26, fontWeight: "bold" }}>
+          {auth.currentUser.displayName}
+        </Text>
+        <Pressable style={styles.purplebutton}>
+          <Text style={styles.purplebuttontext}>Edit Profile</Text>
+        </Pressable>
+        <Text style={styles.subtitle}>Username</Text>
+        <Input
+          style={styles.textinput}
+          disabled={true}
+          placeholder={auth.currentUser.displayName}
+        />
+        <Text style={styles.subtitle}>Email</Text>
+        <Input
+          style={styles.textinput}
+          disabled={true}
+          placeholder={auth.currentUser.email}
+        />
+        <Pressable
+          style={{ ...styles.purplebutton, marginTop: 8 }}
+          onPress={HandleSignOut}
+        >
+          <Text style={styles.purplebuttontext}>Sign Out</Text>
+        </Pressable>
+      </View>
+    </>
   );
 }
