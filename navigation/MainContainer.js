@@ -4,18 +4,20 @@ import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
 import { View } from "react-native";
 import { backend_link } from "@env";
-import { getUserFood } from "../Fetches/getRequests";
+import { getUserFood, getUserDetails } from "../Fetches/getRequests";
 
 function MainContainer({ styles }) {
   const [foodList, setFoodList] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [allStats, setAllStats] = useState([]);
-	const [weekStats, setWeekStats] = useState([]);
+  const [weekStats, setWeekStats] = useState([]);
+  const [userDetails, setUserDetails] = useState([]);
 
-  useEffect( () => {
+  useEffect(() => {
     getUserFood(auth.currentUser.uid, setFoodList);
+    getUserDetails(auth.currentUser.uid, setUserDetails);
   }, []);
-  
+
   return (
     <View style={{ flex: 1 }}>
       <Tabs
@@ -27,6 +29,7 @@ function MainContainer({ styles }) {
         setAllStats={setAllStats}
         weekStats={weekStats}
         setWeekStats={setWeekStats}
+        userDetails={userDetails}
       />
       <View style={styles.modalContainer}>
         <ManualModal
