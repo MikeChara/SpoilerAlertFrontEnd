@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as ModalNavigation from "../navigation/ModalNavigate.js";
+import { useNavigation } from "@react-navigation/native";
 import {
   Alert,
   Modal,
@@ -16,6 +17,11 @@ function ManualModal({ setModalVisible, modalVisible }) {
     setModalVisible(!modalVisible);
     ModalNavigation.navigate("Add Item");
   };
+  const onPressAddScan = () => {
+    setModalVisible(!modalVisible);
+    ModalNavigation.navigate("Scan");
+  };
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -40,7 +46,10 @@ function ManualModal({ setModalVisible, modalVisible }) {
           >
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Update Options</Text>
-              <Pressable style={[styles.button, styles.buttonClose]}>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={onPressAddScan}
+              >
                 <Text style={styles.textStyle}>Scan Receipt</Text>
               </Pressable>
               <Pressable
