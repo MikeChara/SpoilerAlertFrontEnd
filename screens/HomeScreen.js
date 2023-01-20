@@ -1,6 +1,5 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-// import { getAllWasted } from "../GetRequests/GetHome";
 import { auth } from '../firebase-config'
 import { backend_link } from "@env";
 import { getAllStats, getWeekStats } from "../Fetches/getRequests";
@@ -16,6 +15,10 @@ export default function HomeScreen({ styles, foodList, allStats, setAllStats, we
 
 	return (
     <View style={styles.dashboardContainer}>
+      <Text style={styles.dashboardWelcome}>
+        Hi {auth.currentUser.displayName}!
+      </Text>
+      <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
       <View style={styles.dashboardrowContainer}>
         <View style={styles.dashboardSquare1}>
           <Text style={styles.dashboardSubtitle}>Total Savings</Text>
