@@ -20,7 +20,16 @@ const homeName = "Home";
 const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 
-function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
+function Tabs({
+  styles,
+  foodList,
+  setFoodList,
+  setModalVisible,
+  allStats,
+  setAllStats,
+  weekStats,
+  setWeekStats,
+}) {
   // Tab navigator will select one of the screens from the navbar when 'focused' is true
   return (
     <NavigationContainer ref={navigationRef}>
@@ -64,7 +73,15 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
       >
         <Tab.Screen
           name={homeName}
-          children={() => <HomeScreen styles={styles} />}
+          children={() => (
+            <HomeScreen
+              styles={styles}
+              allStats={allStats}
+              setAllStats={setAllStats}
+              weekStats={weekStats}
+              setWeekStats={setWeekStats}
+            />
+          )}
           options={{
             title: "Home",
             headerStyle: {
@@ -86,6 +103,10 @@ function Tabs({ styles, foodList, setFoodList, setModalVisible }) {
               foodList={foodList}
               setFoodList={setFoodList}
               styles={styles}
+              allStats={allStats}
+              setAllStats={setAllStats}
+              weekStats={weekStats}
+              setWeekStats={setWeekStats}
             />
           )}
           options={{
