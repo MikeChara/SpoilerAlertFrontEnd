@@ -1,6 +1,7 @@
 import * as React from "react";
 // import MainContainer from "./navigation/MainContainer";
 import RootNavigation from "./navigation/RootNavigation";
+import { styles } from "./styles.js";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
 import { LogBox } from "react-native";
@@ -9,11 +10,11 @@ import { LogBox } from "react-native";
 LogBox.ignoreAllLogs();
 
 function App() {
-  return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <RootNavigation />
-    </ApplicationProvider>
-  );
+	return (
+		<ApplicationProvider {...eva} theme={eva.light}>
+			<RootNavigation styles={styles} />
+		</ApplicationProvider>
+	);
 }
 
 export default App;
