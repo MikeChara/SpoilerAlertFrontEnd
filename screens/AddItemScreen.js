@@ -1,6 +1,13 @@
 // MAIN CONTAINER > ADDITEMSCREEN
 import React, { useState } from "react";
-import { View, Text, Pressable, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
 import { auth } from "../firebase-config";
@@ -38,40 +45,42 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
   }
 
   return (
-    <View style={styles.pagestyle}>
-      <Text style={styles.addpagetext}> Item</Text>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.pagestyle}>
+        <Text style={styles.addpagetext}> Item</Text>
 
-      <TextInput
-        style={styles.textinput}
-        placeholder="Enter item"
-        onChangeText={(text) => setItem(text)}
-      />
+        <TextInput
+          style={styles.textinput}
+          placeholder="Enter item"
+          onChangeText={(text) => setItem(text)}
+        />
 
-      <Text style={styles.addpagetext}> Expiry Date</Text>
+        <Text style={styles.addpagetext}> Expiry Date</Text>
 
-      <DatepickerSimpleUsageShowcase
-        styles={styles}
-        setDate={setDate}
-        date={date}
-      />
-      <Text style={styles.addpagetext}> Add Price</Text>
+        <DatepickerSimpleUsageShowcase
+          styles={styles}
+          setDate={setDate}
+          date={date}
+        />
+        <Text style={styles.addpagetext}> Add Price</Text>
 
-      <TextInput
-        style={styles.textinput}
-        placeholder="£"
-        keyboardType={"decimal-pad"}
-        onChangeText={(price) =>
-          priceRegex.test(price)
-            ? setPrice(price)
-            : alert("Please enter valid price")
-        }
-      />
-      <Pressable
-        style={styles.purplebutton}
-        onPress={() => addFood(price, item, date, auth.currentUser.uid)}
-      >
-        <Text style={styles.purplebuttontext}>Add</Text>
-      </Pressable>
-    </View>
+        <TextInput
+          style={styles.textinput}
+          placeholder="£"
+          keyboardType={"decimal-pad"}
+          onChangeText={(price) =>
+            priceRegex.test(price)
+              ? setPrice(price)
+              : alert("Please enter valid price")
+          }
+        />
+        <Pressable
+          style={styles.purplebutton}
+          onPress={() => addFood(price, item, date, auth.currentUser.uid)}
+        >
+          <Text style={styles.purplebuttontext}>Add</Text>
+        </Pressable>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }

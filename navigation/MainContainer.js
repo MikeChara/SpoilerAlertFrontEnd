@@ -19,8 +19,8 @@ function MainContainer({ styles }) {
   useEffect(() => {
     getUserFood(auth.currentUser.uid, setFoodList);
   }, []);
-
   const Stack = createStackNavigator();
+
 
   return (
     <View style={{ flex: 1 }}>

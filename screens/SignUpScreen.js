@@ -1,4 +1,11 @@
-import { Text, View, TextInput, Pressable } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase-config";
@@ -18,30 +25,36 @@ export default function SignUpScreen({ styles }) {
   }
 
   return (
-    <View style={styles.wholepagecontainer}>
-      <Text>Sign Up Here...</Text>
-      <TextInput
-        style={styles.textinput}
-        placeholder="Name"
-        value={displayName}
-        onChangeText={(text) => setDisplayName(text)}
-      />
-      <TextInput
-        style={styles.textinput}
-        placeholder="Email"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-      />
-      <TextInput
-        style={styles.textinput}
-        placeholder="Password"
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry
-      />
-      <Pressable style={styles.purplebutton} onPress={handleSignUp}>
-        <Text style={styles.purplebuttontext}>Sign Up</Text>
-      </Pressable>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.wholepagecontainer}>
+        <Text>Sign Up Here...</Text>
+        <TextInput
+          style={styles.textinput}
+          placeholder="Name"
+          value={displayName}
+          onChangeText={(text) => setDisplayName(text)}
+        />
+        <TextInput
+          style={styles.textinput}
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          style={styles.textinput}
+          placeholder="Password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry
+        />
+        <Pressable style={styles.purplebutton} onPress={handleSignUp}>
+          <Text style={styles.purplebuttontext}>Sign Up</Text>
+        </Pressable>
+        <Text>
+          Currently only accepting .com emails. Passwords must be 8 characters
+          or longer.
+        </Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
