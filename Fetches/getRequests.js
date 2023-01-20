@@ -31,7 +31,6 @@ export async function getWeekStats(uid, setAllStats) {
 
 //gets user DB details
 export async function getUserDetails(uid, setUserDetails) {
-  console.log("fired getuser");
   const userDetails = await fetch(
     `https://spoiler-alert-backend.onrender.com/userDetailsRouter/${uid}`
   );

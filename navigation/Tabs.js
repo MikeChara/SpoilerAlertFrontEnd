@@ -29,7 +29,6 @@ function Tabs({
   setAllStats,
   weekStats,
   setWeekStats,
-  userDetails,
 }) {
   // Tab navigator will select one of the screens from the navbar when 'focused' is true
   return (
@@ -153,9 +152,7 @@ function Tabs({
         />
         <Tab.Screen
           name={profileName}
-          children={() => (
-            <ProfileScreen styles={styles} userDetails={userDetails} />
-          )}
+          children={() => <ProfileScreen styles={styles} />}
         />
       </Tab.Navigator>
     </NavigationContainer>

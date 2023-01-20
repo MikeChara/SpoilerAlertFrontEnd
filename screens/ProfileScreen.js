@@ -3,11 +3,18 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { Input, Layout } from "@ui-kitten/components";
+import { getUserDetails } from "../Fetches/getRequests";
+import { useState, useEffect } from "react";
 
-export default function ProfileScreen({ styles, userDetails }) {
+export default function ProfileScreen({ styles }) {
+  const [userDetails, setUserDetails] = useState([]);
   async function HandleSignOut() {
     await signOut(auth);
   }
+  useEffect(() => {
+    getUserDetails(auth.currentUser.uid, setUserDetails);
+  }, []);
+
   return (
     <>
       <View style={styles.profilepagecontainer}>
@@ -51,11 +58,11 @@ export default function ProfileScreen({ styles, userDetails }) {
           placeholder={auth.currentUser.email}
         />
         <Text style={styles.subtitle}>Your House</Text>
-      <Input
-        style={styles.textinput}
-        disabled={true}
-        placeholder={userDetails[0].name}
-      />
+        <Input
+          style={styles.textinput}
+          disabled={true}
+          placeholder={userDetails[0]?.name}
+        />
         <Pressable
           style={{ ...styles.purplebutton, marginTop: 8 }}
           onPress={HandleSignOut}
