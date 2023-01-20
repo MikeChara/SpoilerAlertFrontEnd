@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
@@ -16,24 +24,26 @@ export default function SignInScreen({ styles }) {
   }
 
   return (
-    <View style={styles.wholepagecontainer}>
-      <Text>Sign In Here..</Text>
-      <TextInput
-        style={styles.textinput}
-        placeholder="Email"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-      />
-      <TextInput
-        style={styles.textinput}
-        placeholder="Password"
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry
-      />
-      <Pressable style={styles.purplebutton} onPress={handleSignIn}>
-        <Text style={styles.purplebuttontext}>Sign In</Text>
-      </Pressable>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.wholepagecontainer}>
+        <Text>Sign In Here..</Text>
+        <TextInput
+          style={styles.textinput}
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          style={styles.textinput}
+          placeholder="Password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry
+        />
+        <Pressable style={styles.purplebutton} onPress={handleSignIn}>
+          <Text style={styles.purplebuttontext}>Sign In</Text>
+        </Pressable>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
