@@ -22,8 +22,6 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   const priceRegex = /^\d+(\.\d{1,2})?$/;
 
-  const navigation = useNavigation();
-
   function addPriceButtonHandle() {
     if (priceRegex.test(price)) {
       addFood(price, item, date, auth.currentUser.uid);
@@ -50,8 +48,9 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
         }),
       }
     );
-
-    const allFood = await fetch(`${backend_link}/pantry/${uid}`);
+    const allFood = await fetch(
+      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+    );
     const data = await allFood.json();
     const food = data.payload;
     setFoodList(food);
@@ -84,7 +83,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           onChangeText={(price) => setPrice(price)}
         />
         <Pressable style={styles.purplebutton} onPress={addPriceButtonHandle}>
-          <Text style={styles.purplebuttontext}>Add</Text>
+          <Text style={styles.purplebuttontext}>Add Item Pantry</Text>
         </Pressable>
       </View>
     </TouchableWithoutFeedback>
