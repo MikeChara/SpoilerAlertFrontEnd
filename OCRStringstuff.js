@@ -77,8 +77,37 @@ let stringArr = [
 // let priceArr = stringArr.filter((e)=> e.charAt(0) === '£' && Number(e.charAt(priceArr[0].length-1)) != NaN )
 
 let priceArr = stringArr.filter(function(e) {
-   return e.charAt(0) === '£' && (Number(e.charAt(e.length-1)) != NaN)
+  let lastCharacter = e.charAt(e.length-1)
+  let toNumber = Number(lastCharacter)
+  // console.log('type is ',typeof(NaN))
+  if (e.charAt(0) === '£' && !isNaN(lastCharacter)){
+    return e
+  }  
 } )
 
+let itemsArr =[]
+for (let e of stringArr){
+  if (e.match(/^[A-Z\s]+$/)){
+    itemsArr.push(e)
+  }
+ else if (e.slice(0, e.length-2).match(/^[A-Z\s]+$/)) {
+    itemsArr.push(e.slice(0, e.length-2))
+  }
+}
 
-console.log(priceArr)
+let masterArr = []
+
+for (let i = 0; i < itemsArr.length; i++){
+  let obj = {name: itemsArr[i], price: priceArr[i]}
+  // console.log(obj)
+  masterArr.push(obj)
+}
+
+// let itemsArr = stringArr.filter(function(e){ 
+//   return e.match(/^[A-Z*\s]+$/) || e.slice(0, e.length-2).match(/^[A-Z\s]+$/)
+// })
+
+console.log(itemsArr,'number of items is ',itemsArr.length)
+console.log('number or prices is ', priceArr.length)
+console.log(Number(0))
+console.log(masterArr)
