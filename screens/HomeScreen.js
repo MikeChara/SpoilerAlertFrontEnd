@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { auth } from '../firebase-config'
 import { backend_link } from "@env";
 import { getAllStats, getWeekStats } from "../Fetches/getRequests";
+import Graph from "../Components/Graph";
 
 
 export default function HomeScreen({ styles, foodList, allStats, setAllStats, weekStats, setWeekStats }) {
