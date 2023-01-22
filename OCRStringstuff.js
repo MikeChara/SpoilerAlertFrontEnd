@@ -97,6 +97,9 @@ for (let e of stringArr){
 
 let masterArr = []
 
+//theres something satisfying about this for loop, its 
+//like splitting a deck of cards and then shuffling them 
+//perfectly together
 for (let i = 0; i < itemsArr.length; i++){
   let obj = {name: itemsArr[i], price: priceArr[i]}
   // console.log(obj)
