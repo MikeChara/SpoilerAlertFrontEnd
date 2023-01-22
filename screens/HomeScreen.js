@@ -21,12 +21,12 @@ export default function HomeScreen({ styles, foodList, allStats, setAllStats, we
       <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
       <View style={styles.dashboardrowContainer}>
         <View style={styles.dashboardSquare1}>
-          <Text style={styles.dashboardSubtitle}>Total Savings</Text>
+          <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
           <Text style={styles.textGray}>Last week</Text>
           <Text style={styles.dashboardPrice}>£32</Text>
         </View>
         <View style={styles.dashboardSquare2}>
-          <Text style={styles.dashboardSubtitle}>Total Savings</Text>
+          <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
           <Text style={styles.textGray}>All time</Text>
           <Text style={styles.dashboardPrice}>£264</Text>
         </View>

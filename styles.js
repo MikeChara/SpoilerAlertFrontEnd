@@ -30,6 +30,9 @@ export const styles = StyleSheet.create({
 		alignItems: "center",
 		textAlign: "left",
 	},
+	pantryStyle: {
+		backgroundColor: 0
+	},
 
 	subtitle: {
 		fontSize: 22,
@@ -232,4 +235,31 @@ export const styles = StyleSheet.create({
 		top: 50,
 		position: "absolute",
 	},
+	FLcomponent: {
+		// flex: 1,
+		flexDirection: 'row',
+		backgroundColor: "red",
+		// color: 'red',
+		// padding: 15,
+		// // borderRadius: 20,
+		width: '80%',
+		// marginHorizontal: -20,
+		// marginTop:10,
+		// opacity:0.5,
+		// margin: -4,
+            // borderColor: 'grey',
+            // borderWidth: 1,
+            // padding: 9,
+            // backgroundColor: 'white',
+	  },
+	  tinyLogo: {
+		width: 50,
+		height: 50,
+		borderRadius: 26,
+	  },
+	  icon: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	  },
 });
