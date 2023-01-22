@@ -83,7 +83,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           onChangeText={(price) => setPrice(price)}
         />
         <Pressable style={styles.purplebutton} onPress={addPriceButtonHandle}>
-          <Text style={styles.purplebuttontext}>Add Item Pantry</Text>
+          <Text style={styles.purplebuttontext}>Add Item to Pantry</Text>
         </Pressable>
       </View>
     </TouchableWithoutFeedback>
