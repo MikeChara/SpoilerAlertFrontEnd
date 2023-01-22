@@ -232,4 +232,18 @@ export const styles = StyleSheet.create({
 		top: 50,
 		position: "absolute",
 	},
+	horizontal: {
+		flex: 1,
+		flexDirection: 'row',
+	  },
+	  dashboardSquare0 :{
+		backgroundColor: "#DE4D28",
+		width: 320,
+		height: 150,
+		borderRadius: 10,
+		flex: 1,
+		margin: 20,
+		marginRight: 20,
+	  },
+
 });
