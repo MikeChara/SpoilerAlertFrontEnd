@@ -21,7 +21,6 @@ function MainContainer({ styles }) {
   }, []);
   const Stack = createStackNavigator();
 
-
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer ref={navigationRef}>
