@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+    alignSelf: "center",
   },
 
   addpagetext: {
@@ -224,7 +225,7 @@ export const styles = StyleSheet.create({
   profilepagecontainer: {
     paddingLeft: 40,
     paddingRight: 40,
-    alignItems: "center",
+    // alignItems: "center",
     top: 50,
   },
 
@@ -232,13 +233,14 @@ export const styles = StyleSheet.create({
     width: 130,
     height: 130,
     flex: 0,
+    alignSelf: "center",
   },
 
   editbutton: {
-    alignItems: "center",
     justifyContent: "center",
     width: 100,
     borderRadius: 13,
     backgroundColor: "grey",
+    alignSelf: "center",
   },
 });

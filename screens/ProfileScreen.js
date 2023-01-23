@@ -34,7 +34,7 @@ export default function ProfileScreen({ styles }) {
           style={styles.profilepicture}
         />
 
-        <Text style={{ fontSize: 26, fontWeight: "bold" }}>
+        <Text style={{ fontSize: 26, fontWeight: "bold", alignSelf: "center" }}>
           {auth.currentUser.displayName}
         </Text>
         <Pressable style={styles.editbutton}>
@@ -52,14 +52,14 @@ export default function ProfileScreen({ styles }) {
           disabled={true}
           placeholder={auth.currentUser.email}
         />
-        <Text style={styles.subtitle}>Your House</Text>
+        <Text style={styles.subtitle}>House</Text>
         <Input
           style={styles.textinput}
           disabled={true}
           placeholder={userDetails[0]?.name}
         />
         <Pressable
-          style={{ ...styles.purplebutton, marginTop: 8 }}
+          style={{ ...styles.purplebutton, marginTop: 120 }}
           onPress={HandleSignOut}
         >
           <Text style={styles.purplebuttontext}>Sign Out</Text>
