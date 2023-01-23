@@ -6,22 +6,22 @@ import { auth } from "../firebase-config";
 import verifyAndInsert from "../Functions/verifyAndInsert";
 
 export default function RootNavigation({ styles }) {
-	const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-	onAuthStateChanged(auth, (user) => {
-		if (user) {
-			// user is signed in
-			setLoggedIn(true);
-			verifyAndInsert(user.uid);
-		} else {
-			// User is signed out
-			setLoggedIn(false);
-		}
-	});
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // user is signed in
+      setLoggedIn(true);
+      verifyAndInsert(user.uid);
+    } else {
+      // User is signed out
+      setLoggedIn(false);
+    }
+  });
 
-	return loggedIn ? (
-		<MainContainer styles={styles} />
-	) : (
-		<AuthContainer styles={styles} />
-	);
+  return loggedIn ? (
+    <MainContainer styles={styles} />
+  ) : (
+    <AuthContainer styles={styles} />
+  );
 }

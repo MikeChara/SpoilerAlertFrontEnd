@@ -1,19 +1,23 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-import { auth } from '../firebase-config'
+import { auth } from "../firebase-config";
 import { backend_link } from "@env";
-import { getAllStats, getWeekStats } from "../Fetches/getRequests";
+import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 
+export default function HomeScreen({
+  styles,
+  foodList,
+  allStats,
+  setAllStats,
+  weekStats,
+  setWeekStats,
+}) {
+  React.useEffect(() => {
+    getAllStats(auth.currentUser.uid, setAllStats);
+    getWeekStats(auth.currentUser.uid, setWeekStats);
+  }, [foodList]);
 
-export default function HomeScreen({ styles, foodList, allStats, setAllStats, weekStats, setWeekStats }) {
-	
-  
-	React.useEffect( () => {
-		getAllStats(auth.currentUser.uid, setAllStats);
-		getWeekStats(auth.currentUser.uid, setWeekStats)
-	  }, [foodList]);
-
-	return (
+  return (
     <View style={styles.dashboardContainer}>
       <Text style={styles.dashboardWelcome}>
         Hi {auth.currentUser.displayName}!
@@ -35,12 +39,16 @@ export default function HomeScreen({ styles, foodList, allStats, setAllStats, we
         <View style={styles.dashboardSquare3}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>Last week</Text>
-          <Text style={styles.dashboardPrice}>{weekStats?.eatenPercentage}%</Text>
+          <Text style={styles.dashboardPrice}>
+            {weekStats?.eatenPercentage}%
+          </Text>
         </View>
         <View style={styles.dashboardSquare4}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
           <Text style={styles.textGray}>All time</Text>
-          <Text style={styles.dashboardPrice}>{weekStats?.wastedPercentage}%</Text>
+          <Text style={styles.dashboardPrice}>
+            {weekStats?.wastedPercentage}%
+          </Text>
         </View>
       </View>
     </View>
