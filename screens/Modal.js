@@ -8,6 +8,7 @@ import {
 	Pressable,
 	View,
 	TouchableOpacity,
+	Image,
 } from "react-native";
 
 function ManualModal({ setModalVisible, modalVisible, styles }) {
@@ -42,21 +43,35 @@ function ManualModal({ setModalVisible, modalVisible, styles }) {
 						style={styles.modalCenteredView}
 						onPress={() => setModalVisible(!modalVisible)}
 					>
-						<View style={styles.modalView}>
+						<View style={styles.modalParentView}>
 							<Text style={styles.modalText}>Add New Item</Text>
-
-							<View style={{ flex: 1, flexDirection: "row" }}>
+							<View style={styles.modalIcons}>
 								<Pressable
 									style={[styles.modalButtons, styles.buttonClose]}
 									onPress={onPressAddScan}
 								>
-									<Text style={styles.textStyle}>Scan Receipt</Text>
+									<Image
+										style={{
+											...styles.tinyCategoryIcon,
+											alignSelf: "center",
+										}}
+										source={require("../screens/Camera.png")}
+									/>
+									<Text style={styles.modalSmallText}>Scan Receipt</Text>
 								</Pressable>
+								<View style={styles.modalLine}></View>
 								<Pressable
 									style={[styles.modalButtons, styles.buttonClose]}
 									onPress={onPressAddManually}
 								>
-									<Text style={styles.textStyle}>Add Manually</Text>
+									<Image
+										style={{
+											...styles.tinyCategoryIcon,
+											alignSelf: "center",
+										}}
+										source={require("../screens/Form.png")}
+									/>
+									<Text style={styles.modalSmallText}>Add Manually</Text>
 								</Pressable>
 							</View>
 						</View>

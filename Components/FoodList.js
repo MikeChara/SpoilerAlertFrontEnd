@@ -47,7 +47,7 @@ export default function FoodList({
 			<ListItem.Swipeable
 				leftContent={(reset) => (
 					<Pressable
-						style={styles.icon}
+						style={styles.swipeIcon}
 						onPress={() => {
 							userEaten(id, auth.currentUser.uid);
 						}}
@@ -57,7 +57,7 @@ export default function FoodList({
 				)}
 				rightContent={(reset) => (
 					<Pressable
-						style={styles.icon}
+						style={styles.swipeIcon}
 						onPress={() => userBinned(id, auth.currentUser.uid)}
 					>
 						<Ionicons name='trash-bin-outline' size={30} color={"red"}></Ionicons>
@@ -67,7 +67,7 @@ export default function FoodList({
 				<View style={styles.pantryitemparentcontainer}>
 					<ListItem.Content>
 						<Image
-							style={styles.tinyLogo}
+							style={styles.tinyCategoryIcon}
 							source={require("../screens/Random.png")}
 						/>
 					</ListItem.Content>

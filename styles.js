@@ -189,13 +189,13 @@ export const styles = StyleSheet.create({
 		alignSelf: "center",
 	},
 
-	tinyLogo: {
+	tinyCategoryIcon: {
 		width: 50,
 		height: 50,
 		borderRadius: 26,
 	},
 
-	icon: {
+	swipeIcon: {
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
@@ -222,19 +222,10 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "flex-start",
-		backgroundColor: "antiquewhite",
+		backgroundColor: "orange",
 		width: "100%",
 		// padding: "2%",
 		borderRadius: 35,
-	},
-
-	modalContainer: {
-		position: "absolute",
-		bottom: 0,
-		left: 0,
-		right: 0,
-		zIndex: 1,
-		backgroundColor: "red",
 	},
 
 	modalCenteredView: {
@@ -242,7 +233,7 @@ export const styles = StyleSheet.create({
 		justifyContent: "flex-end",
 		alignItems: "center",
 		// backgroundColor: "green",
-		bottom: "8%",
+		bottom: "10%",
 	},
 
 	modalTouchableOpacity: {
@@ -259,11 +250,14 @@ export const styles = StyleSheet.create({
 		width: 100,
 	},
 
-	modalView: {
-		margin: 20,
+	modalParentView: {
+		// margin: 20,
 		backgroundColor: "white",
 		borderRadius: 20,
-		padding: 35,
+		// padding: 5,
+		paddingTop: 25,
+		paddingRight: 20,
+		paddingLeft: 20,
 		height: "20%",
 		width: "50%",
 		justifyContent: "center",
@@ -278,17 +272,27 @@ export const styles = StyleSheet.create({
 		elevation: 5,
 	},
 
-	textStyle: {
+	modalIcons: { flex: 1, flexDirection: "row" },
+
+	modalSmallText: {
 		color: "black",
 		fontWeight: "bold",
 		textAlign: "center",
+		paddingTop: 10,
 	},
 
 	modalText: {
 		textAlign: "center",
-		paddingBottom: 10,
+		paddingBottom: 20,
 		fontSize: 24,
 		fontWeight: "bold",
 		textColor: "white",
+	},
+
+	modalLine: {
+		width: 1,
+		height: 40,
+		backgroundColor: "lightgray",
+		margin: 0,
 	},
 });
