@@ -54,11 +54,13 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          price: price,
-          name: item,
-          expires_on: date,
-        }),
+        body: JSON.stringify([
+          {
+            price: price,
+            name: item,
+            expires_on: date,
+          },
+        ]),
       }
     );
     const allFood = await fetch(
