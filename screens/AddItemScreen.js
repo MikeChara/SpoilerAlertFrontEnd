@@ -40,6 +40,11 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
     setDisplayPrice("£" + price);
   }
 
+  function setDateFunction(e) {
+    Keyboard.dismiss();
+    setDate(e);
+  }
+
   async function addFood(price, item, date, uid) {
     const Userthings = await fetch(
       `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
@@ -80,7 +85,9 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
         <DatepickerSimpleUsageShowcase
           styles={styles}
-          setDate={setDate}
+          setDate={(e) => {
+            setDateFunction(e);
+          }}
           date={date}
         />
         <Text style={styles.addpagetext}> Add Price</Text>
