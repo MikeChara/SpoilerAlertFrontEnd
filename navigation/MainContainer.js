@@ -4,7 +4,7 @@ import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal";
 import { View } from "react-native";
 import { backend_link } from "@env";
-import { getUserFood } from "../Fetches/getRequests";
+import { getUserFood } from "../Fetches/getRequests.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Photo from "../screens/ImageLibraryScreen";
