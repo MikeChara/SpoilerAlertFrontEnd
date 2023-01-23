@@ -28,8 +28,8 @@ export const styles = StyleSheet.create({
 
   pagestyle: {
     flex: 1,
-    alignItems: "center",
-    textAlign: "left",
+    // alignItems: "center",
+    // textAlign: "left",
   },
 
   subtitle: {
@@ -217,7 +217,7 @@ export const styles = StyleSheet.create({
 
   profilescreenbg: {
     width: 500,
-    height: 700,
+    height: "100%",
     position: "absolute",
     flex: 1,
   },

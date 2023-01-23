@@ -24,7 +24,7 @@ export default function ProfileScreen({ styles }) {
         style={{
           ...styles.profilescreenbg,
           backgroundColor: pageColor,
-          opacity: 0.5,
+          opacity: 0.3,
         }}
       />
 
