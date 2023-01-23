@@ -6,6 +6,10 @@ import { auth } from "../firebase-config";
 import { backend_link } from "@env";
 import { getAllStats, getWeekStats } from "../Fetches/getRequests";
 import { eatenFoodPatch, binnedFoodPatch } from "../Fetches/patchRequests";
+import {
+  Swipeable,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler';
 
 export default function FoodList({
   name,
@@ -15,7 +19,8 @@ export default function FoodList({
   index,
   foodList,
   setAllStats,
-  setWeekStats
+  setWeekStats,
+  styles
 }) {
   async function userEaten(food_id, uid) {
     eatenFoodPatch(food_id)
@@ -38,9 +43,12 @@ export default function FoodList({
   }
 
   return (
+   <>
     <ListItem.Swipeable
+    
       leftContent={(reset) => (
         <Pressable
+        
           style={styles.icon}
           onPress={() => {
             userEaten(id, auth.currentUser.uid);
@@ -57,13 +65,14 @@ export default function FoodList({
           <Ionicons name="trash-bin-outline" size={30} color={"red"}></Ionicons>
         </Pressable>
       )}
-    >
+    > 
+    <View style={styles.FLcomponent}>
+    
+    
       <ListItem.Content>
         <Image
           style={styles.tinyLogo}
-          source={{
-            uri: "https://images.unsplash.com/photo-1528825871115-3581a5387919?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFuYW5hfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
-          }}
+          source={require("../screens/Random.png")}
         />
       </ListItem.Content>
       <ListItem.Content>
@@ -73,19 +82,10 @@ export default function FoodList({
         <ListItem.Title>{expiry} days left</ListItem.Title>
       </ListItem.Content>
       <ListItem.Chevron />
+      </View>
     </ListItem.Swipeable>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  tinyLogo: {
-    width: 50,
-    height: 50,
-    borderRadius: 26,
-  },
-  icon: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+

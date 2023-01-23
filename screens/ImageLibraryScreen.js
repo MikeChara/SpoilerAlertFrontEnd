@@ -7,6 +7,7 @@ function Photo() {
   // The path of the picked image
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
+  
 
   // This function is triggered when the "Select an image" button pressed
   const showImagePicker = async () => {
@@ -26,7 +27,6 @@ function Photo() {
 
     if (!cancelled) {
       setPickedImagePath(uri);
-      console.log(uri);
       try {
         // Call the Google API here
         const result = await callGoogleVisionAsync(base64);
@@ -36,6 +36,25 @@ function Photo() {
       }
     }
   };
+
+  function textSeparator(returnedText){
+    let string = returnedText.text
+    let stringArr = string.split('\n')
+    // console.log('this is from the funciton', stringArr)
+    let priceArr = stringArr.filter((e)=> e.charAt(0) === '£' && Number(e.charAt(priceArr[0].length-1)) != NaN )
+    // let character = priceArr[0].charAt(priceArr[0].length-1)
+    // let numberTest = Number(character)
+    // let type = typeof(numberTest)
+    // let blah = typeof(Number(priceArr[0].charAt(1)))
+
+    console.log('this is from the funciton', stringArr)
+    // console.log('character', Number(character))
+    // console.log('type is:', type)
+
+
+  }
+  // string.match(/^[A-Z]*$/)
+  textSeparator(text)  
 
   // const API_KEY = "AIzaSyAGJHE1OfMViyNtF3ypB07n2zn7NNw80Ak";
   const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAGJHE1OfMViyNtF3ypB07n2zn7NNw80Ak`;
@@ -66,12 +85,10 @@ function Photo() {
       body: JSON.stringify(body),
     });
     const result = await response.json();
-    console.log("callGoogleVisionAsync -> result", result);
-    console.log(result.responses[0].fullTextAnnotation);
+    // console.log(result.responses[0].fullTextAnnotation);
 
     return result.responses[0].fullTextAnnotation;
   }
-
   // //This function is triggered when the "Open camera" button pressed
   const openCamera = async () => {
     // Ask the user for the permission to access the camera
@@ -90,11 +107,12 @@ function Photo() {
 
     if (!cancelled) {
       setPickedImagePath(uri);
-      console.log(uri);
+      // console.log(uri);
       try {
         // Call the Google API here
         const result = await callGoogleVisionAsync(base64);
         setText(result);
+        textSeparator(result)
       } catch (error) {
         setText(`Error: ${error.message}`);
       }
