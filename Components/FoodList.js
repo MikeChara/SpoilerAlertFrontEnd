@@ -4,8 +4,8 @@ import { ListItem } from "@rneui/themed";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { auth } from "../firebase-config";
 import { backend_link } from "@env";
-import { getAllStats, getWeekStats } from "../Fetches/getRequests";
-import { eatenFoodPatch, binnedFoodPatch } from "../Fetches/patchRequests";
+import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
+import { eatenFoodPatch, binnedFoodPatch } from "../Fetches/patchRequests.js";
 import {
 	Swipeable,
 	GestureHandlerRootView,

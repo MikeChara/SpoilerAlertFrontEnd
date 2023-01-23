@@ -7,7 +7,7 @@ import {
 	Animated,
 } from "react-native";
 import React from "react";
-import FoodList from "../Components/FoodList";
+import FoodList from "../Components/FoodList.js";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
 import { NavigationActions, SafeAreaView } from "react-navigation";

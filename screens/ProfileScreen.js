@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { Input, Layout } from "@ui-kitten/components";
-import { getUserDetails } from "../Fetches/getRequests";
+import { getUserDetails } from "../Fetches/getRequests.js";
 import { useState, useEffect } from "react";
 
 export default function ProfileScreen({ styles }) {

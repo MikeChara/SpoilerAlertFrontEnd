@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "../firebase-config";
 import Tabs from "./Tabs";
-import ManualModal from "../screens/Modal";
+import ManualModal from "../screens/Modal.js";
 import { View } from "react-native";
 import { backend_link } from "@env";
-import { getUserFood } from "../Fetches/getRequests";
+import { getUserFood } from "../Fetches/getRequests.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Photo from "../screens/ImageLibraryScreen";
+import Photo from "../screens/ImageLibraryScreen.js";
 import { navigationRef } from "./ModalNavigate.js";
 
 function MainContainer({ styles }) {

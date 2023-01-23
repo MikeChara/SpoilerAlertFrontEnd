@@ -5,11 +5,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Screens
-import PlaceHolder from "../screens/PlaceHolder";
-import HomeScreen from "../screens/HomeScreen";
-import PantryScreen from "../screens/PantryScreen";
-import AddItemScreen from "../screens/AddItemScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import PlaceHolder from "../screens/PlaceHolder.js";
+import HomeScreen from "../screens/HomeScreen.js";
+import PantryScreen from "../screens/PantryScreen.js";
+import AddItemScreen from "../screens/AddItemScreen.js";
+import ProfileScreen from "../screens/ProfileScreen.js";
 
 //Screen names
 const socialName = "Social";
@@ -20,14 +20,14 @@ const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 
 function Tabs({
-	styles,
-	foodList,
-	setFoodList,
-	setModalVisible,
-	allStats,
-	setAllStats,
-	weekStats,
-	setWeekStats,
+  styles,
+  foodList,
+  setFoodList,
+  setModalVisible,
+  allStats,
+  setAllStats,
+  weekStats,
+  setWeekStats,
 }) {
 	// Tab navigator will select one of the screens from the navbar when 'focused' is true
 	return (
@@ -174,6 +174,7 @@ function Tabs({
 			/>
 		</Tab.Navigator>
 	);
+
 }
 
 export default Tabs;
