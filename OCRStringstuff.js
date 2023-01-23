@@ -76,41 +76,40 @@ let stringArr = [
 
 // let priceArr = stringArr.filter((e)=> e.charAt(0) === '£' && Number(e.charAt(priceArr[0].length-1)) != NaN )
 
-let priceArr = stringArr.filter(function(e) {
-  let lastCharacter = e.charAt(e.length-1)
-  let toNumber = Number(lastCharacter)
+let priceArr = stringArr.filter(function (e) {
+  let lastCharacter = e.charAt(e.length - 1);
+  let toNumber = Number(lastCharacter);
   // console.log('type is ',typeof(NaN))
-  if (e.charAt(0) === '£' && !isNaN(lastCharacter)){
-    return e
-  }  
-} )
-
-let itemsArr =[]
-for (let e of stringArr){
-  if (e.match(/^[A-Z\s]+$/)){
-    itemsArr.push(e)
+  if (e.charAt(0) === "£" && !isNaN(lastCharacter)) {
+    return e;
   }
- else if (e.slice(0, e.length-2).match(/^[A-Z\s]+$/)) {
-    itemsArr.push(e.slice(0, e.length-2))
+});
+
+let itemsArr = [];
+for (let e of stringArr) {
+  if (e.match(/^[A-Z\s]+$/)) {
+    itemsArr.push(e);
+  } else if (e.slice(0, e.length - 2).match(/^[A-Z\s]+$/)) {
+    itemsArr.push(e.slice(0, e.length - 2));
   }
 }
 
-let masterArr = []
+let masterArr = [];
 
-//theres something satisfying about this for loop, its 
-//like splitting a deck of cards and then shuffling them 
+//theres something satisfying about this for loop, its
+//like splitting a deck of cards and then shuffling them
 //perfectly together
-for (let i = 0; i < itemsArr.length; i++){
-  let obj = {name: itemsArr[i], price: priceArr[i]}
+for (let i = 0; i < itemsArr.length; i++) {
+  let obj = { name: itemsArr[i], price: priceArr[i] };
   // console.log(obj)
-  masterArr.push(obj)
+  masterArr.push(obj);
 }
 
-// let itemsArr = stringArr.filter(function(e){ 
+// let itemsArr = stringArr.filter(function(e){
 //   return e.match(/^[A-Z*\s]+$/) || e.slice(0, e.length-2).match(/^[A-Z\s]+$/)
 // })
 
-console.log(itemsArr,'number of items is ',itemsArr.length)
-console.log('number or prices is ', priceArr.length)
-console.log(Number(0))
-console.log(masterArr)
+console.log(itemsArr, "number of items is ", itemsArr.length);
+console.log("number or prices is ", priceArr.length);
+console.log(Number(0));
+console.log(masterArr);
