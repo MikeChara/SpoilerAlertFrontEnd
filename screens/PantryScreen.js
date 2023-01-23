@@ -1,9 +1,16 @@
-import { StyleSheet, Text, View, FlatList, Image, Animated } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Animated,
+} from "react-native";
 import React from "react";
 import FoodList from "../Components/FoodList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
-import { NavigationActions, SafeAreaView } from 'react-navigation';
+import { NavigationActions, SafeAreaView } from "react-navigation";
 
 export default function Pantry({
   setFoodList,
@@ -12,7 +19,6 @@ export default function Pantry({
   setAllStats,
   setWeekStats,
 }) {
-
   let todaysDate = new Date();
   return (
     <View style={styles.pagestyle}>
@@ -41,6 +47,7 @@ export default function Pantry({
                   index={index}
                   setAllStats={setAllStats}
                   setWeekStats={setWeekStats}
+                  styles={styles}
                 />
               </GestureHandlerRootView>
             );
@@ -50,5 +57,3 @@ export default function Pantry({
     </View>
   );
 }
-
-

@@ -243,4 +243,14 @@ export const styles = StyleSheet.create({
     backgroundColor: "grey",
     alignSelf: "center",
   },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+    borderRadius: 26,
+  },
+  icon: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

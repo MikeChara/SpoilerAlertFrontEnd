@@ -9,7 +9,7 @@ import { eatenFoodPatch, binnedFoodPatch } from "../Fetches/patchRequests";
 import {
   Swipeable,
   GestureHandlerRootView,
-} from 'react-native-gesture-handler';
+} from "react-native-gesture-handler";
 
 export default function FoodList({
   name,
@@ -20,72 +20,74 @@ export default function FoodList({
   foodList,
   setAllStats,
   setWeekStats,
-  styles
+  styles,
 }) {
   async function userEaten(food_id, uid) {
-    eatenFoodPatch(food_id)
+    eatenFoodPatch(food_id);
     setFoodList([
       ...foodList.slice(0, index),
       ...foodList.slice(index + 1, foodList.length),
     ]);
-    getAllStats(uid, setAllStats)
-    getWeekStats(uid, setWeekStats)
+    getAllStats(uid, setAllStats);
+    getWeekStats(uid, setWeekStats);
   }
 
   async function userBinned(food_id, uid) {
-    binnedFoodPatch(food_id)
+    binnedFoodPatch(food_id);
     setFoodList([
       ...foodList.slice(0, index),
       ...foodList.slice(index + 1, foodList.length),
     ]);
-    getAllStats(uid, setAllStats)
-    getWeekStats(uid, setWeekStats)
+    getAllStats(uid, setAllStats);
+    getWeekStats(uid, setWeekStats);
   }
 
   return (
-   <>
-    <ListItem.Swipeable
-    
-      leftContent={(reset) => (
-        <Pressable
-        
-          style={styles.icon}
-          onPress={() => {
-            userEaten(id, auth.currentUser.uid);
-          }}
-        >
-          <Ionicons name="trash-bin-outline" size={30} color={"red"}></Ionicons>
-        </Pressable>
-      )}
-      rightContent={(reset) => (
-        <Pressable
-          style={styles.icon}
-          onPress={() => userBinned(id, auth.currentUser.uid)}
-        >
-          <Ionicons name="trash-bin-outline" size={30} color={"red"}></Ionicons>
-        </Pressable>
-      )}
-    > 
-    <View style={styles.FLcomponent}>
-    
-    
-      <ListItem.Content>
-        <Image
-          style={styles.tinyLogo}
-          source={require("../screens/Random.png")}
-        />
-      </ListItem.Content>
-      <ListItem.Content>
-        <ListItem.Title>{name}</ListItem.Title>
-      </ListItem.Content>
-      <ListItem.Content>
-        <ListItem.Title>{expiry} days left</ListItem.Title>
-      </ListItem.Content>
-      <ListItem.Chevron />
-      </View>
-    </ListItem.Swipeable>
+    <>
+      <ListItem.Swipeable
+        leftContent={(reset) => (
+          <Pressable
+            style={styles.icon}
+            onPress={() => {
+              userEaten(id, auth.currentUser.uid);
+            }}
+          >
+            <Ionicons
+              name="trash-bin-outline"
+              size={30}
+              color={"red"}
+            ></Ionicons>
+          </Pressable>
+        )}
+        rightContent={(reset) => (
+          <Pressable
+            style={styles.icon}
+            onPress={() => userBinned(id, auth.currentUser.uid)}
+          >
+            <Ionicons
+              name="trash-bin-outline"
+              size={30}
+              color={"red"}
+            ></Ionicons>
+          </Pressable>
+        )}
+      >
+        <View>
+          <ListItem.Content>
+            <Image
+              style={styles.tinyLogo}
+              source={require("../screens/Random.png")}
+            />
+          </ListItem.Content>
+          <ListItem.Content>
+            <ListItem.Title>{name}</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Content>
+            <ListItem.Title>{expiry} days left</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron />
+        </View>
+      </ListItem.Swipeable>
     </>
   );
 }
-
-
