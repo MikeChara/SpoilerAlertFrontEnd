@@ -24,31 +24,31 @@ export default function HomeScreen({
       </Text>
       <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
       <View style={styles.dashboardrowContainer}>
-        <View style={styles.dashboardSquare1}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}>
           <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
-          <Text style={styles.textGray}>Last week</Text>
           <Text style={styles.dashboardPrice}>£32</Text>
+          <Text style={styles.dashboardText}>Last week</Text>
         </View>
-        <View style={styles.dashboardSquare2}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}>
           <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
-          <Text style={styles.textGray}>All time</Text>
           <Text style={styles.dashboardPrice}>£264</Text>
+          <Text style={styles.dashboardText}>All time</Text>
         </View>
       </View>
       <View style={styles.dashboardrowContainer}>
-        <View style={styles.dashboardSquare3}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#ED914D" }}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
-          <Text style={styles.textGray}>Last week</Text>
           <Text style={styles.dashboardPrice}>
             {weekStats?.eatenPercentage}%
           </Text>
+          <Text style={styles.dashboardText}>Last week</Text>
         </View>
-        <View style={styles.dashboardSquare4}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#DE4D28" }}>
           <Text style={styles.dashboardSubtitle}>Items Wasted</Text>
-          <Text style={styles.textGray}>All time</Text>
           <Text style={styles.dashboardPrice}>
             {weekStats?.wastedPercentage}%
           </Text>
+          <Text style={styles.dashboardText}>All time</Text>
         </View>
       </View>
     </View>

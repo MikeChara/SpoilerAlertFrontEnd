@@ -73,89 +73,56 @@ export const styles = StyleSheet.create({
 
   editbuttontext: {},
 
-  dashboardParent: {
-    flexDirection: "column",
-  },
-  dashboardSquare1: {
-    backgroundColor: "#ED914D",
-    width: 150,
-    height: 150,
+  dashboardSquare: {
+    width: "100%",
+    height: "100%",
     borderRadius: 10,
     flex: 1,
-    margin: 10,
-    marginLeft: 20,
-  },
-  dashboardSquare2: {
-    backgroundColor: "#FECB2F",
-    width: 150,
-    height: 150,
-    borderRadius: 10,
-    flex: 1,
-    margin: 10,
-    marginRight: 20,
-  },
-  dashboardSquare3: {
-    backgroundColor: "#0E7835",
-    width: 150,
-    height: 150,
-    borderRadius: 10,
-    flex: 1,
-    margin: 10,
-    marginLeft: 20,
+    margin: "2%",
   },
 
-  dashboardSquare4: {
-    backgroundColor: "#DE4D28",
-    width: 150,
-    height: 150,
-    borderRadius: 10,
-    flex: 1,
-    margin: 10,
-    marginRight: 20,
+  dashboardrowContainer: {
+    flexDirection: "row",
+    marginLeft: "3%",
+    marginRight: "3%",
+    paddingBottom: "3%",
+    // flexWrap: "wrap",
   },
 
-  textGray: {
+  dashboardText: {
     fontSize: 14,
     lineHeight: 21,
-    letterSpacing: 0.25,
     color: "white",
-    marginLeft: "12%",
+    marginLeft: "7%",
   },
 
   dashboardSubtitle: {
-    fontSize: 20,
+    fontSize: 26,
     fontWeight: "bold",
-    paddingTop: 5,
-    paddingLeft: 5,
-    paddingBottom: 2,
     color: "white",
-    alignSelf: "center",
+    marginLeft: "7%",
   },
 
   dashboardPrice: {
     fontSize: 40,
     fontWeight: "bold",
     color: "white",
-    padding: 10,
-  },
-
-  dashboardrowContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+    paddingTop: "6%",
+    marginLeft: "7%",
   },
 
   dashboardWelcome: {
     color: "black",
     fontWeight: "bold",
     fontSize: 22,
-    marginLeft: 20,
+    marginLeft: "3%",
     padding: 5,
   },
 
   dashboardProgresstitle: {
     color: "grey",
     fontSize: 16,
-    marginLeft: 20,
+    marginLeft: "3%",
     padding: 5,
   },
 
