@@ -97,10 +97,11 @@ export const styles = StyleSheet.create({
   },
 
   dashboardSubtitle: {
-    fontSize: 26,
+    fontSize: 23,
     fontWeight: "bold",
     color: "white",
     marginLeft: "7%",
+    marginTop: "4%",
   },
 
   dashboardPrice: {
@@ -116,6 +117,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 22,
     marginLeft: "3%",
+    marginTop: "4%",
     padding: 5,
   },
 
