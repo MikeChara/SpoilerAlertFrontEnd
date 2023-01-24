@@ -8,7 +8,7 @@ export default function DatepickerSimpleUsageShowcase({
 }) {
   return (
     <Layout style={styles.DatePickerAtRendercontainer} level="1">
-      <Text>Selected date: {date.toLocaleDateString()}</Text>
+      {/* <Text>Selected date: {date.toLocaleDateString()}</Text> */}
       <Datepicker date={date} onSelect={(nextDate) => setDate(nextDate)} />
     </Layout>
   );
