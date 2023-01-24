@@ -18,7 +18,8 @@ const addItemName = "Add Item";
 const homeName = "Home";
 const profileName = "Profile";
 const Tab = createBottomTabNavigator();
-
+const TabHeight = 100;
+const tabFontSize = "25%";
 function Tabs({
   styles,
   foodList,
@@ -82,11 +83,11 @@ function Tabs({
           title: "Home",
           headerStyle: {
             backgroundColor: "#F5F5F5",
-            height: 150,
+            height: TabHeight,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            fontSize: 25,
+            fontSize: tabFontSize,
             color: "#0E7835",
           },
         }}
@@ -109,11 +110,11 @@ function Tabs({
           title: "Pantry",
           headerStyle: {
             backgroundColor: "#F5F5F5",
-            height: 150,
+            height: TabHeight,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            fontSize: 25,
+            fontSize: tabFontSize,
             color: "#0E7835",
           },
         }}
@@ -127,11 +128,11 @@ function Tabs({
           title: "Add Item",
           headerStyle: {
             backgroundColor: "#F5F5F5",
-            height: 150,
+            height: TabHeight,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            fontSize: 25,
+            fontSize: tabFontSize,
             color: "#0E7835",
           },
         }}
@@ -149,11 +150,11 @@ function Tabs({
           title: "Social",
           headerStyle: {
             backgroundColor: "#F5F5F5",
-            height: 150,
+            height: TabHeight,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            fontSize: 25,
+            fontSize: tabFontSize,
             color: "#0E7835",
           },
         }}
@@ -165,11 +166,11 @@ function Tabs({
           title: "Profile",
           headerStyle: {
             backgroundColor: "#F5F5F5",
-            height: 150,
+            height: TabHeight,
           },
           headerTitleStyle: {
             fontWeight: "bold",
-            fontSize: 25,
+            fontSize: tabFontSize,
             color: "#0E7835",
           },
         }}

@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
   },
 
   dashboardSubtitle: {
-    fontSize: 23,
+    fontSize: 12,
     fontWeight: "bold",
     color: "white",
     marginLeft: "7%",
