@@ -38,3 +38,23 @@ export async function getUserDetails(uid, setUserDetails) {
   setUserDetails({ ...data.payload });
   return data.payload;
 }
+
+//gets all eaten and wasted data for a user, for the dashboard
+export async function getLastWeeksEatenFood(uid, setLastWeekEaten) {
+  const allFood = await fetch(
+    `https://spoiler-alert-backend.onrender.com/lastWeekEaten/${uid}`
+  );
+  const data = await allFood.json();
+  setLastWeekEaten([...data.payload]);
+  // console.log("lastWeekEaten", data);
+  return data.payload;
+}
+export async function getAllEatenFood(uid, setAllEaten) {
+  const allFood = await fetch(
+    `https://spoiler-alert-backend.onrender.com/allEatenFood/${uid}`
+  );
+  const data = await allFood.json();
+  setAllEaten([...data.payload]);
+  // console.log("allEaten", data);
+  return data.payload;
+}

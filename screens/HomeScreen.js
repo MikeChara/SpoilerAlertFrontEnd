@@ -2,7 +2,12 @@ import * as React from "react";
 import { View, Text } from "react-native";
 import { auth } from "../firebase-config";
 import { backend_link } from "@env";
-import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
+import {
+  getAllStats,
+  getWeekStats,
+  getLastWeeksEatenFood,
+  getAllEatenFood,
+} from "../Fetches/getRequests.js";
 
 export default function HomeScreen({
   styles,
@@ -11,10 +16,16 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
+  lastWeekEaten,
+  setLastWeekEaten,
+  allEaten,
+  setAllEaten,
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
+    getLastWeeksEatenFood(auth.currentUser.uid, setLastWeekEaten);
+    getAllEatenFood(auth.currentUser.uid, setAllEaten);
   }, [foodList]);
 
   return (
