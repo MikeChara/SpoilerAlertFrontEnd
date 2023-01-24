@@ -90,14 +90,14 @@ export const styles = StyleSheet.create({
   },
 
   dashboardText: {
-    fontSize: 14,
+    fontSize: "14%",
     lineHeight: 21,
     color: "white",
     marginLeft: "7%",
   },
 
   dashboardSubtitle: {
-    fontSize: 12,
+    fontSize: "24%",
     fontWeight: "bold",
     color: "white",
     marginLeft: "7%",
@@ -105,7 +105,7 @@ export const styles = StyleSheet.create({
   },
 
   dashboardPrice: {
-    fontSize: 40,
+    fontSize: "40%",
     fontWeight: "bold",
     color: "white",
     paddingTop: "6%",
@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
   dashboardWelcome: {
     color: "black",
     fontWeight: "bold",
-    fontSize: 22,
+    fontSize: "22%",
     marginLeft: "3%",
     marginTop: "4%",
     padding: 5,
@@ -123,7 +123,7 @@ export const styles = StyleSheet.create({
 
   dashboardProgresstitle: {
     color: "grey",
-    fontSize: 16,
+    fontSize: "16%",
     marginLeft: "3%",
     padding: 5,
   },

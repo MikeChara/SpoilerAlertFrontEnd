@@ -84,6 +84,7 @@ function Tabs({
           headerStyle: {
             backgroundColor: "#F5F5F5",
             height: TabHeight,
+            alignItems: "left",
           },
           headerTitleStyle: {
             fontWeight: "bold",
