@@ -1,12 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image, Button } from "react-native";
-
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  Button,
+  FlatList,
+} from "react-native";
+import OCRStringSort from "../Functions/OCRStringstuff";
+import ScanList from "../Components/ScanList";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { auth } from "../firebase-config";
 import * as ImagePicker from "expo-image-picker";
+import * as ModalNavigation from "../navigation/ModalNavigate.js";
 
-function Photo() {
+function Photo({foodList, setFoodList}) {
   // The path of the picked image
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
+  const [foodPriceArray, setFoodPriceArray] = useState([]);
+
+  //navigates back to pantry screen
+  function backToPantry(){
+    ModalNavigation.navigate("Pantry");
+
+  }
+
+//posts data to database
+async function addFood(uid) {
+  const Userthings = await fetch(
+    `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(foodPriceArray),
+    }
+  );
+  const allFood = await fetch(
+    `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+  );
+  const data = await allFood.json();
+  const food = data.payload;
+  setFoodList(food);
+  backToPantry()
+}
+
 
   // This function is triggered when the "Select an image" button pressed
   const showImagePicker = async () => {
@@ -36,17 +75,6 @@ function Photo() {
     }
   };
 
-  function textSeparator(returnedText) {
-    let string = returnedText.text;
-    let stringArr = string.split("\n");
-    let priceArr = stringArr.filter(
-      (e) =>
-        e.charAt(0) === "£" && Number(e.charAt(priceArr[0].length - 1)) != NaN
-    );
-
-    console.log("this is from the funciton", stringArr);
-  }
-
   const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAGJHE1OfMViyNtF3ypB07n2zn7NNw80Ak`;
 
   async function callGoogleVisionAsync(image) {
@@ -75,8 +103,12 @@ function Photo() {
       body: JSON.stringify(body),
     });
     const result = await response.json();
+    console.log('result',result)
+    console.log('deep in return', result.responses[0].fullTextAnnotation.text)
 
-    return result.responses[0].fullTextAnnotation;
+    setFoodPriceArray(
+      OCRStringSort(result.responses[0].fullTextAnnotation.text)
+    );
   }
   // //This function is triggered when the "Open camera" button pressed
   const openCamera = async () => {
@@ -100,12 +132,13 @@ function Photo() {
         // Call the Google API here
         const result = await callGoogleVisionAsync(base64);
         setText(result);
-        textSeparator(result);
       } catch (error) {
         setText(`Error: ${error.message}`);
       }
     }
   };
+
+
 
   return (
     <View style={styles.screen}>
@@ -114,19 +147,34 @@ function Photo() {
         <Button onPress={openCamera} title="Open camera" />
         {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
-
-      <View style={styles.imageContainer}>
-        {pickedImagePath !== "" && (
-          <Image source={{ uri: pickedImagePath }} style={styles.image} />
-        )}
-      </View>
-      {/* {text && <Text>{text}</Text>} */}
+      {foodPriceArray === [] ? null : (
+    <View>
+        <FlatList
+          data={foodPriceArray}
+          renderItem={({ item, index }) => {
+            return (
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <GestureHandlerRootView>
+                  <ScanList
+                    name={item.name}
+                    price={item.price}
+                    foodPriceArray={foodPriceArray}
+                    setFoodPriceArray={setFoodPriceArray}
+                    index={index}
+                    styles={styles}
+                  />
+                </GestureHandlerRootView>
+              </View>
+            );
+          }}
+        />
+                <Button title='Add' onPress={()=>addFood(auth.currentUser.uid)}/>
     </View>
-  );
+      )}
+    </View>                             );
 }
 
-// Kindacode.com
-// Just some styles
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -138,14 +186,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
-  imageContainer: {
-    padding: 30,
-  },
-  image: {
-    width: 400,
-    height: 300,
-    resizeMode: "cover",
-  },
+
 });
 
 export default Photo;

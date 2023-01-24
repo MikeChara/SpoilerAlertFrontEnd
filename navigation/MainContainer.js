@@ -42,7 +42,8 @@ function MainContainer({ styles }) {
 						options={{ headerShown: false }}
 					/>
 
-					<Stack.Screen name='Scan' component={Photo} />
+					<Stack.Screen name='Scan' 
+					children={()=>(<Photo foodList={foodList} setFoodList={setFoodList}/>)} />
 				</Stack.Navigator>
 				<View>
 					<ManualModal
