@@ -1,18 +1,38 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  purplebutton: {
-    alignItems: "center",
+  greenButton: {
+    alignSelf: "center",
     justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 80,
+    marginLeft: "50%",
+    marginRight: "50%",
+    width: "50%",
+    height: "5%",
     borderRadius: 20,
     elevation: 0,
     backgroundColor: "#0E7835",
   },
 
-  purplebuttontext: {
+  greenButtonText: {
     fontSize: 16,
+    // lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "white",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+
+  editButton: {
+    justifyContent: "center",
+    width: 100,
+    borderRadius: 13,
+    backgroundColor: "grey",
+    alignSelf: "center",
+  },
+
+  editButtonText: {
+    fontSize: 12,
     lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
@@ -26,17 +46,18 @@ export const styles = StyleSheet.create({
     textAlign: "left",
   },
 
-  pagestyle: {
-    flex: 1,
-    paddingRight: 8,
-    paddingLeft: 8,
+  title: {
+    alignSelf: "center",
+    fontWeight: "bold",
+    fontSize: 36,
   },
 
   subtitle: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: "bold",
     padding: 20,
     textAlign: "center",
+    paddingBottom: "5%",
   },
 
   wholepagecontainer: {
@@ -47,31 +68,32 @@ export const styles = StyleSheet.create({
     paddingRight: 8,
   },
 
-  textinput: {
-    width: "100%",
+  textInputBox: {
+    width: "90%",
+    alignSelf: "center",
     height: 40,
-    borderColor: "white",
+    borderColor: "grey",
     borderWidth: 1,
     borderRadius: 10,
-    outline: "white",
+    color: "black",
+    paddingLeft: "3%",
+    backgroundColor: "white",
+    marginBottom: "2%",
   },
 
-  text: {
+  bodyText: {
+    alignSelf: "center",
     fontSize: 16,
-    lineHeight: 21,
-    fontWeight: "bold",
-    letterSpacing: 0.25,
-    color: "white",
+    textAlign: "center",
   },
+
   DatePickerAtRendercontainer: {
     minHeight: 16,
     backgroundColor: 0,
-    width: "80%",
+    width: "90%",
+    alignSelf: "center",
+    marginBottom: "2%",
   },
-
-  editButton: {},
-
-  editbuttontext: {},
 
   dashboardSquare: {
     width: "100%",
@@ -136,25 +158,15 @@ export const styles = StyleSheet.create({
     opacity: 0.2,
   },
 
-  profilepagecontainer: {
-    paddingLeft: 40,
-    paddingRight: 40,
-    // alignItems: "center",
-    top: 50,
+  inputPageContainer: {
+    paddingLeft: "10%",
+    paddingRight: "10%",
   },
 
   profilepicture: {
     width: 130,
     height: 130,
     flex: 0,
-    alignSelf: "center",
-  },
-
-  editbutton: {
-    justifyContent: "center",
-    width: 100,
-    borderRadius: 13,
-    backgroundColor: "grey",
     alignSelf: "center",
   },
 
@@ -262,4 +274,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "lightgray",
     margin: 0,
   },
+
+  logoGif: { width: 400, height: 400, opacity: 0.3, alignSelf: "center" },
 });

@@ -29,26 +29,26 @@ export default function SignUpScreen({ styles }) {
       <View style={styles.wholepagecontainer}>
         <Text>Sign Up Here...</Text>
         <TextInput
-          style={styles.textinput}
+          style={styles.textInputBox}
           placeholder="Name"
           value={displayName}
           onChangeText={(text) => setDisplayName(text)}
         />
         <TextInput
-          style={styles.textinput}
+          style={styles.textInputBox}
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
-          style={styles.textinput}
+          style={styles.textInputBox}
           placeholder="Password"
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry
         />
-        <Pressable style={styles.purplebutton} onPress={handleSignUp}>
-          <Text style={styles.purplebuttontext}>Sign Up</Text>
+        <Pressable style={styles.greenButton} onPress={handleSignUp}>
+          <Text style={styles.greenButtonText}>Sign Up</Text>
         </Pressable>
         <Text>
           Currently only accepting .com emails. Passwords must be 8 characters
