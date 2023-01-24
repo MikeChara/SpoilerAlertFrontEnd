@@ -257,9 +257,9 @@ export const styles = StyleSheet.create({
     paddingBottom: "8%",
     paddingRight: "5%",
     paddingLeft: "5%",
-    height: "25%",
+    height: 175,
     width: "50%",
-    alignItems: "center",
+    // alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -289,7 +289,7 @@ export const styles = StyleSheet.create({
 
   modalLine: {
     width: 1,
-    height: 40,
+    height: "50%",
     backgroundColor: "lightgray",
     margin: 0,
   },
