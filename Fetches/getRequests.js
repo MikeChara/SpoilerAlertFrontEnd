@@ -47,10 +47,9 @@ export async function getLastWeeksEatenFood(uid, setLastWeekEaten) {
     `https://spoiler-alert-backend.onrender.com/lastWeekEaten/${uid}`
   );
   const data = await allFood.json();
-  const lastWeekEatenDisplay = eatenValue(data);
-  setLastWeekEaten([...data.payload]);
-  // console.log("lastWeekEaten", data);
-  return data.payload;
+  const lastWeekEatenDisplay = await eatenValue(data);
+  setLastWeekEaten(lastWeekEatenDisplay);
+  return lastWeekEatenDisplay;
 }
 export async function getAllEatenFood(uid, setAllEaten) {
   const allFood = await fetch(
@@ -58,7 +57,6 @@ export async function getAllEatenFood(uid, setAllEaten) {
   );
   const data = await allFood.json();
   const eatenDisplay = eatenValue(data);
-  setAllEaten([...data.payload]);
-  // console.log("allEaten", data);
-  return data.payload;
+  setAllEaten(eatenDisplay);
+  return eatenDisplay;
 }

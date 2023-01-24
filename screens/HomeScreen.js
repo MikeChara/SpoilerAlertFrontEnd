@@ -38,12 +38,12 @@ export default function HomeScreen({
         <View style={styles.dashboardSquare1}>
           <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
           <Text style={styles.textGray}>Last week</Text>
-          <Text style={styles.dashboardPrice}>£32</Text>
+          <Text style={styles.dashboardPrice}>£{lastWeekEaten}</Text>
         </View>
         <View style={styles.dashboardSquare2}>
           <Text style={styles.dashboardSubtitle}>Money Well Spent</Text>
           <Text style={styles.textGray}>All time</Text>
-          <Text style={styles.dashboardPrice}>£264</Text>
+          <Text style={styles.dashboardPrice}>£{allEaten}</Text>
         </View>
       </View>
       <View style={styles.dashboardrowContainer}>
