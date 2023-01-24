@@ -48,18 +48,19 @@ function MainContainer({ styles }) {
             options={{ headerShown: false }}
           />
 
-          <Stack.Screen name="Scan" component={Photo} />
-        </Stack.Navigator>
-        <View>
-          <ManualModal
-            modalVisible={modalVisible}
-            setModalVisible={setModalVisible}
-            styles={styles}
-            navigation={Tabs}
-          />
-        </View>
-      </NavigationContainer>
-    </View>
-  );
+					<Stack.Screen name='Scan' 
+					children={()=>(<Photo foodList={foodList} setFoodList={setFoodList}/>)} />
+				</Stack.Navigator>
+				<View>
+					<ManualModal
+						modalVisible={modalVisible}
+						setModalVisible={setModalVisible}
+						styles={styles}
+						navigation={Tabs}
+					/>
+				</View>
+			</NavigationContainer>
+		</View>
+	);
 }
 export default MainContainer;

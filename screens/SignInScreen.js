@@ -28,20 +28,20 @@ export default function SignInScreen({ styles }) {
       <View style={styles.wholepagecontainer}>
         <Text>Sign In Here..</Text>
         <TextInput
-          style={styles.textinput}
+          style={styles.textInputBox}
           placeholder="Email"
           value={email}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
-          style={styles.textinput}
+          style={styles.textInputBox}
           placeholder="Password"
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry
         />
-        <Pressable style={styles.purplebutton} onPress={handleSignIn}>
-          <Text style={styles.purplebuttontext}>Sign In</Text>
+        <Pressable style={styles.greenButton} onPress={handleSignIn}>
+          <Text style={styles.greenButtonText}>Sign In</Text>
         </Pressable>
       </View>
     </TouchableWithoutFeedback>
