@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  Image,
 } from "react-native";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar.js";
 import { useNavigation } from "@react-navigation/native";
@@ -73,38 +74,47 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.pagestyle}>
-        <Text style={styles.addpagetext}> Item</Text>
-
-        <TextInput
-          style={styles.textinput}
-          placeholder="Enter item"
-          onChangeText={(text) => setItem(text)}
-          value={item}
+      <>
+        <Image
+          source={require("../assets/foodiconbg-light.png")}
+          style={styles.backgroundcover}
         />
+        <View style={styles.inputPageContainer}>
+          <Text style={styles.subtitle}>Item</Text>
 
-        <Text style={styles.addpagetext}> Expiry Date</Text>
+          <TextInput
+            style={{ ...styles.textInputBox }}
+            placeholder="Enter item"
+            onChangeText={(text) => setItem(text)}
+            value={item}
+          />
 
-        <DatepickerSimpleUsageShowcase
-          styles={styles}
-          setDate={(e) => {
-            setDateFunction(e);
-          }}
-          date={date}
-        />
-        <Text style={styles.addpagetext}> Add Price</Text>
+          <Text style={styles.subtitle}>Expiry Date</Text>
 
-        <TextInput
-          style={styles.textinput}
-          placeholder="£"
-          keyboardType={"decimal-pad"}
-          onChangeText={(price) => onChangePrice(price.replace("£", ""))}
-          value={displayPrice}
-        />
-        <Pressable style={styles.purplebutton} onPress={addPriceButtonHandle}>
-          <Text style={styles.purplebuttontext}>Add Item to Pantry</Text>
-        </Pressable>
-      </View>
+          <DatepickerSimpleUsageShowcase
+            styles={styles}
+            setDate={(e) => {
+              setDateFunction(e);
+            }}
+            date={date}
+          />
+          <Text style={styles.subtitle}>Add Price</Text>
+
+          <TextInput
+            style={{ ...styles.textInputBox, color: "green" }}
+            placeholder="£"
+            keyboardType={"decimal-pad"}
+            onChangeText={(price) => onChangePrice(price.replace("£", ""))}
+            value={displayPrice}
+          />
+          <Pressable
+            style={{ ...styles.greenButton, marginTop: "10%", height: "8%" }}
+            onPress={addPriceButtonHandle}
+          >
+            <Text style={styles.greenButtonText}>Add Item to Pantry</Text>
+          </Pressable>
+        </View>
+      </>
     </TouchableWithoutFeedback>
   );
 }
