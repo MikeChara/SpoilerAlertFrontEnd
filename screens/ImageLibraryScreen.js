@@ -7,32 +7,50 @@ import {
   Button,
   FlatList,
   TextInput,
+  setFoodList
 } from "react-native";
-import OCRStringSort from "../OCRStringstuff";
+import OCRStringSort from "../Functions/OCRStringstuff";
 import DatepickerSimpleUsageShowcase from "../Components/Calendar";
-// import { RadioButton } from "react-native-paper";
-import RadioButtonRN from "radio-buttons-react-native";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-
+import { auth } from "../firebase-config";
 import * as ImagePicker from "expo-image-picker";
+import * as ModalNavigation from "../navigation/ModalNavigate.js";
 
-function Photo({}) {
+function Photo({foodList, setFoodList}) {
   // The path of the picked image
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
   const [foodPriceArray, setFoodPriceArray] = useState([]);
 
-  const radiotButtondata = [
+  //navigates back to pantry screen
+  function backToPantry(){
+    ModalNavigation.navigate("Pantry");
+
+  }
+
+//posts data to database
+async function addFood(uid) {
+  const Userthings = await fetch(
+    `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
     {
-      label: "data 1",
-      accessibilityLabel: "Your label",
-    },
-    {
-      label: "data 2",
-      accessibilityLabel: "Your label",
-    },
-  ];
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(foodPriceArray),
+    }
+  );
+  const allFood = await fetch(
+    `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+  );
+  const data = await allFood.json();
+  const food = data.payload;
+  setFoodList(food);
+  backToPantry()
+}
+
 
   // This function is triggered when the "Select an image" button pressed
   const showImagePicker = async () => {
@@ -90,12 +108,12 @@ function Photo({}) {
       body: JSON.stringify(body),
     });
     const result = await response.json();
+    console.log('result',result)
+    console.log('deep in return', result.responses[0].fullTextAnnotation.text)
 
     setFoodPriceArray(
       OCRStringSort(result.responses[0].fullTextAnnotation.text)
     );
-
-    return result.responses[0].fullTextAnnotation.text;
   }
   // //This function is triggered when the "Open camera" button pressed
   const openCamera = async () => {
@@ -125,12 +143,7 @@ function Photo({}) {
     }
   };
 
-  const handleExpiry = (index, expiry) => {
-    const newFoodPriceArray = [...foodPriceArray];
-    newFoodPriceArray[index].expiry = expiry;
-    setFoodPriceArray(newFoodPriceArray);
-    console.log(newFoodPriceArray);
-  };
+
 
   return (
     <View style={styles.screen}>
@@ -140,6 +153,7 @@ function Photo({}) {
         {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
       {foodPriceArray === [] ? null : (
+    <View>
         <FlatList
           data={foodPriceArray}
           renderItem={({ item, index }) => {
@@ -159,9 +173,10 @@ function Photo({}) {
             );
           }}
         />
-      )}
+                <Button title='Add' onPress={()=>addFood(auth.currentUser.uid)}/>
     </View>
-  );
+      )}
+    </View>                             );
 }
 
 // Kindacode.com

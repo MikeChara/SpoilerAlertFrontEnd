@@ -3,6 +3,7 @@
 export default function OCRStringSort(string) {
   console.log("this is the string return from ocr", string);
   let stringArr = string.split("\n");
+  const date = new Date()
 
   let priceArr = stringArr.filter(function (e) {
     let lastCharacter = e.charAt(e.length - 1);
@@ -23,7 +24,7 @@ export default function OCRStringSort(string) {
   let masterArr = [];
 
   for (let i = 0; i < itemsArr.length; i++) {
-    let obj = { name: itemsArr[i], price: priceArr[i] };
+    let obj = { name: itemsArr[i], price: priceArr[i], expires_on: date};
     masterArr.push(obj);
   }
 

@@ -9,6 +9,9 @@ export default function ScanCalendar({
 }) {
   const [item, setItem] = useState({});
   const [date, setDate] = React.useState(new Date());
+
+
+  
   function onSelect(index, date) {
     setDate(date);
     console.log(date, index);
@@ -19,9 +22,10 @@ export default function ScanCalendar({
     //   ...foodPriceArray.slice(index + 1, foodPriceArray.length),
     // ]);
     const newFoodPriceArray = [...foodPriceArray];
-    newFoodPriceArray[index].expiry = date;
+    newFoodPriceArray[index].expires_on = date;
     setFoodPriceArray(newFoodPriceArray);
     console.log(foodPriceArray);
+
   }
   return (
     <Layout style={styles.DatePickerAtRendercontainer} level="1">
