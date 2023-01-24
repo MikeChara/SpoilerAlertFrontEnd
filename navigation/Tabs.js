@@ -29,6 +29,10 @@ function Tabs({
   setAllStats,
   weekStats,
   setWeekStats,
+  lastWeekEaten,
+  setLastWeekEaten,
+  allEaten,
+  setAllEaten,
 }) {
   // Tab navigator will select one of the screens from the navbar when 'focused' is true
   return (
@@ -51,6 +55,7 @@ function Tabs({
           let iconName;
           let rn = route.name;
 
+
           if (rn === homeName) {
             iconName = focused ? "home" : "home-outline";
           } else if (rn === addItemName) {
@@ -62,6 +67,7 @@ function Tabs({
           } else if (rn === socialName) {
             iconName = focused ? "game-controller" : "game-controller-outline";
           }
+
 
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -77,6 +83,11 @@ function Tabs({
             setAllStats={setAllStats}
             weekStats={weekStats}
             setWeekStats={setWeekStats}
+            lastWeekEaten={lastWeekEaten}
+            setLastWeekEaten={setLastWeekEaten}
+            allEaten={allEaten}
+            setAllEaten={setAllEaten}
+
           />
         )}
         options={{

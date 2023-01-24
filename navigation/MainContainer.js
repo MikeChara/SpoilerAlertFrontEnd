@@ -11,36 +11,42 @@ import Photo from "../screens/ImageLibraryScreen.js";
 import { navigationRef } from "./ModalNavigate.js";
 
 function MainContainer({ styles }) {
-	const [foodList, setFoodList] = useState([]);
-	const [modalVisible, setModalVisible] = useState(false);
-	const [allStats, setAllStats] = useState([]);
-	const [weekStats, setWeekStats] = useState([]);
+  const [foodList, setFoodList] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [allStats, setAllStats] = useState([]);
+  const [weekStats, setWeekStats] = useState([]);
+  const [lastWeekEaten, setLastWeekEaten] = useState([]);
+  const [allEaten, setAllEaten] = useState([]);
 
-	useEffect(() => {
-		getUserFood(auth.currentUser.uid, setFoodList);
-	}, []);
-	const Stack = createStackNavigator();
+  useEffect(() => {
+    getUserFood(auth.currentUser.uid, setFoodList);
+  }, []);
+  const Stack = createStackNavigator();
 
-	return (
-		<View style={{ flex: 1 }}>
-			<NavigationContainer ref={navigationRef}>
-				<Stack.Navigator>
-					<Stack.Screen
-						name='Tabs'
-						children={() => (
-							<Tabs
-								styles={styles}
-								foodList={foodList}
-								setFoodList={setFoodList}
-								setModalVisible={setModalVisible}
-								allStats={allStats}
-								setAllStats={setAllStats}
-								weekStats={weekStats}
-								setWeekStats={setWeekStats}
-							/>
-						)}
-						options={{ headerShown: false }}
-					/>
+  return (
+    <View style={{ flex: 1 }}>
+      <NavigationContainer ref={navigationRef}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Tabs"
+            children={() => (
+              <Tabs
+                styles={styles}
+                foodList={foodList}
+                setFoodList={setFoodList}
+                setModalVisible={setModalVisible}
+                allStats={allStats}
+                setAllStats={setAllStats}
+                weekStats={weekStats}
+                setWeekStats={setWeekStats}
+                lastWeekEaten={lastWeekEaten}
+                setLastWeekEaten={setLastWeekEaten}
+                allEaten={allEaten}
+                setAllEaten={setAllEaten}
+              />
+            )}
+            options={{ headerShown: false }}
+          />
 
 					<Stack.Screen name='Scan' 
 					children={()=>(<Photo foodList={foodList} setFoodList={setFoodList}/>)} />

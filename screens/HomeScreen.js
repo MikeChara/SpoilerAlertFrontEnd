@@ -2,7 +2,12 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { auth } from "../firebase-config";
 import { backend_link } from "@env";
-import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
+import {
+  getAllStats,
+  getWeekStats,
+  getLastWeeksEatenFood,
+  getAllEatenFood,
+} from "../Fetches/getRequests.js";
 
 export default function HomeScreen({
   styles,
@@ -11,10 +16,16 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
+  lastWeekEaten,
+  setLastWeekEaten,
+  allEaten,
+  setAllEaten,
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
+    getLastWeeksEatenFood(auth.currentUser.uid, setLastWeekEaten);
+    getAllEatenFood(auth.currentUser.uid, setAllEaten);
   }, [foodList]);
 
   return (
@@ -43,14 +54,14 @@ export default function HomeScreen({
             style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}
           >
             <Text style={styles.dashboardSubtitle}>Spent Well</Text>
-            <Text style={styles.dashboardPrice}>£32</Text>
+            <Text style={styles.dashboardPrice}>£{lastWeekEaten}</Text>
             <Text style={styles.dashboardText}>Last week</Text>
           </View>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}
           >
             <Text style={styles.dashboardSubtitle}>Spent Well</Text>
-            <Text style={styles.dashboardPrice}>£264</Text>
+            <Text style={styles.dashboardPrice}>£{allEaten}</Text>
             <Text style={styles.dashboardText}>All time</Text>
           </View>
         </View>
