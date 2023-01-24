@@ -12,22 +12,22 @@ export async function getUserFood(uid, setFoodList) {
 }
 
 //gets users all-time stats for dashboard
-export async function getAllStats(uid, setWeekStats) {
+export async function getAllStats(uid, setAllStats) {
   const allFood = await fetch(
     `https://spoiler-alert-backend.onrender.com/allEatenAndWasted/${uid}`
   );
   const data = await allFood.json();
-  setWeekStats({ ...data.payload });
+  setAllStats({ ...data.payload });
   return data.payload;
 }
 
 //gets all users weeks stats for dahsboard
-export async function getWeekStats(uid, setAllStats) {
+export async function getWeekStats(uid, setWeekStats) {
   const allFood = await fetch(
     `https://spoiler-alert-backend.onrender.com/weekEatenWasted/${uid}`
   );
   const data = await allFood.json();
-  setAllStats({ ...data.payload });
+  setWeekStats({ ...data.payload });
   return data.payload;
 }
 
@@ -49,6 +49,7 @@ export async function getLastWeeksEatenFood(uid, setLastWeekEaten) {
   const data = await allFood.json();
   const lastWeekEatenDisplay = await eatenValue(data);
   setLastWeekEaten(lastWeekEatenDisplay);
+  console.log('last week eaten ', lastWeekEatenDisplay)
   return lastWeekEatenDisplay;
 }
 export async function getAllEatenFood(uid, setAllEaten) {

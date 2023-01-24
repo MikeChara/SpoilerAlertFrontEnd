@@ -9,7 +9,7 @@ export async function eatenFoodPatch(food_id) {
 }
 
 export async function binnedFoodPatch(food_id) {
-    await fetch(`${backend_link}/binFood/${food_id}`, {
+    await fetch(`https://spoiler-alert-backend.onrender.com/binFood/${food_id}`, {
         method: "PATCH",
         headers: {
           Accept: "application/json",
