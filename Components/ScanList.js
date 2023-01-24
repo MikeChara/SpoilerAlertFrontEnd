@@ -35,18 +35,7 @@ export default function ScanList({
             ></Ionicons>
           </Pressable>
         )}
-        // rightContent={(reset) => (
-        //   <Pressable
-        //     style={styles.swipeIcon}
-        //     onPress={() => userBinned(id, auth.currentUser.uid)}
-        //   >
-        //     <Ionicons
-        //       name="trash-bin-outline"
-        //       size={30}
-        //       color={"red"}
-        //     ></Ionicons>
-        //   </Pressable>
-        // )}
+     
       >
         <View style={styles.pantryitemparentcontainer}>
           <ListItem.Content style={styles.pantryitemname}>
@@ -63,8 +52,6 @@ export default function ScanList({
               index={index}
             />
           </ListItem.Content>
-
-          {/* <ListItem.Chevron /> */}
         </View>
       </ListItem.Swipeable>
     </>

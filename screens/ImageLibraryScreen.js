@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
-  Text,
   StyleSheet,
-  Image,
   Button,
   FlatList,
-  TextInput,
-  setFoodList
 } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
-import DatepickerSimpleUsageShowcase from "../Components/Calendar";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
@@ -179,8 +174,7 @@ async function addFood(uid) {
     </View>                             );
 }
 
-// Kindacode.com
-// Just some styles
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -192,14 +186,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
-  // imageContainer: {
-  //   padding: 30,
-  // },
-  // image: {
-  //   width: 400,
-  //   height: 300,
-  //   resizeMode: "cover",
-  // },
+
 });
 
 export default Photo;
