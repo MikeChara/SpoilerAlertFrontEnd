@@ -19,7 +19,7 @@ const homeName = "Home";
 const profileName = "Profile";
 const Tab = createBottomTabNavigator();
 const TabHeight = 100;
-const tabFontSize = "25%";
+const tabFontSize = 25;
 function Tabs({
   styles,
   foodList,
@@ -84,7 +84,6 @@ function Tabs({
           headerStyle: {
             backgroundColor: "#F5F5F5",
             height: TabHeight,
-            alignItems: "left",
           },
           headerTitleStyle: {
             fontWeight: "bold",
