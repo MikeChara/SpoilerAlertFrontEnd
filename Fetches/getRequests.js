@@ -1,4 +1,4 @@
-import eatenValue from "../Functions/eatenValue.js";
+import eatenValue, { eatenValueAll } from "../Functions/eatenValue.js";
 
 //gets users in date food for pantry screen
 export async function getUserFood(uid, setFoodList) {
@@ -56,7 +56,7 @@ export async function getAllEatenFood(uid, setAllEaten) {
     `https://spoiler-alert-backend.onrender.com/allEatenFood/${uid}`
   );
   const data = await allFood.json();
-  const eatenDisplay = eatenValue(data);
+  const eatenDisplay = await eatenValueAll(data);
   setAllEaten(eatenDisplay);
   return eatenDisplay;
 }
