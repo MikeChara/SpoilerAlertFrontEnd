@@ -32,10 +32,14 @@ export default function SignUpScreen({ styles }) {
         style={styles.backgroundcover}
       />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.wholepagecontainer}>
+        <View style={{ ...styles.wholepagecontainer, marginBottom: "50%" }}>
           <View style={styles.whitecontainerWelcome}>
-            <Text style={styles.loginTitle}>Create Account</Text>
-            <Text style={styles.loginSubtitle}>Login to use SpoilerAlert</Text>
+            <Text style={{ ...styles.loginTitle, marginTop: "5%" }}>
+              Create Account
+            </Text>
+            <Text style={styles.loginSubtitle}>
+              Create a new account to use SpoilerAlert
+            </Text>
             <Text style={styles.label}>Your Name</Text>
             <TextInput
               style={styles.textInputBox}
@@ -58,14 +62,17 @@ export default function SignUpScreen({ styles }) {
               onChangeText={(text) => setPassword(text)}
               secureTextEntry
             />
-            <Text>
-              Currently only accepting .com emails. Passwords must be 8
+            <Text style={styles.bodyTextItalic}>
+              Currently only accepting .com emails and password must be 8
               characters or longer.
             </Text>
+            <Pressable
+              style={{ ...styles.greenButton, margin: "3%" }}
+              onPress={handleSignUp}
+            >
+              <Text style={styles.greenButtonText}>Sign Up</Text>
+            </Pressable>
           </View>
-          <Pressable style={styles.greenButton} onPress={handleSignUp}>
-            <Text style={styles.greenButtonText}>Sign Up</Text>
-          </Pressable>
         </View>
       </TouchableWithoutFeedback>
     </>

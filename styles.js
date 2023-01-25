@@ -9,11 +9,10 @@ export const styles = StyleSheet.create({
     marginLeft: "50%",
     marginRight: "50%",
     width: "50%",
-    height: "5%",
+    height: 35,
     borderRadius: 20,
     elevation: 0,
     backgroundColor: "#0E7835",
-    margin: "2%",
   },
   greenButtonText: {
     fontSize: 16,
@@ -24,13 +23,14 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
   },
+
   greenButtonInvert: {
     alignSelf: "center",
     justifyContent: "center",
     marginLeft: "50%",
     marginRight: "50%",
     width: "50%",
-    height: "5%",
+    height: 35,
     borderRadius: 20,
     elevation: 0,
     backgroundColor: "white",
@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
   editButton: {
     justifyContent: "center",
     width: 100,
+    height: 20,
     borderRadius: 13,
     backgroundColor: "grey",
     alignSelf: "center",
@@ -108,9 +109,17 @@ export const styles = StyleSheet.create({
   },
 
   bodyText: {
-    alignSelf: "center",
-    fontSize: 16,
+    // alignSelf: "center",
+    fontSize: 14,
     textAlign: "center",
+  },
+
+  bodyTextItalic: {
+    alignSelf: "center",
+    fontSize: 14,
+    textAlign: "center",
+    fontStyle: "italic",
+    color: "grey",
   },
 
   DatePickerAtRendercontainer: {
@@ -223,10 +232,6 @@ export const styles = StyleSheet.create({
     paddingRight: 8,
     width: "60%",
     borderRadius: 35,
-  },
-
-  pantryExpiryDateParent: {
-    backgroundColor: "lightblue",
   },
 
   pantryItemParentContainer: {

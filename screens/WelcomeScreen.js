@@ -19,7 +19,7 @@ export default function WelcomeScreen({ styles }) {
         </Text>
         <Pressable
           style={{ ...styles.greenButton, marginBottom: "5%" }}
-          onPress={() => navigation.navigate("Sign In")}
+          onPress={() => navigation.navigate("Log In")}
         >
           <Text style={styles.greenButtonText}>Log In</Text>
         </Pressable>
