@@ -2,7 +2,7 @@
 
 export default function OCRStringSort(string) {
   let stringArr = string.split("\n");
-  const date = new Date()
+  const date = new Date();
 
   let priceArr = stringArr.filter(function (e) {
     let lastCharacter = e.charAt(e.length - 1);
@@ -23,7 +23,13 @@ export default function OCRStringSort(string) {
   let mainArr = [];
 
   for (let i = 0; i < itemsArr.length; i++) {
-    let obj = { name: itemsArr[i], price: priceArr[i].slice(1, priceArr[i].length), expires_on: date};
+    let newPrice = priceArr[i] ? priceArr[i]?.replace("£", "") : "0.00";
+    let obj = {
+      name: itemsArr[i],
+      price: newPrice,
+      expires_on: date,
+    };
+
     mainArr.push(obj);
   }
   return mainArr;

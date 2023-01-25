@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, Pressable, Button, Image, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Button,
+  Image,
+  TextInput,
+} from "react-native";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { ListItem } from "@rneui/themed";
@@ -14,23 +22,22 @@ export default function ScanList({
 }) {
   const [displayPrice, setDisplayPrice] = React.useState("£");
 
-
   function handleRemove(index) {
     setFoodPriceArray([
       ...foodPriceArray.slice(0, index),
       ...foodPriceArray.slice(index + 1, foodPriceArray.length),
     ]);
   }
-  function onNameChange(item){
+  function onNameChange(item) {
     const newFoodPriceArray = [...foodPriceArray];
     newFoodPriceArray[index].name = item;
-    setFoodPriceArray(newFoodPriceArray);  
+    setFoodPriceArray(newFoodPriceArray);
   }
-  function onPriceChange(item){
+  function onPriceChange(item) {
     const newFoodPriceArray = [...foodPriceArray];
     newFoodPriceArray[index].price = item.slice(1, item.length);
-    setFoodPriceArray(newFoodPriceArray);  
-    }
+    setFoodPriceArray(newFoodPriceArray);
+  }
   return (
     <>
       <ListItem.Swipeable
@@ -51,10 +58,16 @@ export default function ScanList({
       >
         <View style={styles.pantryItemParentContainer}>
           <ListItem.Content style={styles.pantryItemName}>
-            <TextInput value={foodPriceArray[index].name} onChangeText={onNameChange}></TextInput>
+            <TextInput
+              value={foodPriceArray[index].name}
+              onChangeText={onNameChange}
+            ></TextInput>
           </ListItem.Content>
           <ListItem.Content style={styles.pantryExpiryDate}>
-            <TextInput value={displayPrice + foodPriceArray[index].price} onChangeText={onPriceChange}></TextInput>
+            <TextInput
+              value={displayPrice + foodPriceArray[index].price}
+              onChangeText={onPriceChange}
+            ></TextInput>
           </ListItem.Content>
           <ListItem.Content style={styles.pantryExpiryDate}>
             <ScanCalendar
