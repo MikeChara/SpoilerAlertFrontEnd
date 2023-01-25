@@ -1,12 +1,10 @@
 import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { auth } from "../firebase-config";
-import { backend_link } from "@env";
+import { CountUp } from 'use-count-up'
 import {
   getAllStats,
   getWeekStats,
-  getLastWeeksEatenFood,
-  getAllEatenFood,
 } from "../Fetches/getRequests.js";
 
 export default function HomeScreen({
@@ -16,17 +14,14 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
-  lastWeekEaten,
-  setLastWeekEaten,
-  allEaten,
-  setAllEaten,
+ 
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
-    getLastWeeksEatenFood(auth.currentUser.uid, setLastWeekEaten);
-    getAllEatenFood(auth.currentUser.uid, setAllEaten);
   }, [foodList]);
+  console.log(weekStats)
+  console.log(allStats)
 
   return (
     <>
@@ -54,14 +49,18 @@ export default function HomeScreen({
             style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}
           >
             <Text style={styles.dashboardSubtitle}>Spent Well</Text>
-            <Text style={styles.dashboardPrice}>£{lastWeekEaten}</Text>
+            <Text style={styles.dashboardPrice}>
+            £<CountUp isCounting end={weekStats.spentWell? weekStats.spentWell: 0} duration={3.2} />
+            </Text>
             <Text style={styles.dashboardText}>Last week</Text>
           </View>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}
           >
             <Text style={styles.dashboardSubtitle}>Spent Well</Text>
-            <Text style={styles.dashboardPrice}>£{allEaten}</Text>
+            <Text style={styles.dashboardPrice}>
+            £<CountUp isCounting end={allStats.spentWell? allStats.spentWell:0} duration={3.2} />
+            </Text>
             <Text style={styles.dashboardText}>All time</Text>
           </View>
         </View>
@@ -71,7 +70,7 @@ export default function HomeScreen({
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-              {weekStats?.eatenPercentage}%
+            <CountUp isCounting end={weekStats?.wastedPercentage} duration={3.2} />%
             </Text>
             <Text style={styles.dashboardText}>Last week</Text>
           </View>
@@ -80,7 +79,8 @@ export default function HomeScreen({
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-              {weekStats?.wastedPercentage}%
+            <CountUp isCounting end={allStats?.wastedPercentage} duration={3.2} />
+%
             </Text>
             <Text style={styles.dashboardText}>All time</Text>
           </View>
