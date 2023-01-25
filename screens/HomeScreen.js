@@ -73,7 +73,7 @@ export default function HomeScreen({
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={weekStats?.wastedPercentage} duration={3.2} />%
+            <CountUp isCounting end={weekStats.wastedPercentage? weekStats.wastedPercentage : 0} duration={3.2} />%
             </Text>
             <Text style={styles.dashboardText}>Last week</Text>
           </View>
@@ -82,7 +82,7 @@ export default function HomeScreen({
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={allStats?.wastedPercentage} duration={3.2} />
+            <CountUp isCounting end={allStats.wastedPercentage? allStats.wastedPercentage:0} duration={3.2} />
 %
             </Text>
             <Text style={styles.dashboardText}>All time</Text>
