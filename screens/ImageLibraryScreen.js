@@ -96,7 +96,7 @@ function Photo({ foodList, setFoodList }) {
       body: JSON.stringify(body),
     });
     const result = await response.json();
-
+    console.log(result.responses[0].fullTextAnnotation.text);
     setFoodPriceArray(
       OCRStringSort(result.responses[0].fullTextAnnotation.text)
     );
