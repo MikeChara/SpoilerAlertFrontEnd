@@ -3,6 +3,7 @@
 export default function OCRStringSort(string) {
   let stringArr = string.split("\n");
   const date = new Date();
+  date.setHours(23)
 
   let priceArr = stringArr.filter(function (e) {
     let lastCharacter = e.charAt(e.length - 1);

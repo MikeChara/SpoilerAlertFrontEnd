@@ -43,6 +43,8 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   function setDateFunction(e) {
     Keyboard.dismiss();
+    e.setHours(23)
+    console.log(e)
     setDate(e);
   }
 

@@ -12,6 +12,7 @@ export default function ScanCalendar({
 
   
   function onSelect(index, date) {
+    date.setHours(23)
     setDate(date);
   
     const newFoodPriceArray = [...foodPriceArray];

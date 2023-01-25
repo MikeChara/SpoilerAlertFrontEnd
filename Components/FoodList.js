@@ -94,7 +94,7 @@ export default function FoodList({
               {expiry} days left
             </ListItem.Title>
 
-            {expiry < 1 && (
+            {expiry < 0 && (
               <View
                 style={{
                   ...styles.pantryExpiryDate,
@@ -102,7 +102,7 @@ export default function FoodList({
                 }}
               />
             )}
-            {expiry >= 1 && expiry < 3 && (
+            {expiry >= 0 && expiry < 3 && (
               <View
                 style={{
                   ...styles.pantryExpiryDate,
