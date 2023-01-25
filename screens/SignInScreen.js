@@ -31,7 +31,7 @@ export default function SignInScreen({ styles }) {
         style={styles.backgroundcover}
       />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.wholepagecontainer}>
+        <View style={{ ...styles.wholepagecontainer, marginBottom: "30%" }}>
           <View style={styles.whitecontainerWelcome}>
             <Text style={styles.loginTitle}>Log In</Text>
             <Text style={styles.loginSubtitle}>Login to use SpoilerAlert</Text>
@@ -50,24 +50,20 @@ export default function SignInScreen({ styles }) {
               onChangeText={(text) => setPassword(text)}
               secureTextEntry
             />
-          </View>
-          <Pressable
-            style={{ ...styles.greenButton, width: 310, height: 40 }}
-            onPress={handleSignIn}
-          >
-            <Text style={styles.greenButtonText}>Sign In</Text>
-          </Pressable>
+            <Pressable
+              style={{ ...styles.greenButton, height: "9%" }}
+              onPress={handleSignIn}
+            >
+              <Text style={styles.greenButtonText}>Login</Text>
+            </Pressable>
 
-          <Pressable
-            style={{
-              ...styles.greenButtonInvert,
-              width: 310,
-              height: 40,
-            }}
-            onPress={handleSignIn}
-          >
-            <Text style={styles.greenButtonTextInvert}>Sign Up</Text>
-          </Pressable>
+            <Pressable
+              style={{ ...styles.greenButtonInvert, height: "9%" }}
+              onPress={handleSignIn}
+            >
+              <Text style={styles.greenButtonTextInvert}>Sign Up</Text>
+            </Pressable>
+          </View>
         </View>
       </TouchableWithoutFeedback>
     </>

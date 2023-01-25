@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 0,
     backgroundColor: "#0E7835",
+    margin: "2%",
   },
   greenButtonText: {
     fontSize: 16,
@@ -28,12 +29,14 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: "50%",
     marginRight: "50%",
+    width: "50%",
+    height: "5%",
     borderRadius: 20,
-    margin: 10,
-    borderWidth: 1,
-    borderColor: "Green",
     elevation: 0,
     backgroundColor: "white",
+    borderColor: "green",
+    borderWidth: 2,
+    margin: "2%",
   },
 
   greenButtonTextInvert: {
@@ -318,11 +321,19 @@ export const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     padding: 20,
-    paddingBottom: "2%",
+    paddingBottom: "3%",
   },
   whitecontainerWelcome: {
     backgroundColor: "white",
-    marginBottom: 100,
+    borderRadius: 25,
+    shadowColor: "white",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 4,
   },
 
   logoGif: { width: 400, height: 400, opacity: 0.3, alignSelf: "center" },
