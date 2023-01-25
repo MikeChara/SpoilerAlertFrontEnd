@@ -183,29 +183,33 @@ export const styles = StyleSheet.create({
     // backgroundColor: "yellow",
   },
 
-  pantryitemname: {
+  pantryItemName: {
     flex: 1,
     alignSelf: "center",
     alignItems: "center",
     // backgroundColor: "yellow",
   },
 
-  pantryexpirydate: {
+  pantryExpiryDate: {
     flex: 1,
-    // backgroundColor: "green",
-    alignSelf: "center",
+    // alignSelf: "center",
     alignItems: "flex-end",
     paddingRight: 8,
+    width: "60%",
+    borderRadius: 35,
   },
 
-  pantryitemparentcontainer: {
+  pantryExpiryDateParent: {
+    backgroundColor: "lightblue",
+  },
+
+  pantryItemParentContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-start",
-    backgroundColor: "orange",
+    alignItems: "center",
+    backgroundColor: "#F5f5f4",
     width: "100%",
-    // padding: "2%",
     borderRadius: 35,
   },
 

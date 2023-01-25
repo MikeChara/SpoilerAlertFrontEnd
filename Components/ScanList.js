@@ -35,16 +35,15 @@ export default function ScanList({
             ></Ionicons>
           </Pressable>
         )}
-     
       >
-        <View style={styles.pantryitemparentcontainer}>
-          <ListItem.Content style={styles.pantryitemname}>
+        <View style={styles.pantryItemParentContainer}>
+          <ListItem.Content style={styles.pantryItemName}>
             <ListItem.Title>{name}</ListItem.Title>
           </ListItem.Content>
-          <ListItem.Content style={styles.pantryexpirydate}>
+          <ListItem.Content style={styles.pantryExpiryDate}>
             <ListItem.Title>{price}</ListItem.Title>
           </ListItem.Content>
-          <ListItem.Content style={styles.pantryexpirydate}>
+          <ListItem.Content style={styles.pantryExpiryDate}>
             <ScanCalendar
               styles={styles}
               foodPriceArray={foodPriceArray}
