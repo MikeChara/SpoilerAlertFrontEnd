@@ -1,7 +1,6 @@
 // let priceArr = stringArr.filter((e)=> e.charAt(0) === '£' && Number(e.charAt(priceArr[0].length-1)) != NaN )
 
 export default function OCRStringSort(string) {
-  console.log("this is the string return from ocr", string);
   let stringArr = string.split("\n");
   const date = new Date()
 
@@ -21,14 +20,11 @@ export default function OCRStringSort(string) {
     }
   }
 
-  let masterArr = [];
+  let mainArr = [];
 
   for (let i = 0; i < itemsArr.length; i++) {
-    let obj = { name: itemsArr[i], price: priceArr[i], expires_on: date};
-    masterArr.push(obj);
+    let obj = { name: itemsArr[i], price: priceArr[i].slice(1, priceArr[i].length), expires_on: date};
+    mainArr.push(obj);
   }
-
-  console.log("Master array", masterArr);
-  console.log(itemsArr);
-  return masterArr;
+  return mainArr;
 }

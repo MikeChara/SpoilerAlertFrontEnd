@@ -103,8 +103,7 @@ async function addFood(uid) {
       body: JSON.stringify(body),
     });
     const result = await response.json();
-    console.log('result',result)
-    console.log('deep in return', result.responses[0].fullTextAnnotation.text)
+  
 
     setFoodPriceArray(
       OCRStringSort(result.responses[0].fullTextAnnotation.text)
