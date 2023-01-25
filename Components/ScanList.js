@@ -20,7 +20,7 @@ export default function ScanList({
   foodPriceArray,
   setFoodPriceArray,
 }) {
-  // const [displayPrice, setDisplayPrice] = React.useState("£");
+  const [displayPrice, setDisplayPrice] = React.useState("£");
 
   function handleRemove(index) {
     setFoodPriceArray([
@@ -65,7 +65,7 @@ export default function ScanList({
           </ListItem.Content>
           <ListItem.Content style={styles.pantryExpiryDate}>
             <TextInput
-              value={foodPriceArray[index].price}
+              value={displayPrice + foodPriceArray[index].price}
               onChangeText={onPriceChange}
             ></TextInput>
           </ListItem.Content>

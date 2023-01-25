@@ -23,7 +23,7 @@ export default function OCRStringSort(string) {
   let mainArr = [];
 
   for (let i = 0; i < itemsArr.length; i++) {
-    let newPrice = priceArr[i] ? priceArr[i]?.replace("£", "") : "0";
+    let newPrice = priceArr[i] ? priceArr[i]?.replace("£", "") : "0.00";
     let obj = {
       name: itemsArr[i],
       price: newPrice,
