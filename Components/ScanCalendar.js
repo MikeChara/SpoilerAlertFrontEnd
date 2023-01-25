@@ -13,12 +13,10 @@ export default function ScanCalendar({
   
   function onSelect(index, date) {
     setDate(date);
-    console.log(date, index);
   
     const newFoodPriceArray = [...foodPriceArray];
     newFoodPriceArray[index].expires_on = date;
     setFoodPriceArray(newFoodPriceArray);
-    console.log(foodPriceArray);
 
   }
   return (

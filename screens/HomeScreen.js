@@ -20,8 +20,7 @@ export default function HomeScreen({
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
-  console.log(weekStats)
-  console.log(allStats)
+  
 
   return (
     <>

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Button,
-  FlatList,
-} from "react-native";
+import { View, StyleSheet, Button, FlatList } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -12,40 +7,38 @@ import { auth } from "../firebase-config";
 import * as ImagePicker from "expo-image-picker";
 import * as ModalNavigation from "../navigation/ModalNavigate.js";
 
-function Photo({foodList, setFoodList}) {
+function Photo({ foodList, setFoodList }) {
   // The path of the picked image
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
   const [foodPriceArray, setFoodPriceArray] = useState([]);
 
   //navigates back to pantry screen
-  function backToPantry(){
+  function backToPantry() {
     ModalNavigation.navigate("Pantry");
-
   }
 
-//posts data to database
-async function addFood(uid) {
-  const Userthings = await fetch(
-    `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(foodPriceArray),
-    }
-  );
-  const allFood = await fetch(
-    `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
-  );
-  const data = await allFood.json();
-  const food = data.payload;
-  setFoodList(food);
-  backToPantry()
-}
-
+  //posts data to database
+  async function addFood(uid) {
+    const Userthings = await fetch(
+      `https://spoiler-alert-backend.onrender.com/addItem/${uid}`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(foodPriceArray),
+      }
+    );
+    const allFood = await fetch(
+      `https://spoiler-alert-backend.onrender.com/pantry/${uid}`
+    );
+    const data = await allFood.json();
+    const food = data.payload;
+    setFoodList(food);
+    backToPantry();
+  }
 
   // This function is triggered when the "Select an image" button pressed
   const showImagePicker = async () => {
@@ -103,8 +96,6 @@ async function addFood(uid) {
       body: JSON.stringify(body),
     });
     const result = await response.json();
-    console.log('result',result)
-    console.log('deep in return', result.responses[0].fullTextAnnotation.text)
 
     setFoodPriceArray(
       OCRStringSort(result.responses[0].fullTextAnnotation.text)
@@ -138,42 +129,40 @@ async function addFood(uid) {
     }
   };
 
-
-
   return (
-    <View style={styles.screen}>
+    <View>
       <View style={styles.buttonContainer}>
         <Button onPress={showImagePicker} title="Select an image" />
         <Button onPress={openCamera} title="Open camera" />
         {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
       {foodPriceArray === [] ? null : (
-    <View>
-        <FlatList
-          data={foodPriceArray}
-          renderItem={({ item, index }) => {
-            return (
-              <View style={{ flex: 1, flexDirection: "column" }}>
-                <GestureHandlerRootView>
-                  <ScanList
-                    name={item.name}
-                    price={item.price}
-                    foodPriceArray={foodPriceArray}
-                    setFoodPriceArray={setFoodPriceArray}
-                    index={index}
-                    styles={styles}
-                  />
-                </GestureHandlerRootView>
-              </View>
-            );
-          }}
-        />
-                <Button title='Add' onPress={()=>addFood(auth.currentUser.uid)}/>
-    </View>
+        <View>
+          <FlatList
+            data={foodPriceArray}
+            renderItem={({ item, index }) => {
+              return (
+                <View style={{ flex: 1, flexDirection: "column" }}>
+                  <GestureHandlerRootView>
+                    <ScanList
+                      name={item.name}
+                      price={item.price}
+                      foodPriceArray={foodPriceArray}
+                      setFoodPriceArray={setFoodPriceArray}
+                      index={index}
+                      styles={styles}
+                    />
+                  </GestureHandlerRootView>
+                </View>
+              );
+            }}
+          />
+          <Button title="Add" onPress={() => addFood(auth.currentUser.uid)} />
+        </View>
       )}
-    </View>                             );
+    </View>
+  );
 }
-
 
 const styles = StyleSheet.create({
   screen: {
@@ -186,7 +175,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
-
 });
 
 export default Photo;

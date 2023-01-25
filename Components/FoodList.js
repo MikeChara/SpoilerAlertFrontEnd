@@ -53,9 +53,9 @@ export default function FoodList({
             }}
           >
             <Ionicons
-              name="trash-bin-outline"
+              name="restaurant-outline"
               size={30}
-              color={"red"}
+              color={"green"}
             ></Ionicons>
           </Pressable>
         )}
