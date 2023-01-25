@@ -208,10 +208,10 @@ export const styles = StyleSheet.create({
   smallProfilePicture: {
     width: 45,
     height: 45,
-    // alignSelf: "baseline",
+    alignSelf: "baseline",
     position: "absolute",
-    marginLeft: 350,
-    marginTop: 20,
+    right: "5%",
+    top: "5%",
   },
 
   tinyCategoryIcon: {
