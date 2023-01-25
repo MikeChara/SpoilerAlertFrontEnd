@@ -80,17 +80,19 @@ export default function FoodList({
             />
           </ListItem.Content>
           <ListItem.Content style={styles.pantryItemName}>
-            <ListItem.Title>{name}</ListItem.Title>
+            <ListItem.Title style={styles.bodyText}>{name}</ListItem.Title>
           </ListItem.Content>
 
           <ListItem.Content
             style={{
               ...styles.pantryExpiryDate,
-              paddingBottom: "4%",
+              paddingBottom: "3%",
               paddingTop: "3%",
             }}
           >
-            <ListItem.Title>{expiry} days left</ListItem.Title>
+            <ListItem.Title style={{ ...styles.bodyText, textAlign: "right" }}>
+              {expiry} days left
+            </ListItem.Title>
 
             {expiry < 1 && (
               <View
@@ -100,7 +102,7 @@ export default function FoodList({
                 }}
               />
             )}
-            {expiry >= 1 && expiry < 2 && (
+            {expiry >= 1 && expiry < 3 && (
               <View
                 style={{
                   ...styles.pantryExpiryDate,

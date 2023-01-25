@@ -1,3 +1,5 @@
+import { _ } from "ajv";
+import { green } from "color-name";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -7,12 +9,11 @@ export const styles = StyleSheet.create({
     marginLeft: "50%",
     marginRight: "50%",
     width: "50%",
-    height: "5%",
+    height: 35,
     borderRadius: 20,
     elevation: 0,
     backgroundColor: "#0E7835",
   },
-
   greenButtonText: {
     fontSize: 16,
     // lineHeight: 21,
@@ -23,9 +24,35 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
+  greenButtonInvert: {
+    alignSelf: "center",
+    justifyContent: "center",
+    marginLeft: "50%",
+    marginRight: "50%",
+    width: "50%",
+    height: 35,
+    borderRadius: 20,
+    elevation: 0,
+    backgroundColor: "white",
+    borderColor: "green",
+    borderWidth: 2,
+    margin: "2%",
+  },
+
+  greenButtonTextInvert: {
+    fontSize: 16,
+    // lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "green",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+
   editButton: {
     justifyContent: "center",
     width: 100,
+    height: 20,
     borderRadius: 13,
     backgroundColor: "grey",
     alignSelf: "center",
@@ -57,12 +84,12 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 20,
     textAlign: "center",
-    paddingBottom: "5%",
+    paddingBottom: "2%",
   },
 
   wholepagecontainer: {
     flex: 1,
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
     paddingLeft: 8,
     paddingRight: 8,
@@ -82,9 +109,17 @@ export const styles = StyleSheet.create({
   },
 
   bodyText: {
-    alignSelf: "center",
-    fontSize: 16,
+    // alignSelf: "center",
+    fontSize: 14,
     textAlign: "center",
+  },
+
+  bodyTextItalic: {
+    alignSelf: "center",
+    fontSize: 14,
+    textAlign: "center",
+    fontStyle: "italic",
+    color: "grey",
   },
 
   DatePickerAtRendercontainer: {
@@ -170,6 +205,15 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
+  smallProfilePicture: {
+    width: 45,
+    height: 45,
+    alignSelf: "baseline",
+    position: "absolute",
+    right: "5%",
+    top: "5%",
+  },
+
   tinyCategoryIcon: {
     width: 50,
     height: 50,
@@ -197,10 +241,6 @@ export const styles = StyleSheet.create({
     paddingRight: 8,
     width: "60%",
     borderRadius: 35,
-  },
-
-  pantryExpiryDateParent: {
-    backgroundColor: "lightblue",
   },
 
   pantryItemParentContainer: {
@@ -277,6 +317,37 @@ export const styles = StyleSheet.create({
     height: "50%",
     backgroundColor: "lightgray",
     margin: 0,
+  },
+
+  loginTitle: {
+    fontWeight: "bold",
+    fontSize: 36,
+    marginLeft: "6%",
+  },
+
+  loginSubtitle: {
+    color: "grey",
+    fontSize: 16,
+    marginLeft: "5%",
+    padding: 5,
+    alignSelf: "auto",
+  },
+  label: {
+    fontSize: 16,
+    padding: 20,
+    paddingBottom: "3%",
+  },
+  whitecontainerWelcome: {
+    backgroundColor: "white",
+    borderRadius: 25,
+    shadowColor: "white",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 4,
   },
 
   logoGif: { width: 400, height: 400, opacity: 0.3, alignSelf: "center" },

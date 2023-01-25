@@ -5,6 +5,7 @@ import {
   TextInput,
   Pressable,
   Keyboard,
+  Image,
   TouchableWithoutFeedback,
 } from "react-native";
 import React, { useState } from "react";
@@ -24,26 +25,46 @@ export default function SignInScreen({ styles }) {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.wholepagecontainer}>
-        <Text>Sign In Here..</Text>
-        <TextInput
-          style={styles.textInputBox}
-          placeholder="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          style={styles.textInputBox}
-          placeholder="Password"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry
-        />
-        <Pressable style={styles.greenButton} onPress={handleSignIn}>
-          <Text style={styles.greenButtonText}>Sign In</Text>
-        </Pressable>
-      </View>
-    </TouchableWithoutFeedback>
+    <>
+      <Image
+        source={require("../assets/foodiconbg-light.png")}
+        style={styles.backgroundcover}
+      />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{ ...styles.wholepagecontainer, marginBottom: "50%" }}>
+          <View style={styles.whitecontainerWelcome}>
+            <Text style={{ ...styles.loginTitle, marginTop: "5%" }}>
+              Log In
+            </Text>
+            <Text style={styles.loginSubtitle}>Log in to use SpoilerAlert</Text>
+            <Text style={styles.label}>Your Email</Text>
+            <TextInput
+              style={styles.textInputBox}
+              placeholder="Email"
+              value={email}
+              onChangeText={(text) => setEmail(text)}
+            />
+            <Text style={styles.label}>Password</Text>
+            <TextInput
+              style={styles.textInputBox}
+              placeholder="Password"
+              value={password}
+              onChangeText={(text) => setPassword(text)}
+              secureTextEntry
+            />
+            <Pressable
+              style={{ ...styles.greenButton, margin: "2%" }}
+              onPress={handleSignIn}
+            >
+              <Text style={styles.greenButtonText}>Log In</Text>
+            </Pressable>
+
+            <Pressable style={styles.greenButtonInvert} onPress={handleSignIn}>
+              <Text style={styles.greenButtonTextInvert}>Sign Up</Text>
+            </Pressable>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+    </>
   );
 }

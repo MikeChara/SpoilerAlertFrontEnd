@@ -108,7 +108,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
             value={displayPrice}
           />
           <Pressable
-            style={{ ...styles.greenButton, marginTop: "10%", height: "8%" }}
+            style={{ ...styles.greenButton, marginTop: "5%" }}
             onPress={addPriceButtonHandle}
           >
             <Text style={styles.greenButtonText}>Add Item to Pantry</Text>

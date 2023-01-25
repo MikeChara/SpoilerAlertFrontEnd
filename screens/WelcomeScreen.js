@@ -15,13 +15,13 @@ export default function WelcomeScreen({ styles }) {
           SpoilerAlert!
         </Text>
         <Text style={{ ...styles.bodyText, marginBottom: "5%" }}>
-          Sign in or sign up to use Spoiler Alert!
+          Log in or sign up to use Spoiler Alert!
         </Text>
         <Pressable
           style={{ ...styles.greenButton, marginBottom: "5%" }}
-          onPress={() => navigation.navigate("Sign In")}
+          onPress={() => navigation.navigate("Log In")}
         >
-          <Text style={styles.greenButtonText}>Sign In</Text>
+          <Text style={styles.greenButtonText}>Log In</Text>
         </Pressable>
 
         <Pressable

@@ -19,7 +19,7 @@ export default function AuthContainer({ styles }) {
           children={() => <WelcomeScreen styles={styles} />}
         />
         <Stack.Screen
-          name="Sign In"
+          name="Log In"
           children={() => <SignInScreen styles={styles} />}
         />
         <Stack.Screen
