@@ -12,10 +12,22 @@ function Photo({ foodList, setFoodList }) {
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
   const [foodPriceArray, setFoodPriceArray] = useState([]);
+  const priceRegex = /^\d+(\.\d{1,2})?$/;
 
-  //navigates back to pantry screen
-  function backToPantry() {
-    ModalNavigation.navigate("Pantry");
+  function addFoodButtonHandle(uid) {
+    let pass = true;
+    for (let i = 0; i < foodPriceArray.length; i++) {
+      if (!priceRegex.test(foodPriceArray[i].price)) {
+        pass = false;
+        break;
+      }
+    }
+    if (pass) {
+      addFood(uid);
+      ModalNavigation.navigate("Pantry");
+    } else {
+      alert("Please ensure all prices are valid to submit");
+    }
   }
 
   //posts data to database
@@ -37,7 +49,6 @@ function Photo({ foodList, setFoodList }) {
     const data = await allFood.json();
     const food = data.payload;
     setFoodList(food);
-    backToPantry();
   }
 
   // This function is triggered when the "Select an image" button pressed
@@ -157,7 +168,10 @@ function Photo({ foodList, setFoodList }) {
               );
             }}
           />
-          <Button title="Add" onPress={() => addFood(auth.currentUser.uid)} />
+          <Button
+            title="Add to Pantry"
+            onPress={() => addFoodButtonHandle(auth.currentUser.uid)}
+          />
         </View>
       )}
     </View>
