@@ -205,6 +205,15 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
+  smallProfilePicture: {
+    width: 45,
+    height: 45,
+    // alignSelf: "baseline",
+    position: "absolute",
+    marginLeft: 350,
+    marginTop: 20,
+  },
+
   tinyCategoryIcon: {
     width: 50,
     height: 50,

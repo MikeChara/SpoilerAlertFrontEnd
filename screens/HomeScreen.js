@@ -41,6 +41,10 @@ export default function HomeScreen({
         <Text style={styles.dashboardProgresstitle}>
           Your progress so far...
         </Text>
+        <Image
+          source={require("./Cranks-1.png")}
+          style={styles.smallProfilePicture}
+        />
         <View style={styles.dashboardrowContainer}>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "lightblue" }}
