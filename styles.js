@@ -1,3 +1,5 @@
+import { _ } from "ajv";
+import { green } from "color-name";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -12,13 +14,34 @@ export const styles = StyleSheet.create({
     elevation: 0,
     backgroundColor: "#0E7835",
   },
-
   greenButtonText: {
     fontSize: 16,
     // lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  greenButtonInvert: {
+    alignSelf: "center",
+    justifyContent: "center",
+    marginLeft: "50%",
+    marginRight: "50%",
+    borderRadius: 20,
+    margin: 10,
+    borderWidth: 1,
+    borderColor: "Green",
+    elevation: 0,
+    backgroundColor: "white",
+  },
+
+  greenButtonTextInvert: {
+    fontSize: 16,
+    // lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "green",
     justifyContent: "center",
     alignSelf: "center",
   },
@@ -57,12 +80,12 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     padding: 20,
     textAlign: "center",
-    paddingBottom: "5%",
+    paddingBottom: "2%",
   },
 
   wholepagecontainer: {
     flex: 1,
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
     paddingLeft: 8,
     paddingRight: 8,
@@ -277,6 +300,29 @@ export const styles = StyleSheet.create({
     height: "50%",
     backgroundColor: "lightgray",
     margin: 0,
+  },
+
+  loginTitle: {
+    fontWeight: "bold",
+    fontSize: 36,
+    marginLeft: "6%",
+  },
+
+  loginSubtitle: {
+    color: "grey",
+    fontSize: 16,
+    marginLeft: "5%",
+    padding: 5,
+    alignSelf: "auto",
+  },
+  label: {
+    fontSize: 16,
+    padding: 20,
+    paddingBottom: "2%",
+  },
+  whitecontainerWelcome: {
+    backgroundColor: "white",
+    marginBottom: 100,
   },
 
   logoGif: { width: 400, height: 400, opacity: 0.3, alignSelf: "center" },

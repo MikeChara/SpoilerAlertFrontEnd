@@ -86,7 +86,7 @@ export default function FoodList({
           <ListItem.Content
             style={{
               ...styles.pantryExpiryDate,
-              paddingBottom: "4%",
+              paddingBottom: "3%",
               paddingTop: "3%",
             }}
           >
@@ -100,7 +100,7 @@ export default function FoodList({
                 }}
               />
             )}
-            {expiry >= 1 && expiry < 2 && (
+            {expiry >= 1 && expiry < 3 && (
               <View
                 style={{
                   ...styles.pantryExpiryDate,

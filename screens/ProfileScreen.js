@@ -55,7 +55,7 @@ export default function ProfileScreen({ styles }) {
           placeholder={userDetails[0]?.name}
         />
         <Pressable
-          style={{ ...styles.greenButton, marginTop: 120 }}
+          style={{ ...styles.greenButton, marginTop: 20 }}
           onPress={HandleSignOut}
         >
           <Text style={styles.greenButtonText}>Sign Out</Text>
