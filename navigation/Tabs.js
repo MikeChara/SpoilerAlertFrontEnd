@@ -29,10 +29,6 @@ function Tabs({
   setAllStats,
   weekStats,
   setWeekStats,
-  lastWeekEaten,
-  setLastWeekEaten,
-  allEaten,
-  setAllEaten,
 }) {
   // Tab navigator will select one of the screens from the navbar when 'focused' is true
   return (
@@ -83,10 +79,7 @@ function Tabs({
             setAllStats={setAllStats}
             weekStats={weekStats}
             setWeekStats={setWeekStats}
-            lastWeekEaten={lastWeekEaten}
-            setLastWeekEaten={setLastWeekEaten}
-            allEaten={allEaten}
-            setAllEaten={setAllEaten}
+           
 
           />
         )}

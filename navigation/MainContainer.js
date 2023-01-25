@@ -15,8 +15,7 @@ function MainContainer({ styles }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [allStats, setAllStats] = useState([]);
   const [weekStats, setWeekStats] = useState([]);
-  const [lastWeekEaten, setLastWeekEaten] = useState([]);
-  const [allEaten, setAllEaten] = useState([]);
+
 
   useEffect(() => {
     getUserFood(auth.currentUser.uid, setFoodList);
@@ -39,10 +38,7 @@ function MainContainer({ styles }) {
                 setAllStats={setAllStats}
                 weekStats={weekStats}
                 setWeekStats={setWeekStats}
-                lastWeekEaten={lastWeekEaten}
-                setLastWeekEaten={setLastWeekEaten}
-                allEaten={allEaten}
-                setAllEaten={setAllEaten}
+                
               />
             )}
             options={{ headerShown: false }}

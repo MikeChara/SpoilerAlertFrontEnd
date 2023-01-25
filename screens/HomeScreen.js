@@ -5,8 +5,6 @@ import { CountUp } from 'use-count-up'
 import {
   getAllStats,
   getWeekStats,
-  getLastWeeksEatenFood,
-  getAllEatenFood,
 } from "../Fetches/getRequests.js";
 
 export default function HomeScreen({
@@ -16,18 +14,12 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
-  lastWeekEaten,
-  setLastWeekEaten,
-  allEaten,
-  setAllEaten,
+ 
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
-    getLastWeeksEatenFood(auth.currentUser.uid, setLastWeekEaten);
-    getAllEatenFood(auth.currentUser.uid, setAllEaten);
   }, [foodList]);
-  console.log(lastWeekEaten)
   console.log(weekStats)
   console.log(allStats)
 
