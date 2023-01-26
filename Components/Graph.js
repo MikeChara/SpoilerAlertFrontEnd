@@ -25,17 +25,7 @@ const graphHeight = CanvasHeight - 2 * GRAPH_MARGIN;
 const graphWidth = CanvasWidth - 2;
 9;
 
-export const Graph = () => {
-  const dairyImage = useImage(require("../screens/Dairy.png"));
-  const fruitVegImage = useImage(require("../screens/FruitVeg.png"));
-  const cupboardImage = useImage(require("../screens/Cupboard.png"));
-
-  const data = [
-    { label: "Dairy", value: 80, image: fruitVegImage },
-    { label: "Fruit/Veg", value: 100, image: dairyImage },
-    { label: "Cupboard", value: 65, image: cupboardImage },
-  ];
-
+export const Graph = ({ data }) => {
   const font = useFont(require("../assets/Roboto-Bold.ttf"), 10);
   const animationState = useValue(0);
 
