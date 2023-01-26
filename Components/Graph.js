@@ -66,8 +66,8 @@ export const Graph = ({color, data}) => {
     data.forEach((dataPoint) => {
       const rect = Skia.XYWHRect(
         //hover over blue for explanation!
-        55, //where x starts
-        x(dataPoint.label) - 2 * GRAPH_BAR_WIDTH, //where y starts (spread over the array of categories)
+        65, //where x starts
+        x(dataPoint.label) - 1.3 * GRAPH_BAR_WIDTH, //where y starts (spread over the array of categories)
         y(dataPoint.value * animationState.current) * 1, //negative value dictates direction
         GRAPH_BAR_WIDTH
       );
@@ -94,8 +94,8 @@ export const Graph = ({color, data}) => {
             fit="contain"
             x={25}
             y={x(dataPoint?.label) - 21.5}
-            width={20}
-            height={20}
+            width={30}
+            height={30}
           />
         ))}
       </Canvas>
