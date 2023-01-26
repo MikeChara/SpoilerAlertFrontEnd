@@ -9,8 +9,6 @@ import { useImage } from "@shopify/react-native-skia";
 
 import { useFonts } from "expo-font";
 
-
-
 export default function HomeScreen({
   styles,
   foodList,
@@ -19,12 +17,12 @@ export default function HomeScreen({
   weekStats,
   setWeekStats,
 }) {
-  const dairyImage = useImage(require("../screens/Dairy.png"));
-  const fruitVegImage = useImage(require("../screens/FruitVeg.png"));
-  const cupboardImage = useImage(require("../screens/Cupboard.png"));
-  const beveragesImage = useImage(require("../screens/Beverages.png"));
-  const fishImage = useImage(require("../screens/Fish.png"));
-  const meatImage = useImage(require("../screens/Meat.png"));
+  const dairyImage = useImage(require("../screens/DairyNoBorder.png"));
+  const fruitVegImage = useImage(require("../screens/FruitVegNoBorder.png"));
+  const cupboardImage = useImage(require("../screens/CupboardNoBorder.png"));
+  const beveragesImage = useImage(require("../screens/BeveragesNoBorder.png"));
+  const fishImage = useImage(require("../screens/FishNoBorder.png"));
+  const meatImage = useImage(require("../screens/MeatNoBorder.png"));
   const data = [
     { label: "Dairy", value: 80, image: fruitVegImage },
     { label: "Fruit/Veg", value: 100, image: dairyImage },
@@ -41,7 +39,6 @@ export default function HomeScreen({
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
-
 
   return (
     <>
@@ -77,13 +74,15 @@ export default function HomeScreen({
             paddingTop: "3%",
           }}
         >
-          Best vs Worst
+          Most Eaten vs Most Wasted
         </Text>
 
-        {data[2].image && <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
-          <Graph color={"green"} data={data} />
-          <Graph color={"red"} data={dataTwo} />
-        </View>}
+        {data[2].image && (
+          <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
+            <Graph color={"green"} data={data} />
+            <Graph color={"red"} data={dataTwo} />
+          </View>
+        )}
       </View>
 
       <View style={styles.dashboardrowContainer}>
@@ -136,9 +135,6 @@ export default function HomeScreen({
             %
           </Text>
           <Text style={styles.dashboardText}>All time</Text>
-
-        
-       
         </View>
       </View>
     </>
