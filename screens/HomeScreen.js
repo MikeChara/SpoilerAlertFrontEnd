@@ -25,7 +25,6 @@ export default function HomeScreen({
         source={require("../assets/foodiconbg-light.png")}
         style={styles.backgroundcover}
       />
-      {/* <View style={styles.dashboardContainer}> */}
       <Text style={styles.dashboardWelcome}>
         Hi {auth.currentUser.displayName}!
       </Text>
@@ -34,14 +33,10 @@ export default function HomeScreen({
         source={require("./Cranks-1.png")}
         style={styles.smallProfilePicture}
       />
-      {/* <View style={styles.horizontal}> */}
-      {/* <View
-            style={{ ...styles.dashboardSquare, backgroundColor: "lightblue" }}
-          > */}
-      <Graph />
-      <Graph />
-      {/* </View> */}
-      {/* </View> */}
+      <View style={{ flex: 1, flexDirection: "row",alignItems:"center", margin: "6%", marginBottom: "10%", backgroundColor: "lightblue",borderRadius:10, }}>
+        <Graph />
+        <Graph />
+      </View>
 
       <View style={styles.dashboardrowContainer}>
         <View style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}>
@@ -95,7 +90,6 @@ export default function HomeScreen({
           <Text style={styles.dashboardText}>All time</Text>
         </View>
       </View>
-      {/* </View> */}
     </>
   );
 }

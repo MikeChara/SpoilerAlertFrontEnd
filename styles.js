@@ -132,17 +132,20 @@ export const styles = StyleSheet.create({
 
   dashboardSquare: {
     width: "100%",
-    height: "100%",
+    height: "85%",
     borderRadius: 10,
     flex: 1,
-    margin: "2%",
+    marginLeft: "3%",
+    marginRight: "3%",
   },
 
   dashboardrowContainer: {
+    flex:1,
     flexDirection: "row",
     marginLeft: "3%",
     marginRight: "3%",
-    paddingBottom: "3%",
+   
+    // paddingBottom: "3%",
     // flexWrap: "wrap",
   },
 
@@ -213,7 +216,6 @@ export const styles = StyleSheet.create({
     right: "5%",
     top: "5%",
   },
-
   tinyCategoryIcon: {
     width: 50,
     height: 50,

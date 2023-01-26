@@ -99,10 +99,10 @@ export const Graph = () => {
         <Path path={path} color="red" />
         {data.map((dataPoint) => (
           <Image
-            image={dataPoint.image}
+            image={dataPoint?.image}
             fit="contain"
             x={25}
-            y={x(dataPoint.label) - 21.5}
+            y={x(dataPoint?.label) - 21.5}
             width={20}
             height={20}
           />
@@ -121,8 +121,8 @@ export const Graph = () => {
 //   />
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
+  container: {flexDirection:'row',
+  justifyContent:'center',
     alignItems: "center",
     flex: 1,
   },
@@ -130,14 +130,6 @@ const styles = StyleSheet.create({
     height: CanvasHeight,
     width: CanvasWidth,
     flex: 1,
-  },
-  horizontal: {
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 1,
-    flexDirection: "row",
-  },
-  graph: {
-    flex: 1,
+    
   },
 });
