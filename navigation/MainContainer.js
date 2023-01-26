@@ -10,7 +10,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Photo from "../screens/ImageLibraryScreen.js";
 import { navigationRef } from "./ModalNavigate.js";
 
-function MainContainer({ styles, fontsLoaded }) {
+function MainContainer({ styles }) {
   const [foodList, setFoodList] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [allStats, setAllStats] = useState([]);

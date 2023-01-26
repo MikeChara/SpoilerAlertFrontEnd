@@ -27,7 +27,7 @@ export default function RootNavigation({ styles }) {
   });
 
   return loggedIn ? (
-    <MainContainer fontsLoaded={fontsLoaded} styles={styles} />
+    <MainContainer styles={styles} />
   ) : (
     <AuthContainer styles={styles} />
   );
