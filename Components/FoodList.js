@@ -90,9 +90,19 @@ export default function FoodList({
               paddingTop: "3%",
             }}
           >
-            <ListItem.Title style={{ ...styles.bodyText, textAlign: "right" }}>
-              {expiry} days left
-            </ListItem.Title>
+            {expiry < 0 ? (
+              <ListItem.Title
+                style={{ ...styles.bodyText, textAlign: "right" }}
+              >
+                EXPIRED
+              </ListItem.Title>
+            ) : (
+              <ListItem.Title
+                style={{ ...styles.bodyText, textAlign: "right" }}
+              >
+                {expiry} days left
+              </ListItem.Title>
+            )}
 
             {expiry < 0 && (
               <View
