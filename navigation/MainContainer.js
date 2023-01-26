@@ -10,12 +10,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Photo from "../screens/ImageLibraryScreen.js";
 import { navigationRef } from "./ModalNavigate.js";
 
-function MainContainer({ styles }) {
+function MainContainer({ styles, fontsLoaded }) {
   const [foodList, setFoodList] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [allStats, setAllStats] = useState([]);
   const [weekStats, setWeekStats] = useState([]);
-
 
   useEffect(() => {
     getUserFood(auth.currentUser.uid, setFoodList);
@@ -38,25 +37,32 @@ function MainContainer({ styles }) {
                 setAllStats={setAllStats}
                 weekStats={weekStats}
                 setWeekStats={setWeekStats}
-                
               />
             )}
             options={{ headerShown: false }}
           />
 
-					<Stack.Screen name='Scan' 
-					children={()=>(<Photo foodList={foodList} setFoodList={setFoodList}/>)} />
-				</Stack.Navigator>
-				<View>
-					<ManualModal
-						modalVisible={modalVisible}
-						setModalVisible={setModalVisible}
-						styles={styles}
-						navigation={Tabs}
-					/>
-				</View>
-			</NavigationContainer>
-		</View>
-	);
+          <Stack.Screen
+            name="Scan"
+            children={() => (
+              <Photo
+                foodList={foodList}
+                setFoodList={setFoodList}
+                styles={styles}
+              />
+            )}
+          />
+        </Stack.Navigator>
+        <View>
+          <ManualModal
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+            styles={styles}
+            navigation={Tabs}
+          />
+        </View>
+      </NavigationContainer>
+    </View>
+  );
 }
 export default MainContainer;
