@@ -135,18 +135,17 @@ export const styles = StyleSheet.create({
     height: "85%",
     borderRadius: 10,
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-evenly",
     marginLeft: "3%",
     marginRight: "3%",
   },
 
   dashboardrowContainer: {
-    flex:1,
+    flex: 1,
     flexDirection: "row",
     marginLeft: "3%",
     marginRight: "3%",
-   
-    // paddingBottom: "3%",
-    // flexWrap: "wrap",
   },
 
   dashboardText: {
@@ -161,14 +160,12 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginLeft: "7%",
-    marginTop: "4%",
   },
 
   dashboardPrice: {
     fontSize: 40,
     fontWeight: "bold",
     color: "white",
-    paddingTop: "6%",
     marginLeft: "7%",
   },
 

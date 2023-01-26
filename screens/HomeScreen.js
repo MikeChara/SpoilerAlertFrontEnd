@@ -33,9 +33,32 @@ export default function HomeScreen({
         source={require("./Cranks-1.png")}
         style={styles.smallProfilePicture}
       />
-      <View style={{ flex: 1, flexDirection: "row",alignItems:"center", margin: "6%", marginBottom: "10%", backgroundColor: "lightblue",borderRadius:10, }}>
-        <Graph />
-        <Graph />
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "6%",
+          marginBottom: "10%",
+          backgroundColor: "lightblue",
+          borderRadius: 10,
+          justifyContent: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 22,
+            fontWeight: "bold",
+            color: "white",
+            paddingTop: "3%",
+          }}
+        >
+          Best vs Worst
+        </Text>
+        <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
+          <Graph />
+          <Graph />
+        </View>
       </View>
 
       <View style={styles.dashboardrowContainer}>

@@ -121,8 +121,10 @@ export const Graph = () => {
 //   />
 
 const styles = StyleSheet.create({
-  container: {flexDirection:'row',
-  justifyContent:'center',
+  container: {
+    flexDirection: "column",
+    // justifyContent: "center",
+    top: "5%",
     alignItems: "center",
     flex: 1,
   },
@@ -130,6 +132,5 @@ const styles = StyleSheet.create({
     height: CanvasHeight,
     width: CanvasWidth,
     flex: 1,
-    
   },
 });
