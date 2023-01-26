@@ -24,8 +24,11 @@ Our app helps users manage their food inventory by allowing them to input food i
 
 ## How to use it:
 
-1. Download the ExpoGo app from android or iphone store.
-2. Visit: [Our ExpoGo Site](https://expo.dev/@fat_arrow_faction/SpoilerAlert?serviceType=classic&distribution=expo-go) and hit up the QR code
+1. Download the ExpoGo app from the [android](https://play.google.com/store/apps/details?id=host.exp.exponent) or [iphone](https://apps.apple.com/app/apple-store/id982107779) app store.
+2. Visit: [Our ExpoGo Site](https://expo.dev/@fat_arrow_faction/SpoilerAlert?serviceType=classic&distribution=expo-go) or hit up the QR code:
+
+   <img src="https://qr.expo.dev/expo-go?owner=fat_arrow_faction&slug=SpoilerAlert&releaseChannel=default&host=exp.host" alt="QR Code" title="QR for SpoilerAlert" height="300"/>
+
 3. Save the planet by reducing your food wastage! (and maybe some £££)
 
 ## The Fat Arrow Faction team members are:
