@@ -25,16 +25,16 @@ const graphHeight = CanvasHeight - 2 * GRAPH_MARGIN;
 const graphWidth = CanvasWidth - 2;
 9;
 
-export const Graph = ({color}) => {
+export const Graph = ({color, data}) => {
   const dairyImage = useImage(require("../screens/Dairy.png"));
   const fruitVegImage = useImage(require("../screens/FruitVeg.png"));
   const cupboardImage = useImage(require("../screens/Cupboard.png"));
 
-  const data = [
-    { label: "Dairy", value: 80, image: fruitVegImage },
-    { label: "Fruit/Veg", value: 100, image: dairyImage },
-    { label: "Cupboard", value: 65, image: cupboardImage },
-  ];
+  // const data = [
+  //   { label: "Dairy", value: 80, image: fruitVegImage },
+  //   { label: "Fruit/Veg", value: 100, image: dairyImage },
+  //   { label: "Cupboard", value: 65, image: cupboardImage },
+  // ];
 
   const font = useFont(require("../assets/Roboto-Bold.ttf"), 10);
   const animationState = useValue(0);
@@ -87,17 +87,8 @@ export const Graph = ({color}) => {
   return (
     <View style={styles.container}>
       <Canvas style={styles.canvas}>
-        {/* <Image
-          image={image}
-          fit="contain"
-          x={0}
-          y={0}
-          width= {20} 
-          height= {20}
-        /> */}
-
         <Path path={path} color={color} />
-        {data.map((dataPoint) => (
+        {data?.map((dataPoint) => (
           <Image
             image={dataPoint?.image}
             fit="contain"
@@ -108,17 +99,10 @@ export const Graph = ({color}) => {
           />
         ))}
       </Canvas>
-      {/* <Button title="Animate!" onPress={animate} /> */}
     </View>
   );
 };
-//   <Text
-//     key={dataPoint.label}
-//     font={font}
-//     y={x(dataPoint.label) - 10} //Swap these around and the text moves axis
-//     x={25} //Swap these around and the text moves axis
-//     text={dataPoint.label}
-//   />
+
 
 const styles = StyleSheet.create({
   container: {

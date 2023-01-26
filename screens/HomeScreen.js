@@ -4,6 +4,7 @@ import { auth } from "../firebase-config";
 import { CountUp } from "use-count-up";
 import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 import { Graph } from "../Components/Graph.js";
+import { useImage } from "@shopify/react-native-skia";
 
 export default function HomeScreen({
   styles,
@@ -13,6 +14,24 @@ export default function HomeScreen({
   weekStats,
   setWeekStats,
 }) {
+  const dairyImage = useImage(require("../screens/Dairy.png"));
+  const fruitVegImage = useImage(require("../screens/FruitVeg.png"));
+  const cupboardImage = useImage(require("../screens/Cupboard.png"));
+  const beveragesImage = useImage(require("../screens/Beverages.png"));
+  const fishImage = useImage(require("../screens/Fish.png"));
+  const meatImage = useImage(require("../screens/Meat.png"));
+  const data = [
+    { label: "Dairy", value: 80, image: fruitVegImage },
+    { label: "Fruit/Veg", value: 100, image: dairyImage },
+    { label: "Cupboard", value: 65, image: cupboardImage },
+  ];
+
+  const dataTwo = [
+    { label: "Beverages", value: 50, image: beveragesImage },
+    { label: "Fish", value: 20, image: fishImage },
+    { label: "Meat", value: 45, image: meatImage },
+  ];
+
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
@@ -55,10 +74,11 @@ export default function HomeScreen({
         >
           Best vs Worst
         </Text>
-        <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
-          <Graph color={'green'} />
-          <Graph color={'red'}/>
-        </View>
+
+        {data[2].image && <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
+          <Graph color={"green"} data={data} />
+          <Graph color={"red"} data={dataTwo} />
+        </View>}
       </View>
 
       <View style={styles.dashboardrowContainer}>
