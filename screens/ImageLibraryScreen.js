@@ -142,17 +142,23 @@ function Photo({ foodList, setFoodList, styles }) {
 
   return (
     <View>
-      <View style={styles.buttonContainer}>
-        <Pressable onPress={showImagePicker} style={styles.greenButton}>
+      <View>
+        <Pressable
+          onPress={showImagePicker}
+          style={{ ...styles.greenButton, width: "40%" }}
+        >
           <Text style={styles.greenButtonText}>Select an image</Text>
         </Pressable>
-        <Pressable onPress={openCamera} style={styles.greenButton}>
+        <Pressable
+          onPress={openCamera}
+          style={{ ...styles.greenButton, width: "40%" }}
+        >
           <Text style={styles.greenButtonText}>Open Camera</Text>
         </Pressable>
 
         {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
-      {foodPriceArray === [] ? null : (
+      {foodPriceArray == [] ? null : (
         <View>
           <FlatList
             style={{ height: "82%" }}

@@ -64,6 +64,7 @@ export default function ScanList({
               style={{
                 margin: 10,
                 borderRadius: 8,
+                height: 30,
                 borderColor: "grey",
                 borderWidth: 1,
                 alignItems: "center",
