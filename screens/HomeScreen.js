@@ -6,6 +6,7 @@ import {
   getAllStats,
   getWeekStats,
 } from "../Fetches/getRequests.js";
+import { Graph } from "../Components/Graph.js";
 
 export default function HomeScreen({
   styles,
@@ -28,7 +29,7 @@ console.log(weekStats)
         source={require("../assets/foodiconbg-light.png")}
         style={styles.backgroundcover}
       />
-      <View style={styles.dashboardContainer}>
+      {/* <View style={styles.dashboardContainer}> */}
         <Text style={styles.dashboardWelcome}>
           Hi {auth.currentUser.displayName}!
         </Text>
@@ -39,13 +40,13 @@ console.log(weekStats)
           source={require("./Cranks-1.png")}
           style={styles.smallProfilePicture}
         />
-        <View style={styles.dashboardrowContainer}>
-          <View
+        {/* <View style={styles.dashboardrowContainer}> */}
+          {/* <View
             style={{ ...styles.dashboardSquare, backgroundColor: "lightblue" }}
-          >
-            <Text style={styles.dashboardSubtitle}>Bar Cool Thing Here</Text>
-          </View>
-        </View>
+          > */}
+            <Graph/>
+          {/* </View> */}
+        {/* </View> */}
 
         <View style={styles.dashboardrowContainer}>
           <View
@@ -88,7 +89,7 @@ console.log(weekStats)
             <Text style={styles.dashboardText}>All time</Text>
           </View>
         </View>
-      </View>
+      {/* </View> */}
     </>
   );
 }

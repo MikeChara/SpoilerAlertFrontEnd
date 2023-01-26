@@ -117,6 +117,6 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           </Pressable>
         </View>
       </>
-    </TouchableWithoutFeedback>
+     </TouchableWithoutFeedback>
   );
 }
