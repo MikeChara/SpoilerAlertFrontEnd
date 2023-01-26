@@ -7,8 +7,8 @@ Our app helps users manage their food inventory by allowing them to input food i
 ## Current Features:
 
 - Individual users recieve metrics on their food wastage and usage over time, as a percentage of use and cost value, all time and for current week.
-- Visible cues on when items are expired or approaching expiry
-- Input food items in bulk using OCR technology, by taking an image of a receipt, or food items with clearly visible labels
+- Visual cues on when items are expired or approaching expiry
+- Input food items in bulk using OCR technology, by taking an image of a receipt or uploading one, or food items with clearly visible labels
 - Input food items manually
 - Provide an ordered list by expiry date, or expired.
 
