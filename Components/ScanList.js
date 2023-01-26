@@ -6,6 +6,8 @@ import {
   Button,
   Image,
   TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -40,45 +42,48 @@ export default function ScanList({
   }
   return (
     <>
-      <ListItem.Swipeable
-        leftContent={(reset) => (
-          <Pressable
-            style={styles.swipeIcon}
-            onPress={() => {
-              handleRemove(index);
-            }}
-          >
-            <Ionicons
-              name="trash-bin-outline"
-              size={30}
-              color={"red"}
-            ></Ionicons>
-          </Pressable>
-        )}
-      >
-        <View style={styles.pantryItemParentContainer}>
-          <ListItem.Content style={styles.pantryItemName}>
-            <TextInput
-              value={foodPriceArray[index].name}
-              onChangeText={onNameChange}
-            ></TextInput>
-          </ListItem.Content>
-          <ListItem.Content style={styles.pantryExpiryDate}>
-            <TextInput
-              value={displayPrice + foodPriceArray[index].price}
-              onChangeText={onPriceChange}
-            ></TextInput>
-          </ListItem.Content>
-          <ListItem.Content style={styles.pantryExpiryDate}>
-            <ScanCalendar
-              styles={styles}
-              foodPriceArray={foodPriceArray}
-              setFoodPriceArray={setFoodPriceArray}
-              index={index}
-            />
-          </ListItem.Content>
-        </View>
-      </ListItem.Swipeable>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ListItem.Swipeable
+          leftContent={(reset) => (
+            <Pressable
+              style={styles.swipeIcon}
+              onPress={() => {
+                handleRemove(index);
+              }}
+            >
+              <Ionicons
+                name="trash-bin-outline"
+                size={30}
+                color={"red"}
+              ></Ionicons>
+            </Pressable>
+          )}
+        >
+          <View style={styles.pantryItemParentContainer}>
+            <ListItem.Content style={styles.pantryItemName}>
+              <TextInput
+                value={foodPriceArray[index].name}
+                onChangeText={onNameChange}
+              ></TextInput>
+            </ListItem.Content>
+            <ListItem.Content style={styles.pantryExpiryDate}>
+              <TextInput
+                value={displayPrice + foodPriceArray[index].price}
+                onChangeText={onPriceChange}
+                keyboardType={"decimal-pad"}
+              ></TextInput>
+            </ListItem.Content>
+            <ListItem.Content style={styles.pantryExpiryDate}>
+              <ScanCalendar
+                styles={styles}
+                foodPriceArray={foodPriceArray}
+                setFoodPriceArray={setFoodPriceArray}
+                index={index}
+              />
+            </ListItem.Content>
+          </View>
+        </ListItem.Swipeable>
+      </TouchableWithoutFeedback>
     </>
   );
 }
