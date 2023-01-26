@@ -2,7 +2,7 @@
 
 ## _Created by the Fat Arrow Faction team as part of the School of Code._
 
-Our app helps users manage their food inventory by allowing them to input food items manually or by scanning receipts with OCR technology.
+Our app helps users manage their food inventory by allowing them to input food items manually or by scanning receipts with Optical Character Recognition technology. You can read more about this exciting area of research [here](https://cloud.google.com/vision/docs/ocr).
 
 ## Current Features:
 
