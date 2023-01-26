@@ -31,17 +31,28 @@ Our app helps users manage their food inventory by allowing them to input food i
 
 ## The Fat Arrow Faction team members are:
 
-- Mohamed Abdi
-- Mike Charahttps://github.com/MikeChara/SpoilerAlertFrontEnd/tree/readme-branch
-- Arooj Ilyas
-- Chris Sanger
-- Nicholas Pervez
+- Mohamed Abdi https://github.com/Mohamed1104
+- Mike Chara https://github.com/MikeChara
+- Arooj Ilyas https://github.com/arooj-ilyas
+- Chris Sanger https://github.com/C0dingChris
+- Nicholas Pervez https://github.com/nicholaspervez
+
+## With help from:
+
+- Sam https://github.com/cadbury-sdmjc
+
+* Charlie
 
 Thank you for choosing our app to help you manage your food inventory! We're hoping to make an impact on the global costs of food waste, both social and ecological, as well as save you time and money.
 
-Our techstack:
-stuffandthings
+## Techstack:
 
-Someotherthings?:
-otherthings
-Link to backend?
+Miro, Figma, Trello Kanban, Lucid, React Native, Expo Go, FirebaseAuth
+
+## Libraries:
+
+IonIcon, UIKitten Calendar,
+
+## Backend Repo:
+
+https://github.com/SchoolOfCode/bc13_final-project_back-end-fatarrowfaction
