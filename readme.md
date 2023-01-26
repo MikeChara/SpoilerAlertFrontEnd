@@ -7,7 +7,7 @@ Our app helps users manage their food inventory by allowing them to input food i
 ## Current Features:
 
 - Individual users recieve metrics on their food wastage and usage over time, as a percentage of use and cost value, all time and for current week.
-- Visible queues on when items are expired or approaching expiry
+- Visible cues on when items are expired or approaching expiry
 - Input food items in bulk using OCR technology, by taking an image of a receipt, or food items with clearly visible labels
 - Input food items manually
 - Provide an ordered list by expiry date, or expired.
@@ -25,20 +25,22 @@ Our app helps users manage their food inventory by allowing them to input food i
 ## How to use it:
 
 1. Download the ExpoGo app from android or iphone store.
-2. Visit: https://expo.dev/@fat_arrow_faction/SpoilerAlert?serviceType=classic&distribution=expo-go and hit up the QR code
+2. Visit: [Our ExpoGo Site](https://expo.dev/@fat_arrow_faction/SpoilerAlert?serviceType=classic&distribution=expo-go) and hit up the QR code
 3. Save the planet by reducing your food wastage! (and maybe some £££)
 
 ## The Fat Arrow Faction team members are:
 
-- Mohamed Abdi https://github.com/Mohamed1104
-- Mike Chara https://github.com/MikeChara
-- Arooj Ilyas https://github.com/arooj-ilyas
-- Chris Sanger https://github.com/C0dingChris
-- Nicholas Pervez https://github.com/nicholaspervez
+_click us for our personal github sites_
+
+- [Mohamed Abdi](https://github.com/Mohamed1104)
+- [Mike Chara](https://github.com/MikeChara)
+- [Arooj Ilyas](https://github.com/arooj-ilyas)
+- [Chris Sanger](https://github.com/C0dingChris)
+- [Nicholas Pervez](https://github.com/nicholaspervez)
 
 ## With help from:
 
-- Sam https://github.com/cadbury-sdmjc
+- [Sam](https://github.com/cadbury-sdmjc)
 
 * Charlie
 
@@ -54,4 +56,4 @@ IonIcon, UIKitten Calendar,
 
 ## Backend Repo:
 
-https://github.com/SchoolOfCode/bc13_final-project_back-end-fatarrowfaction
+[Github Repo Link](https://github.com/SchoolOfCode/bc13_final-project_back-end-fatarrowfaction)
