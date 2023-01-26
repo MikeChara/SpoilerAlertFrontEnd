@@ -38,21 +38,21 @@ export default function ProfileScreen({ styles }) {
         </Pressable>
         <Text style={{ ...styles.subtitle, paddingTop: "6%" }}>Username</Text>
         <Input
-          style={styles.textInputBox}
+          style={styles.bodyText}
           disabled={true}
-          placeholder={auth.currentUser.displayName}
+          value={auth.currentUser.displayName}
         />
         <Text style={styles.subtitle}>Email</Text>
         <Input
-          style={styles.textInputBox}
+          style={styles.bodyText}
           disabled={true}
-          placeholder={auth.currentUser.email}
+          value={auth.currentUser.email}
         />
         <Text style={styles.subtitle}>House</Text>
         <Input
-          style={styles.textInputBox}
+          style={styles.bodyText}
           disabled={true}
-          placeholder={userDetails[0]?.name}
+          value={userDetails[0]?.name}
         />
         <Pressable
           style={{ ...styles.greenButton, marginTop: "10%" }}
