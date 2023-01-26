@@ -21,7 +21,7 @@ export default function HomeScreen({
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
   
-
+console.log(weekStats)
   return (
     <>
       <Image
@@ -55,27 +55,27 @@ export default function HomeScreen({
             <Text style={styles.dashboardPrice}>
             £<CountUp isCounting end={weekStats.spentWell? weekStats.spentWell: 0} duration={3.2} />
             </Text>
-            <Text style={styles.dashboardText}>Last week</Text>
+            <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}
           >
-            <Text style={styles.dashboardSubtitle}>Spent Well</Text>
+            <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-            £<CountUp isCounting end={allStats.spentWell? allStats.spentWell:0} duration={3.2} />
+            £<CountUp isCounting end={weekStats.eatenPercentage? weekStats.eatenPercentage:0} duration={3.2} />
             </Text>
-            <Text style={styles.dashboardText}>All time</Text>
+            <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
         </View>
         <View style={styles.dashboardrowContainer}>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "#FEA62A" }}
           >
-            <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
+            <Text style={styles.dashboardSubtitle}>In The Bin</Text>
             <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={weekStats.wastedPercentage? weekStats.wastedPercentage : 0} duration={3.2} />%
+            <CountUp isCounting end={weekStats.moneyWasted? weekStats.moneyWasted : 0} duration={3.2} />%
             </Text>
-            <Text style={styles.dashboardText}>Last week</Text>
+            <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
           <View
             style={{ ...styles.dashboardSquare, backgroundColor: "#DE4D28" }}
