@@ -4,7 +4,6 @@ import { auth } from "../firebase-config";
 import { CountUp } from "use-count-up";
 import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 import { Graph } from "../Components/Graph.js";
-import {data, dataTwo} from "../Components/Data.js";
 
 export default function HomeScreen({
   styles,
@@ -57,8 +56,8 @@ export default function HomeScreen({
           Best vs Worst
         </Text>
         <View style={{ flex: 1, flexDirection: "row", bottom: "4%" }}>
-          <Graph data={data} />
-          <Graph data={dataTwo} />
+          <Graph color={'green'} />
+          <Graph color={'red'}/>
         </View>
       </View>
 
