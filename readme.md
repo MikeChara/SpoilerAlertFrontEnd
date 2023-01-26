@@ -14,6 +14,7 @@ Our app helps users manage their food inventory by allowing them to input food i
 
 ## Roadmap:
 
+- Add food item categories so user can get meaningful feedback for their eating habits. Do you buy a lot of bakery, and waste it? Or too much milk?
 - Add social aspects so users, particularly those sharing households, can communicate in-app
 - Add multiple food storage options within one household, for example, fridge, freezer, cupboard; changing expiry dates as moved.
 - Allow users, such as carers looking after multiple people, to access multiple houses
