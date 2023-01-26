@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Button, FlatList, Text, Pressable } from "react-native";
+import { View, Button, FlatList, Text, Pressable, Image } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -140,15 +140,20 @@ function Photo({ foodList, setFoodList, styles }) {
     }
   };
 
-  return (
-    <View>
-      <View>
+  return (<>
+    <Image
+        source={require("../assets/foodiconbg-light.png")}
+        style={styles.backgroundcover}
+      />
+    <View style={{flex:1, flexDirection:'column'}}>
+      <View style={{flex:1, flexDirection:"column", marginTop:"30%"}}>
         <Pressable
           onPress={showImagePicker}
-          style={{ ...styles.greenButton, width: "40%", margin: "5%" }}
+          style={{ ...styles.greenButton, width: "40%", marginBottom:"15%" }}
         >
           <Text style={styles.greenButtonText}>Select an image</Text>
         </Pressable>
+
         <Pressable
           onPress={openCamera}
           style={{ ...styles.greenButton, width: "40%" }}
@@ -187,6 +192,8 @@ function Photo({ foodList, setFoodList, styles }) {
         </View>
       )}
     </View>
+    {/* { foodPriceArray.length === 0 ? null : (<Image source={require("./Animation.gif")} style={{...styles.logoGif, marginBottom:'10%'}}  />)}     */}
+     </>
   );
 }
 
