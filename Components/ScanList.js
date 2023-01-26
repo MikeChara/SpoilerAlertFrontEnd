@@ -59,28 +59,63 @@ export default function ScanList({
             </Pressable>
           )}
         >
-          <View style={styles.pantryItemParentContainer}>
-            <ListItem.Content style={styles.pantryItemName}>
+          <View style={styles.approveParentContainer}>
+            <ListItem.Content
+              style={{
+                margin: 10,
+                borderRadius: 8,
+                borderColor: "grey",
+                borderWidth: 1,
+                alignItems: "center",
+                backgroundColor: "white",
+              }}
+            >
               <TextInput
                 value={foodPriceArray[index].name}
                 onChangeText={onNameChange}
               ></TextInput>
             </ListItem.Content>
-            <ListItem.Content style={styles.pantryExpiryDate}>
-              <TextInput
-                value={displayPrice + foodPriceArray[index].price}
-                onChangeText={onPriceChange}
-                keyboardType={"decimal-pad"}
-              ></TextInput>
-            </ListItem.Content>
-            <ListItem.Content style={styles.pantryExpiryDate}>
-              <ScanCalendar
-                styles={styles}
-                foodPriceArray={foodPriceArray}
-                setFoodPriceArray={setFoodPriceArray}
-                index={index}
-              />
-            </ListItem.Content>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <ListItem.Content
+                style={{
+                  margin: 10,
+                  borderRadius: 8,
+                  borderColor: "grey",
+                  borderWidth: 1,
+                  alignItems: "center",
+                  backgroundColor: "white",
+                }}
+              >
+                <ScanCalendar
+                  styles={styles}
+                  foodPriceArray={foodPriceArray}
+                  setFoodPriceArray={setFoodPriceArray}
+                  index={index}
+                />
+              </ListItem.Content>
+              <ListItem.Content
+                style={{
+                  margin: 10,
+                  borderRadius: 8,
+                  borderColor: "grey",
+                  borderWidth: 1,
+                  alignItems: "center",
+                  backgroundColor: "white",
+                }}
+              >
+                <TextInput
+                  value={displayPrice + foodPriceArray[index].price}
+                  onChangeText={onPriceChange}
+                  keyboardType={"decimal-pad"}
+                ></TextInput>
+              </ListItem.Content>
+            </View>
           </View>
         </ListItem.Swipeable>
       </TouchableWithoutFeedback>

@@ -45,7 +45,11 @@ function MainContainer({ styles, fontsLoaded }) {
           <Stack.Screen
             name="Scan"
             children={() => (
-              <Photo foodList={foodList} setFoodList={setFoodList} />
+              <Photo
+                foodList={foodList}
+                setFoodList={setFoodList}
+                styles={styles}
+              />
             )}
           />
         </Stack.Navigator>

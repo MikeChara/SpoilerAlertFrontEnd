@@ -256,6 +256,16 @@ export const styles = StyleSheet.create({
     borderRadius: 35,
   },
 
+  approveParentContainer: {
+    flex: 1,
+    flexDirection: "column",
+    // justifyContent: "space-between",
+    // alignItems: "center",
+    backgroundColor: "#F5f5f4",
+    width: "100%",
+    borderRadius: 15,
+  },
+
   modalCenteredView: {
     flex: 1,
     justifyContent: "flex-end",

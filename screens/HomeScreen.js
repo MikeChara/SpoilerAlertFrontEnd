@@ -18,7 +18,6 @@ export default function HomeScreen({
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
 
-  console.log(weekStats);
   return (
     <>
       <Image
