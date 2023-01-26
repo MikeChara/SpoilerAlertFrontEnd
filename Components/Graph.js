@@ -25,7 +25,7 @@ const graphHeight = CanvasHeight - 2 * GRAPH_MARGIN;
 const graphWidth = CanvasWidth - 2;
 9;
 
-export const Graph = ({color, data}) => {
+export const Graph = ({ color, data }) => {
   const dairyImage = useImage(require("../screens/Dairy.png"));
   const fruitVegImage = useImage(require("../screens/FruitVeg.png"));
   const cupboardImage = useImage(require("../screens/Cupboard.png"));
@@ -66,8 +66,8 @@ export const Graph = ({color, data}) => {
     data.forEach((dataPoint) => {
       const rect = Skia.XYWHRect(
         //hover over blue for explanation!
-        55, //where x starts
-        x(dataPoint.label) - 2 * GRAPH_BAR_WIDTH, //where y starts (spread over the array of categories)
+        60, //where x starts
+        x(dataPoint.label) - 1.25 * GRAPH_BAR_WIDTH, //where y starts (spread over the array of categories)
         y(dataPoint.value * animationState.current) * 1, //negative value dictates direction
         GRAPH_BAR_WIDTH
       );
@@ -94,8 +94,8 @@ export const Graph = ({color, data}) => {
             fit="contain"
             x={25}
             y={x(dataPoint?.label) - 21.5}
-            width={20}
-            height={20}
+            width={30}
+            height={30}
           />
         ))}
       </Canvas>
@@ -103,11 +103,10 @@ export const Graph = ({color, data}) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    // justifyContent: "center",
+    justifyContent: "center",
     top: "5%",
     alignItems: "center",
     flex: 1,
@@ -115,6 +114,8 @@ const styles = StyleSheet.create({
   canvas: {
     height: CanvasHeight,
     width: CanvasWidth,
+    // justifyContent: "center",
+    // alignItems: "center",
     flex: 1,
   },
 });
