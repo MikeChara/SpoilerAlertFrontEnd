@@ -132,18 +132,20 @@ export const styles = StyleSheet.create({
 
   dashboardSquare: {
     width: "100%",
-    height: "100%",
+    height: "85%",
     borderRadius: 10,
     flex: 1,
-    margin: "2%",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    marginLeft: "3%",
+    marginRight: "3%",
   },
 
   dashboardrowContainer: {
+    flex: 1,
     flexDirection: "row",
     marginLeft: "3%",
     marginRight: "3%",
-    paddingBottom: "3%",
-    // flexWrap: "wrap",
   },
 
   dashboardText: {
@@ -160,14 +162,12 @@ export const styles = StyleSheet.create({
     fontFamily: "Poppins-SemiBold",
     color: "white",
     marginLeft: "7%",
-    marginTop: "4%",
   },
 
   dashboardPrice: {
     fontSize: 40,
     fontFamily: "Poppins-SemiBold",
     color: "white",
-    paddingTop: "6%",
     marginLeft: "7%",
   },
 
@@ -216,7 +216,6 @@ export const styles = StyleSheet.create({
     right: "5%",
     top: "5%",
   },
-
   tinyCategoryIcon: {
     width: 50,
     height: 50,
