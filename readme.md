@@ -51,11 +51,11 @@ Thank you for choosing our app to help you manage your food inventory! We're hop
 
 ## Techstack:
 
-Miro, Figma, Trello Kanban, Lucid, React Native, Expo Go, FirebaseAuth
+Miro, Figma, Trello Kanban, Lucid, React Native, Expo Go, FirebaseAuth.
 
 ## Libraries:
 
-IonIcon, UIKitten Calendar,
+IonIcon, UIKitten Calendar.
 
 ## Backend Repo:
 
