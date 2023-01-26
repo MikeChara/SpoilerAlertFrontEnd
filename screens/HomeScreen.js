@@ -1,11 +1,9 @@
 import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { auth } from "../firebase-config";
-import { CountUp } from 'use-count-up'
-import {
-  getAllStats,
-  getWeekStats,
-} from "../Fetches/getRequests.js";
+import { CountUp } from "use-count-up";
+import { useFonts } from "expo-font";
+import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 
 export default function HomeScreen({
   styles,
@@ -14,14 +12,13 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
- 
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
-  
-console.log(weekStats)
+
+  console.log(weekStats);
   return (
     <>
       <Image
@@ -53,7 +50,12 @@ console.log(weekStats)
           >
             <Text style={styles.dashboardSubtitle}>Spent Well</Text>
             <Text style={styles.dashboardPrice}>
-            £<CountUp isCounting end={weekStats.spentWell? weekStats.spentWell: 0} duration={3.2} />
+              £
+              <CountUp
+                isCounting
+                end={weekStats.spentWell ? weekStats.spentWell : 0}
+                duration={3.2}
+              />
             </Text>
             <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
@@ -62,7 +64,12 @@ console.log(weekStats)
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-            £<CountUp isCounting end={weekStats.eatenPercentage? weekStats.eatenPercentage:0} duration={3.2} />
+              £
+              <CountUp
+                isCounting
+                end={weekStats.eatenPercentage ? weekStats.eatenPercentage : 0}
+                duration={3.2}
+              />
             </Text>
             <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
@@ -73,7 +80,12 @@ console.log(weekStats)
           >
             <Text style={styles.dashboardSubtitle}>In The Bin</Text>
             <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={weekStats.moneyWasted? weekStats.moneyWasted : 0} duration={3.2} />%
+              <CountUp
+                isCounting
+                end={weekStats.moneyWasted ? weekStats.moneyWasted : 0}
+                duration={3.2}
+              />
+              %
             </Text>
             <Text style={styles.dashboardText}>last 7 days</Text>
           </View>
@@ -82,8 +94,12 @@ console.log(weekStats)
           >
             <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
             <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={allStats.wastedPercentage? allStats.wastedPercentage:0} duration={3.2} />
-%
+              <CountUp
+                isCounting
+                end={allStats.wastedPercentage ? allStats.wastedPercentage : 0}
+                duration={3.2}
+              />
+              %
             </Text>
             <Text style={styles.dashboardText}>All time</Text>
           </View>

@@ -10,7 +10,12 @@ export default function PlaceHolder({ styles }) {
       />
       <Text style={styles.subtitle}>Coming Soon</Text>
       <Image source={require("./Animation.gif")} style={styles.logoGif} />
-      <Text style={{ ...styles.bodyText, fontSize: 20 }}>
+      <Text
+        style={{
+          ...styles.bodyText,
+          fontSize: 20,
+        }}
+      >
         This page is still under construction
       </Text>
       <Text style={{ ...styles.bodyText, fontSize: 20, paddingTop: "2%" }}>

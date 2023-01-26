@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Button, FlatList } from "react-native";
+import { View, StyleSheet, Button, FlatList, Text } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
