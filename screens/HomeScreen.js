@@ -1,11 +1,8 @@
 import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { auth } from "../firebase-config";
-import { CountUp } from 'use-count-up'
-import {
-  getAllStats,
-  getWeekStats,
-} from "../Fetches/getRequests.js";
+import { CountUp } from "use-count-up";
+import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 import { Graph } from "../Components/Graph.js";
 
 export default function HomeScreen({
@@ -15,14 +12,13 @@ export default function HomeScreen({
   setAllStats,
   weekStats,
   setWeekStats,
- 
 }) {
   React.useEffect(() => {
     getAllStats(auth.currentUser.uid, setAllStats);
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
-  
-console.log(weekStats)
+
+  console.log(weekStats);
   return (
     <>
       <Image
@@ -30,65 +26,75 @@ console.log(weekStats)
         style={styles.backgroundcover}
       />
       {/* <View style={styles.dashboardContainer}> */}
-        <Text style={styles.dashboardWelcome}>
-          Hi {auth.currentUser.displayName}!
-        </Text>
-        <Text style={styles.dashboardProgresstitle}>
-          Your progress so far...
-        </Text>
-        <Image
-          source={require("./Cranks-1.png")}
-          style={styles.smallProfilePicture}
-        />
-        {/* <View style={styles.dashboardrowContainer}> */}
-          {/* <View
+      <Text style={styles.dashboardWelcome}>
+        Hi {auth.currentUser.displayName}!
+      </Text>
+      <Text style={styles.dashboardProgresstitle}>Your progress so far...</Text>
+      <Image
+        source={require("./Cranks-1.png")}
+        style={styles.smallProfilePicture}
+      />
+      {/* <View style={styles.horizontal}> */}
+      {/* <View
             style={{ ...styles.dashboardSquare, backgroundColor: "lightblue" }}
           > */}
-            <Graph/>
-          {/* </View> */}
-        {/* </View> */}
+      <Graph />
+      <Graph />
+      {/* </View> */}
+      {/* </View> */}
 
-        <View style={styles.dashboardrowContainer}>
-          <View
-            style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}
-          >
-            <Text style={styles.dashboardSubtitle}>Spent Well</Text>
-            <Text style={styles.dashboardPrice}>
-            £<CountUp isCounting end={weekStats.spentWell? weekStats.spentWell: 0} duration={3.2} />
-            </Text>
-            <Text style={styles.dashboardText}>last 7 days</Text>
-          </View>
-          <View
-            style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}
-          >
-            <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
-            <Text style={styles.dashboardPrice}>
-            £<CountUp isCounting end={weekStats.eatenPercentage? weekStats.eatenPercentage:0} duration={3.2} />
-            </Text>
-            <Text style={styles.dashboardText}>last 7 days</Text>
-          </View>
+      <View style={styles.dashboardrowContainer}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#0E7835" }}>
+          <Text style={styles.dashboardSubtitle}>Spent Well</Text>
+          <Text style={styles.dashboardPrice}>
+            £
+            <CountUp
+              isCounting
+              end={weekStats.spentWell ? weekStats.spentWell : 0}
+              duration={3.2}
+            />
+          </Text>
+          <Text style={styles.dashboardText}>last 7 days</Text>
         </View>
-        <View style={styles.dashboardrowContainer}>
-          <View
-            style={{ ...styles.dashboardSquare, backgroundColor: "#FEA62A" }}
-          >
-            <Text style={styles.dashboardSubtitle}>In The Bin</Text>
-            <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={weekStats.moneyWasted? weekStats.moneyWasted : 0} duration={3.2} />%
-            </Text>
-            <Text style={styles.dashboardText}>last 7 days</Text>
-          </View>
-          <View
-            style={{ ...styles.dashboardSquare, backgroundColor: "#DE4D28" }}
-          >
-            <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
-            <Text style={styles.dashboardPrice}>
-            <CountUp isCounting end={allStats.wastedPercentage? allStats.wastedPercentage:0} duration={3.2} />
-%
-            </Text>
-            <Text style={styles.dashboardText}>All time</Text>
-          </View>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#E0358A" }}>
+          <Text style={styles.dashboardSubtitle}>In The Bin</Text>
+          <Text style={styles.dashboardPrice}>
+            £
+            <CountUp
+              isCounting
+              end={weekStats.moneyWasted ? weekStats.moneyWasted : 0}
+              duration={3.2}
+            />
+          </Text>
+          <Text style={styles.dashboardText}>last 7 days</Text>
         </View>
+      </View>
+      <View style={styles.dashboardrowContainer}>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#FEA62A" }}>
+          <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
+          <Text style={styles.dashboardPrice}>
+            <CountUp
+              isCounting
+              end={weekStats.eatenPercentage ? weekStats.eatenPercentage : 0}
+              duration={3.2}
+            />
+            %
+          </Text>
+          <Text style={styles.dashboardText}>last 7 days</Text>
+        </View>
+        <View style={{ ...styles.dashboardSquare, backgroundColor: "#DE4D28" }}>
+          <Text style={styles.dashboardSubtitle}>Items Spoiled</Text>
+          <Text style={styles.dashboardPrice}>
+            <CountUp
+              isCounting
+              end={allStats.wastedPercentage ? allStats.wastedPercentage : 0}
+              duration={3.2}
+            />
+            %
+          </Text>
+          <Text style={styles.dashboardText}>All time</Text>
+        </View>
+      </View>
       {/* </View> */}
     </>
   );
