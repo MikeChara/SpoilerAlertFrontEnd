@@ -2,9 +2,14 @@ import * as React from "react";
 import { View, Text, Image } from "react-native";
 import { auth } from "../firebase-config";
 import { CountUp } from "use-count-up";
+
 import { getAllStats, getWeekStats } from "../Fetches/getRequests.js";
 import { Graph } from "../Components/Graph.js";
 import { useImage } from "@shopify/react-native-skia";
+
+import { useFonts } from "expo-font";
+
+
 
 export default function HomeScreen({
   styles,
@@ -37,7 +42,7 @@ export default function HomeScreen({
     getWeekStats(auth.currentUser.uid, setWeekStats);
   }, [foodList]);
 
-  console.log(weekStats);
+
   return (
     <>
       <Image
@@ -131,6 +136,9 @@ export default function HomeScreen({
             %
           </Text>
           <Text style={styles.dashboardText}>All time</Text>
+
+        
+       
         </View>
       </View>
     </>

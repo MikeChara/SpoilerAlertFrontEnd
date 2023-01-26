@@ -153,25 +153,27 @@ export const styles = StyleSheet.create({
     lineHeight: 21,
     color: "white",
     marginLeft: "7%",
+    fontFamily: "Poppins-Light",
   },
 
   dashboardSubtitle: {
-    fontSize: 22,
-    fontWeight: "bold",
+    fontSize: 20,
+    // fontWeight: "bold",
+    fontFamily: "Poppins-SemiBold",
     color: "white",
     marginLeft: "7%",
   },
 
   dashboardPrice: {
     fontSize: 40,
-    fontWeight: "bold",
+    fontFamily: "Poppins-SemiBold",
     color: "white",
     marginLeft: "7%",
   },
 
   dashboardWelcome: {
     color: "black",
-    fontWeight: "bold",
+    fontFamily: "Poppins-SemiBold",
     fontSize: 22,
     marginLeft: "3%",
     marginTop: "4%",
@@ -182,6 +184,7 @@ export const styles = StyleSheet.create({
     color: "grey",
     fontSize: 16,
     marginLeft: "3%",
+    fontFamily: "Poppins-Medium",
     padding: 5,
   },
 
@@ -252,6 +255,16 @@ export const styles = StyleSheet.create({
     borderRadius: 35,
   },
 
+  approveParentContainer: {
+    flex: 1,
+    flexDirection: "column",
+    // justifyContent: "space-between",
+    // alignItems: "center",
+    backgroundColor: "#F5f5f4",
+    width: "100%",
+    borderRadius: 15,
+  },
+
   modalCenteredView: {
     flex: 1,
     justifyContent: "flex-end",
@@ -298,7 +311,7 @@ export const styles = StyleSheet.create({
 
   modalSmallText: {
     color: "black",
-    fontWeight: "bold",
+    fontFamily: "Poppins-SemiBold",
     textAlign: "center",
     paddingTop: "10%",
   },

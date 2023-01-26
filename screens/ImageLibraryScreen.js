@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Button, FlatList } from "react-native";
+import { View, Button, FlatList, Text, Pressable } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -7,7 +7,7 @@ import { auth } from "../firebase-config";
 import * as ImagePicker from "expo-image-picker";
 import * as ModalNavigation from "../navigation/ModalNavigate.js";
 
-function Photo({ foodList, setFoodList }) {
+function Photo({ foodList, setFoodList, styles }) {
   // The path of the picked image
   const [pickedImagePath, setPickedImagePath] = useState("");
   const [text, setText] = useState("");
@@ -142,14 +142,26 @@ function Photo({ foodList, setFoodList }) {
 
   return (
     <View>
-      <View style={styles.buttonContainer}>
-        <Button onPress={showImagePicker} title="Select an image" />
-        <Button onPress={openCamera} title="Open camera" />
+      <View>
+        <Pressable
+          onPress={showImagePicker}
+          style={{ ...styles.greenButton, width: "40%" }}
+        >
+          <Text style={styles.greenButtonText}>Select an image</Text>
+        </Pressable>
+        <Pressable
+          onPress={openCamera}
+          style={{ ...styles.greenButton, width: "40%" }}
+        >
+          <Text style={styles.greenButtonText}>Open Camera</Text>
+        </Pressable>
+
         {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
-      {foodPriceArray === [] ? null : (
+      {foodPriceArray == [] ? null : (
         <View>
           <FlatList
+            style={{ height: "82%" }}
             data={foodPriceArray}
             renderItem={({ item, index }) => {
               return (
@@ -168,27 +180,16 @@ function Photo({ foodList, setFoodList }) {
               );
             }}
           />
-          <Button
-            title="Add to Pantry"
+          <Pressable
             onPress={() => addFoodButtonHandle(auth.currentUser.uid)}
-          />
+            style={styles.greenButton}
+          >
+            <Text style={styles.greenButtonText}>Add to Pantry</Text>
+          </Pressable>
         </View>
       )}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonContainer: {
-    width: 400,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-});
 
 export default Photo;
