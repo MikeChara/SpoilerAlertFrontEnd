@@ -145,7 +145,7 @@ function Photo({ foodList, setFoodList, styles }) {
       <View>
         <Pressable
           onPress={showImagePicker}
-          style={{ ...styles.greenButton, width: "40%" }}
+          style={{ ...styles.greenButton, width: "40%", margin: "5%" }}
         >
           <Text style={styles.greenButtonText}>Select an image</Text>
         </Pressable>
@@ -155,10 +155,8 @@ function Photo({ foodList, setFoodList, styles }) {
         >
           <Text style={styles.greenButtonText}>Open Camera</Text>
         </Pressable>
-
-        {/* <Button onPress={HandleText} title="Show Text" /> */}
       </View>
-      {foodPriceArray == [] ? null : (
+      {foodPriceArray.length === 0 ? null : (
         <View>
           <FlatList
             style={{ height: "82%" }}

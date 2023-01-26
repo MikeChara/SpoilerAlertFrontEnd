@@ -123,5 +123,3 @@ export default function ScanList({
     </>
   );
 }
-
-const styles = StyleSheet.create({});
