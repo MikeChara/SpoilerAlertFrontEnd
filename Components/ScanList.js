@@ -42,6 +42,10 @@ export default function ScanList({
   }
   return (
     <>
+      <Image
+        source={require("../assets/foodiconbg-light.png")}
+        style={styles.backgroundcover}
+      />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ListItem.Swipeable
           leftContent={(reset) => (
@@ -60,55 +64,25 @@ export default function ScanList({
           )}
         >
           <View style={styles.approveParentContainer}>
-            <ListItem.Content
-              style={{
-                margin: 10,
-                borderRadius: 8,
-                height: 30,
-                borderColor: "grey",
-                borderWidth: 1,
-                alignItems: "center",
-                backgroundColor: "white",
-              }}
-            >
-              <TextInput
-                value={foodPriceArray[index].name}
-                onChangeText={onNameChange}
-              ></TextInput>
-            </ListItem.Content>
             <View
               style={{
+                backgroundColor: "red",
                 flex: 1,
                 flexDirection: "row",
+                width: "100%",
                 justifyContent: "center",
               }}
             >
               <ListItem.Content
-                style={{
-                  margin: 10,
-                  borderRadius: 8,
-                  borderColor: "grey",
-                  borderWidth: 1,
-                  alignItems: "center",
-                  backgroundColor: "white",
-                }}
+                style={{ ...styles.textInputBox, borderRadius: 5 }}
               >
-                <ScanCalendar
-                  styles={styles}
-                  foodPriceArray={foodPriceArray}
-                  setFoodPriceArray={setFoodPriceArray}
-                  index={index}
-                />
+                <TextInput
+                  value={foodPriceArray[index].name}
+                  onChangeText={onNameChange}
+                ></TextInput>
               </ListItem.Content>
               <ListItem.Content
-                style={{
-                  margin: 10,
-                  borderRadius: 8,
-                  borderColor: "grey",
-                  borderWidth: 1,
-                  alignItems: "center",
-                  backgroundColor: "white",
-                }}
+                style={{ ...styles.textInputBox, borderRadius: 5 }}
               >
                 <TextInput
                   value={displayPrice + foodPriceArray[index].price}
@@ -117,6 +91,15 @@ export default function ScanList({
                 ></TextInput>
               </ListItem.Content>
             </View>
+
+            <ListItem.Content>
+              <ScanCalendar
+                styles={styles}
+                foodPriceArray={foodPriceArray}
+                setFoodPriceArray={setFoodPriceArray}
+                index={index}
+              />
+            </ListItem.Content>
           </View>
         </ListItem.Swipeable>
       </TouchableWithoutFeedback>

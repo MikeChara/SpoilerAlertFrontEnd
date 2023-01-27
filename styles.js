@@ -256,13 +256,13 @@ export const styles = StyleSheet.create({
   },
 
   approveParentContainer: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "column",
-    // justifyContent: "space-between",
-    // alignItems: "center",
-    backgroundColor: "#F5f5f4",
-    width: "100%",
-    borderRadius: 15,
+    // justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "green",
+    // width: "10%",
+    borderRadius: 10,
   },
 
   modalCenteredView: {
