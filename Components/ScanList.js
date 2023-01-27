@@ -64,15 +64,16 @@ export default function ScanList({
               style={{
                 margin: 10,
                 borderRadius: 8,
-                height: 30,
+                height: 50,
                 borderColor: "grey",
-                borderWidth: 1,
+                // borderWidth: 1,
                 alignItems: "center",
-                backgroundColor: "white",
+                backgroundColor: "#F5F8FC",
               }}
             >
               <TextInput
                 value={foodPriceArray[index].name}
+                onBlur={Keyboard.dismiss}
                 onChangeText={onNameChange}
               ></TextInput>
             </ListItem.Content>
@@ -88,9 +89,9 @@ export default function ScanList({
                   margin: 10,
                   borderRadius: 8,
                   borderColor: "grey",
-                  borderWidth: 1,
+                  // borderWidth: 1,
                   alignItems: "center",
-                  backgroundColor: "white",
+                  backgroundColor: "red",
                 }}
               >
                 <ScanCalendar
@@ -103,15 +104,17 @@ export default function ScanList({
               <ListItem.Content
                 style={{
                   margin: 10,
-                  borderRadius: 8,
-                  borderColor: "grey",
-                  borderWidth: 1,
+                  borderRadius: 5,
+                  borderColor: "white",
+                  // borderWidth: 1,
                   alignItems: "center",
-                  backgroundColor: "white",
+                  backgroundColor: "#F5F8FC",  
                 }}
               >
                 <TextInput
+                  style={{color:'grey'}}
                   value={displayPrice + foodPriceArray[index].price}
+                  onBlur={Keyboard.dismiss}
                   onChangeText={onPriceChange}
                   keyboardType={"decimal-pad"}
                 ></TextInput>
