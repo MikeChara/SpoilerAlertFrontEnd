@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { View, Button, FlatList, Text, Pressable, Image } from "react-native";
+import {
+  View,
+  Button,
+  FlatList,
+  Text,
+  Pressable,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
 import * as ImagePicker from "expo-image-picker";
 import * as ModalNavigation from "../navigation/ModalNavigate.js";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 function Photo({ foodList, setFoodList, styles }) {
   // The path of the picked image
@@ -140,60 +149,73 @@ function Photo({ foodList, setFoodList, styles }) {
     }
   };
 
-  return (<>
-    <Image
+  return (
+    <>
+      <Image
         source={require("../assets/foodiconbg-light.png")}
         style={styles.backgroundcover}
       />
-    <View style={{flex:1, flexDirection:'column'}}>
-      <View style={{flex:1, flexDirection:"column", marginTop:"30%"}}>
-        <Pressable
-          onPress={showImagePicker}
-          style={{ ...styles.greenButton, width: "40%", marginBottom:"15%" }}
-        >
-          <Text style={styles.greenButtonText}>Select an image</Text>
-        </Pressable>
+      <View style={{ flex: 1, flexDirection: "column" }}>
+        <View style={{ flex: 1, flexDirection: "column" }}>
+          {foodPriceArray.length > 0 ? null : (
+            <>
+              <Pressable
+                onPress={showImagePicker}
+                style={{
+                  ...styles.greenButton,
+                  width: "40%",
+                  marginBottom: "15%",
+                }}
+              >
+                <Text style={styles.greenButtonText}>Select an image</Text>
+              </Pressable>
 
-        <Pressable
-          onPress={openCamera}
-          style={{ ...styles.greenButton, width: "40%" }}
-        >
-          <Text style={styles.greenButtonText}>Open Camera</Text>
-        </Pressable>
-      </View>
-      {foodPriceArray.length === 0 ? null : (
-        <View>
-          <FlatList
-            style={{ height: "82%" }}
-            data={foodPriceArray}
-            renderItem={({ item, index }) => {
-              return (
-                <View style={{ flex: 1, flexDirection: "column" }}>
-                  <GestureHandlerRootView>
-                    <ScanList
-                      name={item.name}
-                      price={item.price}
-                      foodPriceArray={foodPriceArray}
-                      setFoodPriceArray={setFoodPriceArray}
-                      index={index}
-                      styles={styles}
-                    />
-                  </GestureHandlerRootView>
-                </View>
-              );
-            }}
-          />
-          <Pressable
-            onPress={() => addFoodButtonHandle(auth.currentUser.uid)}
-            style={styles.greenButton}
-          >
-            <Text style={styles.greenButtonText}>Add to Pantry</Text>
-          </Pressable>
+              <Pressable
+                onPress={openCamera}
+                style={{ ...styles.greenButton, width: "40%" }}
+              >
+                <Text style={styles.greenButtonText}>Open Camera</Text>
+              </Pressable>
+            </>
+          )}
         </View>
-      )}
-    </View>
-    {/* { foodPriceArray.length === 0 ? null : (<Image source={require("./Animation.gif")} style={{...styles.logoGif, marginBottom:'10%'}}  />)}     */}
-     </>
+        {foodPriceArray.length === 0 ? null : (
+          <View>
+            <FlatList
+              style={{ height: "82%" }}
+              data={foodPriceArray}
+              renderItem={({ item, index }) => {
+                return (
+                  <View style={{ flex: 1, flexDirection: "column" }}>
+                    <GestureHandlerRootView>
+                      <ScanList
+                        name={item.name}
+                        price={item.price}
+                        foodPriceArray={foodPriceArray}
+                        setFoodPriceArray={setFoodPriceArray}
+                        index={index}
+                        styles={styles}
+                      />
+                    </GestureHandlerRootView>
+                  </View>
+                );
+              }}
+            />
+            <View
+              style={{ position: "absolute", bottom: 20, alignSelf: "center" }}
+            >
+              <TouchableOpacity
+                onPress={() => addFoodButtonHandle(auth.currentUser.uid)}
+                style={styles.greenButton}
+              >
+                <Text style={styles.greenButtonText}>Add to Pantry</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+      </View>
+      {/* { foodPriceArray.length === 0 ? null : (<Image source={require("./Animation.gif")} style={{...styles.logoGif, marginBottom:'10%'}}  />)}     */}
+    </>
   );
 }
 
