@@ -155,7 +155,7 @@ function Photo({ foodList, setFoodList, styles }) {
         source={require("../assets/foodiconbg-light.png")}
         style={styles.backgroundcover}
       />
-      <View style={{ flex: 1, flexDirection: "column" }}>
+      <View style={{ flex: 1, flexDirection: "column", marginTop: "10%" }}>
         <View style={{ flex: 1, flexDirection: "column" }}>
           {foodPriceArray.length > 0 ? null : (
             <>
@@ -182,7 +182,7 @@ function Photo({ foodList, setFoodList, styles }) {
         {foodPriceArray.length === 0 ? null : (
           <View>
             <FlatList
-              style={{ height: "82%" }}
+              style={{ height: "100%" }}
               data={foodPriceArray}
               renderItem={({ item, index }) => {
                 return (
