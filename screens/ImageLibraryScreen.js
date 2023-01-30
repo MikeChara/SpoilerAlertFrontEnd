@@ -7,6 +7,7 @@ import {
   Pressable,
   Image,
   TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 import OCRStringSort from "../Functions/OCRStringstuff";
 import ScanList from "../Components/ScanList";
@@ -182,6 +183,7 @@ function Photo({ foodList, setFoodList, styles }) {
         {foodPriceArray.length === 0 ? null : (
           <View>
             <FlatList
+            removeClippedSubviews={false}
               style={{ height: "95%", bottom: "10%" }}
               data={foodPriceArray}
               renderItem={({ item, index }) => {
