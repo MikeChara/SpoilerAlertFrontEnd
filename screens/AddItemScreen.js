@@ -43,8 +43,8 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
 
   function setDateFunction(e) {
     Keyboard.dismiss();
-    e.setHours(23)
-    console.log(e)
+    e.setHours(23);
+    console.log(e);
     setDate(e);
   }
 
@@ -85,6 +85,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           <Text style={styles.subtitle}>Item</Text>
 
           <TextInput
+            onBlur={Keyboard.dismiss}
             style={{ ...styles.textInputBox }}
             placeholder="Enter item"
             onChangeText={(text) => setItem(text)}
@@ -117,6 +118,6 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           </Pressable>
         </View>
       </>
-     </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback>
   );
 }

@@ -182,11 +182,16 @@ function Photo({ foodList, setFoodList, styles }) {
         {foodPriceArray.length === 0 ? null : (
           <View>
             <FlatList
-              style={{ height: "100%" }}
+              style={{ height: "95%", bottom: "10%" }}
               data={foodPriceArray}
               renderItem={({ item, index }) => {
                 return (
-                  <View style={{ flex: 1, flexDirection: "column" }}>
+                  <View
+                    style={{
+                      flex: 1,
+                      flexDirection: "column",
+                    }}
+                  >
                     <GestureHandlerRootView>
                       <ScanList
                         name={item.name}
