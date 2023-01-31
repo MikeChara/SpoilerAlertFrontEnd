@@ -92,7 +92,11 @@ export default function HomeScreen({
             £
             <CountUp
               isCounting
-              end={weekStats.spentWell ? weekStats.spentWell : 0}
+              end={
+                weekStats.spentWell
+                  ? Math.round(weekStats.spentWell * 100) / 100
+                  : 0
+              }
               duration={3.2}
             />
           </Text>
@@ -104,7 +108,11 @@ export default function HomeScreen({
             £
             <CountUp
               isCounting
-              end={weekStats.moneyWasted ? weekStats.moneyWasted : 0}
+              end={
+                weekStats.moneyWasted
+                  ? Math.round(weekStats.moneyWasted * 100) / 100
+                  : 0
+              }
               duration={3.2}
             />
           </Text>
