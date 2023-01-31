@@ -74,22 +74,22 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
     setFoodList(food);
   }
 
-  return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <>
+  return (<>
         <Image
           source={require("../assets/foodiconbg-light.png")}
           style={styles.backgroundcover}
         />
-        <View style={styles.inputPageContainer}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
+      
+        <View style={styles.inputPageContainer} >
           <Text style={styles.subtitle}>Item</Text>
 
           <TextInput
+            value={item}
             onBlur={Keyboard.dismiss}
+            onChangeText={(text) => setItem(text)}
             style={{ ...styles.textInputBox }}
             placeholder="Enter item"
-            onChangeText={(text) => setItem(text)}
-            value={item}
           />
 
           <Text style={styles.subtitle}>Expiry Date</Text>
@@ -104,6 +104,7 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
           <Text style={styles.subtitle}>Add Price</Text>
 
           <TextInput
+            onBlur={Keyboard.dismiss}
             style={{ ...styles.textInputBox, color: "green" }}
             placeholder="£"
             keyboardType={"decimal-pad"}
@@ -117,7 +118,8 @@ export default function AddItemScreen({ foodList, setFoodList, styles }) {
             <Text style={styles.greenButtonText}>Add Item to Pantry</Text>
           </Pressable>
         </View>
-      </>
+      
     </TouchableWithoutFeedback>
+    </>
   );
 }

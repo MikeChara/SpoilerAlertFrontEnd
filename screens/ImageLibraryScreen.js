@@ -184,7 +184,7 @@ function Photo({ foodList, setFoodList, styles }) {
           <View>
             <FlatList
             removeClippedSubviews={false}
-              style={{ height: "95%", bottom: "10%" }}
+              style={{ height: "95%", bottom: "10%",  }}
               data={foodPriceArray}
               renderItem={({ item, index }) => {
                 return (
@@ -193,6 +193,7 @@ function Photo({ foodList, setFoodList, styles }) {
                       flex: 1,
                       flexDirection: "column",
                     }}
+                    
                   >
                     <GestureHandlerRootView>
                       <ScanList
