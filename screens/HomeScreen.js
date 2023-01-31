@@ -94,7 +94,7 @@ export default function HomeScreen({
               isCounting
               end={
                 weekStats.spentWell
-                  ? Math.round(weekStats.spentWell * 100) / 100
+                  ? Number(parseFloat(weekStats.spentWell).toFixed(2))
                   : 0
               }
               duration={3.2}
