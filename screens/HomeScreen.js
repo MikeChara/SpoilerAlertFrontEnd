@@ -92,7 +92,11 @@ export default function HomeScreen({
             £
             <CountUp
               isCounting
-              end={weekStats.spentWell ? weekStats.spentWell : 0}
+              end={
+                weekStats.spentWell
+                  ? Number(parseFloat(weekStats.spentWell).toFixed(2))
+                  : 0
+              }
               duration={3.2}
             />
           </Text>
@@ -104,7 +108,12 @@ export default function HomeScreen({
             £
             <CountUp
               isCounting
-              end={weekStats.moneyWasted ? weekStats.moneyWasted : 0}
+              end={
+                weekStats.moneyWasted
+                  ? Number(parseFloat(weekStats.moneyWasted).toFixed(2))
+
+                  : 0
+              }
               duration={3.2}
             />
           </Text>
@@ -117,7 +126,7 @@ export default function HomeScreen({
           <Text style={styles.dashboardPrice}>
             <CountUp
               isCounting
-              end={weekStats.eatenPercentage ? weekStats.eatenPercentage : 0}
+              end={weekStats.wastedPercentage ? weekStats.wastedPercentage : 0}
               duration={3.2}
             />
             %

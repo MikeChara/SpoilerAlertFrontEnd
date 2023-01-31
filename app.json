@@ -11,13 +11,13 @@
     "name": "SpoilerAlert",
     "slug": "SpoilerAlert",
     "owner": "fat_arrow_faction",
-    "description": "Food expiration app using OCR technology",
+    "description": "Food expiration app using OCR technology, Install Expo Go then scan the QR code",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./Lemon-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./screens/Animation.gif",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

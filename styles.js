@@ -124,10 +124,9 @@ export const styles = StyleSheet.create({
 
   DatePickerAtRendercontainer: {
     minHeight: 16,
-    backgroundColor: 0,
-    width: "90%",
+    width: "99.5%",
     alignSelf: "center",
-    marginBottom: "2%",
+    borderRadius:20
   },
 
   dashboardSquare: {
@@ -250,17 +249,24 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#F5f5f4",
     width: "100%",
     borderRadius: 35,
   },
 
   approveParentContainer: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
     flex: 1,
     flexDirection: "column",
     // justifyContent: "space-between",
     // alignItems: "center",
-    backgroundColor: "#F5f5f4",
+    backgroundColor: "orange",
     width: "100%",
     borderRadius: 15,
   },
