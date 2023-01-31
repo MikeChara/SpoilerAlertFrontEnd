@@ -98,6 +98,7 @@ export default function HomeScreen({
                   : 0
               }
               duration={3.2}
+              decimalPlaces={2}
             />
           </Text>
           <Text style={styles.dashboardText}>last 7 days</Text>
@@ -115,6 +116,7 @@ export default function HomeScreen({
                   : 0
               }
               duration={3.2}
+              decimalPlaces={2}
             />
           </Text>
           <Text style={styles.dashboardText}>last 7 days</Text>
