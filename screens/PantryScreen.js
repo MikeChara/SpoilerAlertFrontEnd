@@ -6,11 +6,12 @@ import {
   Image,
   Animated,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import FoodList from "../Components/FoodList.js";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { auth } from "../firebase-config";
 import { NavigationActions, SafeAreaView } from "react-navigation";
+import { getUserFood } from "../Fetches/getRequests.js";
 
 export default function Pantry({
   setFoodList,
@@ -19,6 +20,9 @@ export default function Pantry({
   setAllStats,
   setWeekStats,
 }) {
+  useEffect(() => {
+    getUserFood(auth.currentUser.uid, setFoodList);
+  }, []);
   let todaysDate = new Date();
   return (
     <>

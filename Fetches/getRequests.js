@@ -1,4 +1,3 @@
-
 //gets users in date food for pantry screen
 export async function getUserFood(uid, setFoodList) {
   const allFood = await fetch(
@@ -6,6 +5,7 @@ export async function getUserFood(uid, setFoodList) {
   );
   const data = await allFood.json();
   const food = data.payload;
+  console.log("it fired");
   setFoodList([...food]);
   return food;
 }
@@ -39,4 +39,3 @@ export async function getUserDetails(uid, setUserDetails) {
   setUserDetails({ ...data.payload });
   return data.payload;
 }
-

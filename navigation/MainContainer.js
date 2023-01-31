@@ -4,7 +4,7 @@ import Tabs from "./Tabs";
 import ManualModal from "../screens/Modal.js";
 import { View } from "react-native";
 import { backend_link } from "@env";
-import { getUserFood } from "../Fetches/getRequests.js";
+// import { getUserFood } from "../Fetches/getRequests.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Photo from "../screens/ImageLibraryScreen.js";
@@ -16,9 +16,9 @@ function MainContainer({ styles }) {
   const [allStats, setAllStats] = useState([]);
   const [weekStats, setWeekStats] = useState([]);
 
-  useEffect(() => {
-    getUserFood(auth.currentUser.uid, setFoodList);
-  }, []);
+  // useEffect(() => {
+  //   getUserFood(auth.currentUser.uid, setFoodList);
+  // }, []);
   const Stack = createStackNavigator();
 
   return (

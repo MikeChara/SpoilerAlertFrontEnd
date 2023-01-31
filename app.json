@@ -14,7 +14,7 @@
     "description": "Food expiration app using OCR technology",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./Lemon-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./screens/Animation.gif",
