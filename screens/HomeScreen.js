@@ -125,7 +125,7 @@ export default function HomeScreen({
           <Text style={styles.dashboardPrice}>
             <CountUp
               isCounting
-              end={weekStats.eatenPercentage ? weekStats.eatenPercentage : 0}
+              end={weekStats.wastedPercentage ? weekStats.wastedPercentage : 0}
               duration={3.2}
             />
             %
