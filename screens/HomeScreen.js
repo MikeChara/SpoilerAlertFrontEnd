@@ -110,7 +110,8 @@ export default function HomeScreen({
               isCounting
               end={
                 weekStats.moneyWasted
-                  ? Math.round(weekStats.moneyWasted * 100) / 100
+                  ? Number(parseFloat(weekStats.moneyWasted).toFixed(2))
+
                   : 0
               }
               duration={3.2}
