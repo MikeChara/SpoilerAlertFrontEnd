@@ -11,14 +11,23 @@ import {
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { registerIndieID } from "native-notify";
 
 export default function SignInScreen({ styles }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  function yourLoginFunction(uid) {
+    // Native Notify Indie Push Registration Code
+    registerIndieID(`${uid}`, 6107, "RscfdJGUHSLru74JJd6STe");
+    console.log(uid);
+    // End of Native Notify Code
+  }
+
   async function handleSignIn() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      yourLoginFunction(auth.currentUser?.uid);
     } catch (error) {
       console.log(error.message);
     }
