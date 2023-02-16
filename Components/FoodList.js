@@ -45,9 +45,10 @@ export default function FoodList({
   return (
     <>
       <ListItem.Swipeable
+        // style={{ backgroundColor: "red" }}
         leftContent={(reset) => (
           <Pressable
-            style={styles.swipeIcon}
+            style={{ ...styles.swipeIcon, backgroundColor: "#0E7835" }}
             onPress={() => {
               userEaten(id, auth.currentUser.uid);
             }}
@@ -55,19 +56,19 @@ export default function FoodList({
             <Ionicons
               name="restaurant-outline"
               size={30}
-              color={"green"}
+              color={"white"}
             ></Ionicons>
           </Pressable>
         )}
         rightContent={(reset) => (
           <Pressable
-            style={styles.swipeIcon}
+            style={{ ...styles.swipeIcon, backgroundColor: "#DE4D28" }}
             onPress={() => userBinned(id, auth.currentUser.uid)}
           >
             <Ionicons
               name="trash-bin-outline"
               size={30}
-              color={"red"}
+              color={"white"}
             ></Ionicons>
           </Pressable>
         )}
